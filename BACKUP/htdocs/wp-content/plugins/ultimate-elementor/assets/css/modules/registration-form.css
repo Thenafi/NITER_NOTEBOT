@@ -1,0 +1,165 @@
+.uael-registration-form .uael-pass-wrapper {
+    width: 100%;
+    display: none;
+}
+.uael-registration-form .uael-pass-wrapper .uael-pass-bar,
+.uael-registration-form .uael-pass-wrapper .uael-pass-bar .uael-pass-bar-color {
+	height: 3px;
+}
+
+.uael-rform-footer {
+    width: 100%;
+}
+
+.uael-registration-form .uael-pass-wrapper .uael-pass-bar {
+    background-color: #cfcfcf;
+    display: none;
+}
+
+.uael-registration-form .uael-pass-wrapper.bad .uael-pass-bar .uael-pass-bar-color {
+	width: 10%;
+    background-color: #d9534f;
+}
+
+.uael-registration-form .uael-pass-wrapper.good .uael-pass-bar .uael-pass-bar-color {
+	width: 50%;
+    background-color: #f0ad4e;
+}
+
+.uael-registration-form .uael-pass-wrapper.strong .uael-pass-bar .uael-pass-bar-color {
+	width: 100%;
+    background-color: #5cb85c;
+}
+
+.uael-registration-form .elementor-field-group .elementor-field:focus {
+	outline: none;
+}
+
+.uael-registration-form-wrapper.elementor-form-fields-wrapper {
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -moz-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+.uael-registration-message.success,
+.uael-registration-message.error,
+.uael-reg-preview-message.success,
+.uael-reg-preview-message.error {
+    margin-top: 20px;
+}
+.uael-register-error-message,
+.uael-registration-message.error,
+.uael-reg-preview-message.error {
+	color: #d9534f;
+    display: block;
+}
+.uael-form-message-style-custom .uael-register-field-message {
+    width: 100%;
+    text-align: left;
+    margin-top: 5px;
+}
+.uael-form-message-style-custom .uael-register-error {
+    padding: 0.2em 0.8em;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.uael-registration-submit.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 0.4;
+}
+
+.uael-form-loader {
+    width: 1em;
+    height: 1em;
+    margin-left: 1em;
+    border: 2px solid currentColor;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    border-left-color: transparent;
+}
+.uael-form-loader {
+    -webkit-animation: uael-rotating 1s linear infinite;
+    animation: uael-rotating 1s linear infinite;
+}
+.uael-reg-form-submit .elementor-button .elementor-button-text {
+    -js-display: inline-flex;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -moz-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.elementor-field-type-recaptcha_v3 .elementor-field-label {
+    display: none; 
+}
+
+.uael-registration-form .uael-recaptcha-align-inline .elementor-field-label {
+    display: block;
+    width: 100%;
+}
+.uael-registration-message.elementor-alert {
+    padding: 0px;
+}
+.uael-registration-message.elementor-alert.success,
+.uael-reg-preview-message.elementor-alert.success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #cae6be;
+    padding: 15px;
+}
+.uael-registration-message.elementor-alert.error,
+.uael-reg-preview-message.elementor-alert.error {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #e8c4c4;
+    padding: 15px;
+}
+.uael-register-submit.uael-submit-disabled {
+    pointer-events: none;
+}
+
+.uael-reg-form-submit button {
+    -js-display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+@-webkit-keyframes uael-rotating /* Safari and Chrome */ {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes uael-rotating {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}

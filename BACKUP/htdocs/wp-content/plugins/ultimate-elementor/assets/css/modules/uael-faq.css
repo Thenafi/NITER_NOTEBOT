@@ -1,0 +1,64 @@
+.rtl .uael-faq-wrapper .uael-faq-container .uael-faq-accordion, 
+.uael-faq-wrapper .uael-faq-container .uael-faq-accordion{
+	overflow: hidden;
+}
+
+.uael-faq-accordion .uael-accordion-content p {
+   margin-bottom: 0; 
+}
+
+.uael-accordion-icon-left{
+	float:left;
+}
+
+.uael-accordion-icon-right{
+	float:right;
+}
+
+.uael-accordion-icon{
+	display: inline-block;
+}
+
+.uael-faq-container .elementor-grid-item .uael-accordion-icon, 
+.uael-accordion-title.uael-title-active .uael-accordion-icon-closed, 
+.uael-accordion-title .uael-accordion-icon-opened{
+    display:none;
+}
+.uael-faq-container .uael-accordion-content{
+    display:none;
+}
+
+
+.uael-faq-container .elementor-grid-item .uael-accordion-content, 
+.uael-accordion-title.uael-title-active .uael-accordion-icon-opened{
+    display:block;
+}
+
+.uael-accordion-icon.uael-accordion-icon-right {
+	margin-right: 10px;
+}
+
+.uael-faq-box-layout-yes .uael-faq-container:last-child{
+	border-bottom: none;
+}
+
+.uael-accordion-title{
+	cursor: pointer;
+}
+
+.uael-faq-accordion.elementor-grid-item .uael-accordion-title{
+	cursor: default;
+}
+
+.uael-accordion-icon{
+	max-width:7px; 
+}
+
+
+.uael-question-span:focus {	
+	outline: thin dotted;
+}
+
+.uael-warning{
+	margin: 10px 0 10px 0;
+}

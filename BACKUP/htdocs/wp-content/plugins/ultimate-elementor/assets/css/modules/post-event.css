@@ -1,0 +1,30 @@
+.uael-post__datebox {
+	display: block;
+	margin: 0 auto;
+	padding: 10px;
+	-webkit-border-radius: 100%;
+	border-radius: 100%;
+	width: 60px;
+	height: 60px;
+	margin-top: -30px;
+	text-transform: uppercase;
+	font-size: 14px;
+	line-height: 1.5;
+	position: relative;
+	background-color: #000000;
+	color: #ffffff;
+	text-align: center;
+}
+
+.uael-post__datebox .uael-post__date-wrap {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.uael-post__datebox span {
+	display: block;
+}

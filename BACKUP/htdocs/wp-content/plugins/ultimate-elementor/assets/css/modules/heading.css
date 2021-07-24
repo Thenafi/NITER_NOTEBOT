@@ -1,0 +1,202 @@
+/* Advanced Heading CSS */
+.uael-separator {
+    display: inline-block;
+}
+.uael-separator-wrap {
+    -js-display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.uael-separator-parent {
+    line-height: 0;
+}
+.uael-divider-text {
+    white-space: nowrap;
+    margin: 0;
+}
+.uael-divider-text.pen:not([data-elementor-inline-editing-toolbar="advanced"]) {
+    white-space: nowrap;
+}
+.uael-heading-align-center .uael-separator-wrap {
+    margin-left: auto;
+    margin-right: auto;
+}
+.uael-heading-align-left .uael-separator-wrap {
+    margin-left: 0;
+    margin-right: auto;
+}
+.uael-heading-align-right .uael-separator-wrap {
+    margin-left: auto;
+    margin-right: 0;
+}
+.uael-separator-line {
+    display: table-cell;
+    vertical-align:middle;
+}
+.uael-separator-line > span {
+    display: block;
+    margin-top: 0;
+}
+.uael-divider-content {
+    display: table-cell;
+}
+.uael-divider-content .uael-icon-wrap{
+    display: block;
+}
+.uael-heading-fill-gradient .uael-heading-text {
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* For Advanced heading icon align */
+
+.uael-divider-content .uael-icon-wrap .uael-icon i:before {
+    position: static;
+}
+
+
+/* For Advanced Heading Text Size */
+.uael-heading .uael-heading-text > a {
+    color: inherit;
+    font-size: inherit;
+}
+.uael-heading .uael-heading-text.uael-size--small {
+    font-size: 15px; 
+}
+.uael-heading .uael-heading-text.uael-size--medium {
+    font-size: 19px; 
+}
+.uael-heading .uael-heading-text.uael-size--large {
+    font-size: 29px; 
+}
+.uael-heading .uael-heading-text.uael-size--xl {
+    font-size: 39px; 
+}
+.uael-heading .uael-heading-text.uael-size--xxl {
+    font-size: 59px; 
+}
+
+.uael-stack-desktop-yes .uael-adv-heading-stack {
+    display: block;
+}
+
+/* Safari fix */
+.uael-heading-wrapper .uael-heading .uael-heading-text {
+    display: block;
+}
+/* Advanced Heading CSS ends */
+
+/* Fancy Text */
+.uael-text-holder {
+    display: none;
+}
+.uael-fancytext-stack-yes .uael-text-holder {
+    display: inherit;
+    visibility: hidden;
+    z-index: -1;
+    text-indent: -999px;
+}
+.uael-fancytext-stack-yes .uael-fancy-stack {
+    display: block;
+}
+
+.uael-fancy-text-slide {
+    opacity: 0;
+}
+.uael-fancy-text-slide .uael-fancy-text-prefix {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.uael-fancy-text-slide .uael-fancy-text-suffix {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.uael-fancy-text-main.uael-slide-main {
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.uael-fancy-text-wrap.uael-fancy-text-slide {
+    word-break: break-word;
+}
+.uael-slide-block {
+    display: block;
+    vertical-align: middle;
+}
+
+span.uael-slide_text {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.uael-fancy-text-slide .uael-fancy-text-main.uael-slide-main {
+    max-width: 100%;
+}
+
+.uael-show-cursor-yes .uael-fancy-text-wrap .typed-cursor{
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    -webkit-animation: blink-cursor 0.7s infinite;
+            animation: blink-cursor 0.7s infinite;
+}
+
+@keyframes blink-cursor {
+    0% { opacity:1; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; }
+    50% { opacity:0; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; }
+    100% { opacity:1; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; }
+}
+
+@-webkit-keyframes blink-cursor {
+    0% { opacity:1; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; }
+    50% { opacity:0; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; }
+    100% { opacity:1; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; }
+}
+@media only screen and (max-width: 976px) {
+    .uael-tablet-heading-align-center .uael-separator-wrap {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .uael-tablet-heading-align-left .uael-separator-wrap {
+        margin-left: 0;
+        margin-right: auto;
+    }
+    .uael-tablet-heading-align-right .uael-separator-wrap {
+        margin-left: auto;
+        margin-right: 0;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .uael-mobile-heading-align-center .uael-separator-wrap {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .uael-mobile-heading-align-left .uael-separator-wrap {
+        margin-left: 0;
+        margin-right: auto;
+    }
+    .uael-mobile-heading-align-right .uael-separator-wrap {
+        margin-left: auto;
+        margin-right: 0;
+    }
+    .uael-heading-fill-gradient .uael-heading-text {
+        display: block;
+        position: relative;
+    }
+}
+
+/* Fancy Text ends */

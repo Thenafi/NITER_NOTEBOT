@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "niternotebot",
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

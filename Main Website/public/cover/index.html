@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - Brand</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=625ab5884d1c55202a94f34c6bf96718">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Architects+Daughter&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Beth+Ellen&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gochi+Hand&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=JetBrains+Mono&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Patrick+Hand&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&amp;display=swap">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css?h=34f9b351b7076f97babcdac3c1081100">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/Simple-Slider.css?h=da830b6503e0457b5735b0129f20b163">
+    <link rel="stylesheet" href="assets/css/Testimonials.css?h=33403b915e080d0d25db57d976decd4f">
+</head>
+
+<body id="page-top">
+    <header class="d-flex masthead" style="opacity: 1;height: 100%;background: var(--bs-yellow);">
+        <div class="container justify-content-center my-auto text-center"><div><style>.ml9 {
+  position: relative;
+  font-weight: 100;
+  font-size: 55px;
+  font-family: 'Gochi Hand', serif;
+  color: rgb(0,0,0);
+}
+
+.ml9 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.2em;
+  padding-right: 0.05em;
+  padding-bottom: 0.1em;
+  overflow: hidden;
+}
+
+.ml9 .letter {
+  transform-origin: 50% 100%;
+  display: inline-block;
+  line-height: 1em;
+}</style>
+
+<h3 class="ml9">
+  <span class="text-wrapper">
+    <span class="letters">NITER NOTEBOT</span>
+  </span>
+</h3>
+    
+    
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+
+
+<script>
+// Wrap every letter in a span
+var textWrapper = document.querySelector('.ml9 .letters');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml9 .letter',
+    scale: [0, 1],
+    duration: 2000,
+    elasticity: 400,
+    delay: (el, i) => 45 * (i+1)
+  }).add({
+    targets: '.ml9',
+    opacity: 0,
+    duration: 10000,
+    easing: "easeOutExpo",
+    delay: 100000
+  });
+</script></div>
+            <h3 class="mb-5"><code style="font-family: 'Architects Daughter', serif;
+             font-size: 18px;">Automatic CoverPage Maker
+    
+    
+<span class="emoji monkey" role="img" aria-label="monkey"></span>
+
+    
+    <style>
+
+.emoji {
+    font-size: 20px;
+    text-align: center;
+}
+
+.emoji::after {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.clock::after {
+    content: '🕛';
+    animation-name: clock;
+    animation-duration: 5s;
+}
+
+.mailbox::after {
+    content: '📪';
+    animation-name: mailbox;
+    animation-duration: 2.5s;
+}
+
+.camera::after {
+    content: '📷';
+    --emoji: '📸';
+    animation-name: twoFrames;
+    animation-duration: 1.2s;
+}
+
+.hourglass::after {
+    content: '⏳';
+    --emoji: '⌛️';
+    animation-name: twoFrames;
+    animation-duration: 1.2s;
+}
+
+.earth::after {
+    content: '🌎';
+    --emoji-1: '🌍';
+    --emoji-2: '🌏';
+    animation-name: threeFrames;
+    animation-duration: 1.5s;
+}
+
+.moon::after {
+    content: '🌕';
+    animation-name: moon;
+    animation-duration: 1s;
+}
+
+.bomb::after {
+    content: '💣';
+    --emoji: '💥';
+    animation-name: twoFrames;
+    animation-duration: 2s;
+}
+
+.monkey::after {
+    content: '🙈';
+    --emoji-1: '🙉';
+    --emoji-2: '🙊';
+    animation-name: threeFrames;
+    animation-duration: 2s;
+}
+
+.hearts::after {
+    content: '💗';
+    animation-name: hearts;
+    animation-duration: 3s;
+}
+
+.wave::after {
+    content: '✋';
+    --emoji: '👋';
+    animation-name: twoFrames;
+    animation-duration: 1s;
+}
+
+.inbox::after {
+    content: '📥';
+    --emoji: '📤';
+    animation-name: twoFrames;
+    animation-duration: 1s;
+}
+
+.vomit::after {
+    content: '🤢';
+    --emoji: '🤮';
+    animation-name: twoFrames;
+    animation-duration: 1s;
+}
+
+@keyframes twoFrames {
+    50% {
+        content: var(--emoji);
+    }
+}
+
+@keyframes threeFrames {
+    33.333% {
+        content: var(--emoji-1);
+    }
+
+    66.666% {
+        content: var(--emoji-2);
+    }
+}
+
+@keyframes mailbox {
+    25% {
+        content: '📫';
+    }
+
+    50% {
+        content: '📬';
+    }
+
+    75% {
+        content: '📭';
+    }
+}
+
+@keyframes hearts {
+    16.666% {
+        content: '🧡';
+    }
+
+    33.333% {
+        content: '💛';
+    }
+
+    50% {
+        content: '💚';
+    }
+
+    66.666% {
+        content: '💙';
+    }
+
+    83.333% {
+        content: '💜';
+    }
+}
+
+@keyframes moon {
+    12.5% {
+        content: '🌖';
+    }
+
+    25% {
+        content: '🌗';
+    }
+
+    37.5% {
+        content: '🌘 ';
+    }
+
+    50% {
+        content: '🌑';
+    }
+
+    62.5% {
+        content: '🌒';
+    }
+
+    75% {
+        content: '🌓';
+    }
+
+    87.5% {
+        content: '🌔';
+    }
+}
+
+@keyframes clock {
+    8.333% {
+        content: '🕐';
+    }
+
+    16.666% {
+        content: '🕑';
+    }
+
+    25% {
+        content: '🕒';
+    }
+
+    33.333% {
+        content: '🕓';
+    }
+
+    41.666% {
+        content: '🕔';
+    }
+
+    50% {
+        content: '🕕';
+    }
+
+    58.333% {
+        content: '🕖';
+    }
+
+    66.666% {
+        content: '🕗';
+    }
+
+    75% {
+        content: '🕘';
+    }
+
+    83.333% {
+        content: '🕙';
+    }
+
+    91.666% {
+        content: '🕚';
+    }
+}
+</style>
+
+    
+
+</code></h3><a class="btn btn-primary text-center btn-xl js-scroll-trigger" role="button" href="#about" style="font-family: 'JetBrains Mono', monospace;width: 151px;height: 59px;font-size: 11px;padding: 20px 40px;">Lets Begin</a>
+        </div>
+    </header>
+    <section id="about" class="content-section bg-light">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h2 style="font-family: 'Patrick Hand', serif;">Fill up the form and get your cover page.</h2>
+                    <p class="lead mb-5" style="font-family: 'Architects Daughter', serif;"><span>If your here first time read the&nbsp;</span><a href="https://unsplash.com/">Instruction</a><span>&nbsp;first. It wont take much longer.&nbsp; Old Buddies....</span></p><a class="btn btn-dark btn-xl js-scroll-trigger" role="button" href="#services" style="font-family: 'JetBrains Mono', monospace;">Make Your Cover Page</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="d-grid align-items-center align-content-center align-self-center content-section bg-primary text-white text-center" id="services" style="height: 100%;background: 00B1FF;">
+        <div class="container">
+            <div class="content-section-heading">
+                <h3 class="text-secondary mb-0" style="font-family: 'Patrick Hand', serif;">Departments</h3>
+                <h2 class="mb-5" style="font-family: 'Architects Daughter', serif;">Select Yours.</h2>
+            </div>
+        </div>
+        <div class="container" style="/*padding: 0px px;*/">
+            <div class="row d-flex justify-content-center" style="font-family: 'JetBrains Mono', monospace;">
+                <div class="col-4 d-flex justify-content-center align-items-center" style="font-size: 24px;"><i class="fa fa-industry" style="font-size: 30px;"></i></div>
+                <div class="col-8 d-flex justify-content-center" style="font-size: 30px;"><a href="#" style="color: var(--bs-body-font-weight);font-family: 'JetBrains Mono', monospace;text-decoration: underline;">IPE</a></div>
+            </div>
+            <div class="row d-flex justify-content-center" style="font-family: 'JetBrains Mono', monospace;">
+                <div class="col-4 d-flex justify-content-center align-items-center" style="font-size: 24px;"><i class="fas fa-tshirt" style="font-size: 30px;"></i></div>
+                <div class="col-8 d-flex justify-content-center" style="font-size: 30px;font-family: 'JetBrains Mono', monospace;"><a href="#" style="color: var(--bs-body-font-weight);font-family: 'JetBrains Mono', monospace;">TEXTILE</a></div>
+            </div>
+            <div class="row d-flex justify-content-center" style="font-family: 'JetBrains Mono', monospace;">
+                <div class="col-4 d-flex justify-content-center align-items-center" style="font-size: 24px;"><i class="fa fa-pencil-square" style="font-size: 30px;"></i></div>
+                <div class="col-8 d-flex justify-content-center" style="font-size: 30px;"><a href="#" style="color: var(--bs-body-font-weight);font-family: 'JetBrains Mono', monospace;">FDAE</a></div>
+            </div>
+            <div class="row d-flex justify-content-center" style="font-family: 'JetBrains Mono', monospace;">
+                <div class="col-4 d-flex justify-content-center align-items-center" style="font-size: 24px;"><i class="fa fa-html5" style="font-size: 30px;"></i></div>
+                <div class="col-8 d-flex justify-content-center" style="font-size: 30px;"><a href="#" style="color: var(--bs-body-font-weight);font-family: 'JetBrains Mono', monospace;">CSE</a></div>
+            </div>
+            <div class="row d-flex justify-content-center" style="font-family: 'JetBrains Mono', monospace;">
+                <div class="col-4 d-flex justify-content-center align-items-center" style="font-size: 24px;"><i class="fa fa-chain-broken" style="font-size: 30px;"></i></div>
+                <div class="col-8 d-flex justify-content-center" style="font-size: 30px;"><a href="#" style="color: var(--bs-body-font-weight);font-family: 'JetBrains Mono', monospace;">EEE</a></div>
+            </div>
+        </div>
+    </section>
+    <section class="d-md-flex justify-content-md-center align-items-md-center callout" style="opacity: 1;background: var(--bs-yellow);">
+        <div class="container d-md-flex justify-content-md-center align-items-md-center text-center">
+            <div>
+                <h1 class="mx-auto mb-5" style="font-family: 'Patrick Hand', serif;"><span>ALL&nbsp;</span><em>your</em><span>&nbsp; cover pages are safely saved.&nbsp;</span></h1>
+                <div><a class="btn btn-primary btn-xl" role="button" href="#" style="font-family: 'JetBrains Mono', monospace;">Download</a></div>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="content-section bg-primary text-white">
+        <div class="container text-center">
+            <div>
+                <h2 class="mb-4" style="font-family: 'Patrick Hand', serif;">We will be glad if you say something about the system or suggest an idea.</h2><a class="btn btn-light btn-xl me-4" role="button" href="#" style="margin: 25px;padding: 10px 30px;font-family: 'JetBrains Mono', monospace;">Click Me!</a>
+            </div><div></br></br><div>
+            <div>
+                <h2 class="mb-4" style="font-family: 'Patrick Hand', serif;">If you find any issue please report.</h2><a class="btn btn-dark btn-xl me-4" role="button" href="#" style="padding: 10px 30px;margin: 25px;font-family: 'JetBrains Mono', monospace;">Report!</a>
+            </div>
+        </div>
+    </section>
+    <footer class="footer text-center">
+        <div class="container">
+            <ul class="list-inline mb-5">
+                <li class="list-inline-item">&nbsp;<a class="link-light social-link rounded-circle" href="#"><i class="icon-social-facebook"></i></a></li>
+                <li class="list-inline-item">&nbsp;<a class="link-light social-link rounded-circle" href="#"><i class="icon-social-twitter"></i></a></li>
+                <li class="list-inline-item">&nbsp;<a class="link-light social-link rounded-circle" href="#"><i class="icon-social-github"></i></a></li>
+            </ul>
+            <p class="text-muted mb-0 small">Copyright &nbsp;© NITER NOTEBOT&nbsp;2021</p>
+        </div><a class="js-scroll-trigger scroll-to-top rounded" href="#page-top"><i class="fa fa-angle-up"></i></a>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/stylish-portfolio.js?h=fd82ddc34ee78863a6928c678c293e4a"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+    <script src="assets/js/Simple-Slider.js?h=84b1d7cbf88bb21b37fb412ca8f94640"></script>
+</body>
+
+</html>

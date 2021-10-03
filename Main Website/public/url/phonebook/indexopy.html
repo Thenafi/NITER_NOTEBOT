@@ -37,10 +37,24 @@
          #myTable tr.header, #myTable tr:hover {
          background-color: #f1f1f1;
          }
+         #mystick{
+            position: static;
+            background-color: black;
+            top: 0;
+         }
          .example{
          display: none;
          }
+         div.sticky {
+         position: -webkit-sticky;
+          position: sticky;
+            top: 0;
+            padding: 5px;
+        
+         
+}
       </style>
+
    </head>
    <body>
       <h1>NITER PhoneBook</h1>
@@ -48,7 +62,8 @@
       <button onclick="showhide()">Show Email</button>
       <br>
       <br>
-      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+      <div class="sticky">
+      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"></div>
       <table id="myTable" class="table">
          <tr class="header" >
             <th  style="width:60%;">Teacher's Name</th>

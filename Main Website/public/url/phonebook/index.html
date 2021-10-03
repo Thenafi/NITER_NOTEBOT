@@ -57,7 +57,7 @@
    <body>
       <h1>NITER PhoneBook</h1>
       <br>
-      <button onclick="showhide()">Show Email</button>
+      <button id="italy" onclick="showhide()">Show Email</button>
       <br>
       <br>
       <div class="sticky">
@@ -533,7 +533,7 @@
            <td>
               <a href="tel:8801689428486"> 8801689428486</a><br>
               <p class="example" >tashmirreza79@gmail.com<br>
-                <p class="example" >reza.tashmir@niter.edu.bd</p>
+              <p class="example" >reza.tashmir@niter.edu.bd</p>
            </td>
         </tr>
         <tr>
@@ -634,6 +634,12 @@
              
              
            }
+           var p = document.getElementById("italy");
+              if (p.innerHTML === "Show Email") {
+                 p.innerHTML = "Hide Email";
+           } else {
+               p.innerHTML = "Show Email";
+            }
          }
       </script>  
       <!--

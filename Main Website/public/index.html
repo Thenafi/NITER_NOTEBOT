@@ -1,230 +1,193 @@
 <html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <link rel="icon" href="https://i.ibb.co/gzC5K94/received-2119028734810944.png" type="image/gif" sizes="16x16">
+        <title>NITER NOTEBOT </title>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <style>
+        @import url(//fonts.googleapis.com/css?family=Lato:300:400&display=swap);
+        body {
+        margin:0;
+        }
+        h1 {
+        font-family: 'Lato', sans-serif;
+        font-weight:550;
+        letter-spacing: 2px;
+        font-size:48px;
+        margin-top: 130px;
+        }
+        p {
+        font-family: 'Lato', sans-serif;
+        letter-spacing: 1px;
+        font-size:14px;
+        color: #333333;
+        }
+        .night {
+        position:relative;
+        text-align:center;
+        background: linear-gradient(43deg, rgba(53,161,239,1) 36%, rgba(78,219,212,1) 100%);
+        color:white;
+        }
+        .logo {
+        width:50px;
+        fill:white;
+        padding-right:15px;
+        display:inline-block;
+        vertical-align: middle;
+        }
+        .inner-header {
+        height:6vh;
+        width:100%;
+        margin: 0;
+        padding: 0;
+        }
+        .flex { /*Flexbox for containers*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        }
+        .waves {
+        position:relative;
+        width: 100%;
+        height:15vh;
+        margin-bottom:-7px; /*Fix for safari gap*/
+        min-height:100px;
+        max-height:150px;
+        }
+        .content {
+        position:relative;
+        height:20vh;
+        text-align:center;
+        }
+        #dog{
+        margin-left: 16%;
+        }
+        #cat{
+        }
+        #niter{
+        margin-top: 40px;
+        }
+        #hall
+        {
+        margin-left: 16%;
+        margin-top: 40px;
+        }
+        .btn{
+        width: 130px;
+        }
+        #tiger{
+        margin-top: 150px; 
+        margin-bottom: 100px;
+        }
+        
 
 
-
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <link rel="icon" href="https://i.ibb.co/gzC5K94/received-2119028734810944.png" type="image/gif" sizes="16x16">
-    <title>NITER NOTEBOT </title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
-
-
-
-<style>
-
-@import url(//fonts.googleapis.com/css?family=Lato:300:400);
-
-body {
-  margin:0;
-}
-
-h1 {
-  font-family: 'Lato', sans-serif;
-  font-weight:550;
-  letter-spacing: 2px;
-  font-size:48px;
-  margin-top: 130px;
-  
-}
-p {
-  font-family: 'Lato', sans-serif;
-  letter-spacing: 1px;
-  font-size:14px;
-  color: #333333;
-}
-
-.night {
-  position:relative;
-  text-align:center;
-  background: linear-gradient(43deg, rgba(53,161,239,1) 36%, rgba(78,219,212,1) 100%);
-  color:white;
-}
-.logo {
-  width:50px;
-  fill:white;
-  padding-right:15px;
-  display:inline-block;
-  vertical-align: middle;
-}
-
-.inner-header {
-  height:6vh;
-  width:100%;
-  margin: 0;
-  padding: 0;
-}
-
-.flex { /*Flexbox for containers*/
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.waves {
-  position:relative;
-  width: 100%;
-  height:15vh;
-  margin-bottom:-7px; /*Fix for safari gap*/
-  min-height:100px;
-  max-height:150px;
-  
-}
-
-.content {
-  position:relative;
-  height:20vh;
-  text-align:center;
-  
-}
-#dog{
-  
-  margin-left: 16%;
-  
-}
-#cat{
-  
-}
-#niter{
-
-  margin-top: 40px;
-
-}
-
-#hall
-{
-
-  margin-left: 16%;
-  margin-top: 40px;
-}
-
-.btn{
-  
-  
-  width: 130px;
-
-}
-#tiger{
-
-  margin-top: 150px; 
-  margin-bottom: 100px;
-}
-
-/* Animation */
-
-.parallax > use {
-  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
-}
-.parallax > use:nth-child(1) {
-  animation-delay: -2s;
-  animation-duration: 7s;
-}
-.parallax > use:nth-child(2) {
-  animation-delay: -3s;
-  animation-duration: 10s;
-}
-.parallax > use:nth-child(3) {
-  animation-delay: -4s;
-  animation-duration: 13s;
-}
-.parallax > use:nth-child(4) {
-  animation-delay: -5s;
-  animation-duration: 20s;
-}
-@keyframes move-forever {
-  0% {
-   transform: translate3d(-90px,0,0);
-  }
-  100% { 
-    transform: translate3d(85px,0,0);
-  }
-}
-
-
-
-
-/*Shrinking for mobile*/
-@media (max-width: 768px) {
-  .waves {
-    height:40px;
-    min-height:40px;
-  }
-  .content {
-    height:30vh;
-  }
-  h1 {
-    font-size:24px;
-  }
-}
-
-
-  
-
-</style>
-
-
-<body>
-<div class="night">
-
-  <!--Content before waves-->
-  <div class="inner-header flex">
-  <!--Just the logo.. Don't mind this-->
-  
-  <h1>NITER NOTEBOT</h1>
-  </div>
-  <section>
-  <div id= "tiger">
-    
-    <a id="btn" href="https://niternotebot.chest.workers.dev/" class="btn btn-outline-light" role="button" aria-pressed="true">Notes</a>
-    <a id="dog" href="https://www.dropbox.com/sh/inc6j1dbtq4j1ua/AAAUiAnDN_5HPzlkD_IpQaT1a?dl=0" class="btn btn-outline-light" role="button" aria-pressed="true">Questions</a>
-       
-    
-    <br>
-    <a id="niter" href="https://niternotebot.web.app/cover/#services-1" class="btn btn-outline-light" role="button" aria-pressed="true">Cover Maker</a>
-    <a id="hall" href="https://niternotebot.web.app/url/phonebook" class="btn btn-outline-light" role="button" aria-pressed="true">Phonebook</a>
-    
-    <br>
-    <a id="niter" href="https://niternotebot.web.app/routine/" class="btn btn-outline-light" role="button" aria-pressed="true">Routine</a>
-    <a id="hall" href="https://www.boredbutton.com/" class="btn btn-outline-light" role="button" aria-pressed="true">Fun</a>   
-    
-    <br>
-    <a id="niter" href="https://docs.google.com/forms/d/1QScbhYVbZ7Vd3WOEfkBZoRcb0Y4JQYof8TubXy5Ubec/edit?usp=drivesdk" class="btn btn-outline-light" role="button" aria-pressed="true">Submit Note</a>
-    <a id="hall" href="https://www.dropbox.com/sh/inc6j1dbtq4j1ua/AABs_7BFR8Pca6gmMarlcUoRa/Contact.paper?dl=0" class="btn btn-outline-light" role="button" aria-pressed="true">Join Us</a>   
-    <!--    
-      For 
-      <br>
-    <a id="niter" href="#" class="btn btn-outline-light" role="button" aria-pressed="true">Submit Note</a>
-    <a id="hall" href="#" class="btn btn-outline-light" role="button" aria-pressed="true">Join Us</a>   
-  
-  -->
-
-
-  </div>
-  <!--Waves Container-->
-  <div>
-  <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-  <defs>
-  <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-  </defs>
-  <g class="parallax">
-  <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(0,157,196,0.7" />
-  <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-  <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-  <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
-  </g>
-  </svg>
-  </div>
-  <!--Waves end-->
-  
-  </div>
-  <!--Header ends-->
-  
-  <!--Content starts-->
-  <div class="content flex">
-  <p></p>
-  </div>
-  <!--Content ends-->
-</body>
+        /* Animation */
+        .parallax > use {
+        animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+        }
+        .parallax > use:nth-child(1) {
+        animation-delay: -2s;
+        animation-duration: 7s;
+        }
+        .parallax > use:nth-child(2) {
+        animation-delay: -3s;
+        animation-duration: 10s;
+        }
+        .parallax > use:nth-child(3) {
+        animation-delay: -4s;
+        animation-duration: 13s;
+        }
+        .parallax > use:nth-child(4) {
+        animation-delay: -5s;
+        animation-duration: 20s;
+        }
+        @keyframes move-forever {
+        0% {
+        transform: translate3d(-90px,0,0);
+        }
+        100% { 
+        transform: translate3d(85px,0,0);
+        }
+        }
+        /*Shrinking for mobile*/
+        @media (max-width: 768px) {
+        .waves {
+        height:40px;
+        min-height:40px;
+        }
+        .content {
+        height:30vh;
+        }
+        h1 {
+        font-size:24px;
+        }
+        }
+    </style>
+    <body>
+        <div class="night">
+            <!--Content before waves-->
+            <div class="inner-header flex">
+                <!--Just the logo.. Don't mind this-->
+                <h1>NITER NOTEBOT</h1>
+            </div>
+            <section>
+            <div id= "tiger">
+                <a id="btn" href="https://niternotebot.chest.workers.dev/" class="btn btn-outline-light" role="button" aria-pressed="true">Notes</a>
+                <a id="dog" href="https://www.dropbox.com/sh/inc6j1dbtq4j1ua/AAAUiAnDN_5HPzlkD_IpQaT1a?dl=0" class="btn btn-outline-light" role="button" aria-pressed="true">Questions</a>
+                <br>
+                <a id="niter" href="https://niternotebot.web.app/cover/#services-1" class="btn btn-outline-light" role="button" aria-pressed="true">Cover Maker</a>
+                <a id="hall" href="https://niternotebot.web.app/url/phonebook" class="btn btn-outline-light" role="button" aria-pressed="true">Phonebook</a>
+                <br>
+                <button id="niter" type="button" class="btn btn-outline-light " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Routine
+                </button>
+                <div class="dropdown-menu dropdown-menu-" >
+                    <a  class="dropdown-item" href="#">CSE</a>
+                    <a class="dropdown-item" href="#">TEX</a>
+                    <a class="dropdown-item" href="#">FDAE</a>
+                    <a class="dropdown-item" href="#">EEE</a>
+                    <a class="dropdown-item" href="#">IPE</a>
+                </div>
+                <a id="hall" href="https://www.boredbutton.com/" class="btn btn-outline-light" role="button" aria-pressed="true">Fun</a>   
+                <br>
+                <a id="niter" href="https://docs.google.com/forms/d/1QScbhYVbZ7Vd3WOEfkBZoRcb0Y4JQYof8TubXy5Ubec/edit?usp=drivesdk" class="btn btn-outline-light" role="button" aria-pressed="true">Submit Note</a>
+                <a id="hall" href="https://www.dropbox.com/sh/inc6j1dbtq4j1ua/AABs_7BFR8Pca6gmMarlcUoRa/Contact.paper?dl=0" class="btn btn-outline-light" role="button" aria-pressed="true">Join Us</a>   
+                <!--    
+                    For 
+                    <br>
+                    <a id="niter" href="#" class="btn btn-outline-light" role="button" aria-pressed="true">Submit Note</a>
+                    <a id="hall" href="#" class="btn btn-outline-light" role="button" aria-pressed="true">Join Us</a>   
+                    
+                    -->
+            </div>
+            <!--Waves Container-->
+            <div>
+                <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                    <defs>
+                        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                    </defs>
+                    <g class="parallax">
+                        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(0,157,196,0.7" />
+                        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                        <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+                    </g>
+                </svg>
+            </div>
+            <!--Waves end-->
+        </div>
+        <!--Header ends-->
+        <!--End starts-->
+        <div class="content flex">
+            <p></p>
+        </div>
+        <!--End ends-->
+    </body>

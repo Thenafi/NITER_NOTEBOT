@@ -2,6 +2,8 @@
 <html>
    <head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="refresh" content="13; url='https://cutt.ly/cvpage'" />
+
       <title>NITER NOTEBOT</title>
       <style> 
          .sk-cube-grid {
@@ -83,16 +85,18 @@
          <div class="sk-cube sk-cube9"></div>
       </div>
       <p id="demo" class="p3" >
-         Please Wait.
-      </br>
          </br>
          The file is generating in <span id="countdown">10</span>s.
       <div></div>
       </p>
+<!-- becarefull about location.replace  and winow.location..do the same thing but check before update if u dont remember
+ -->
+
       <!-- JavaScript part -->
       <script type="text/javascript">
-         var min = 14; 
-         var max = 20; 
+      //randomizer
+         var min = 10; 
+         var max = 18; 
          var rnd = Math.floor(Math.random() * (max - min + 1)) + min;
          // Total seconds to wait
          var seconds = rnd;
@@ -100,8 +104,7 @@
          function countdown() {
              seconds = seconds - 1;
              if (seconds < 0) {
-                 // Chnage your redirection link here
-                 window.location = "https://cover.chest.workers.dev/0:/";
+                 document.getElementById("demo").innerHTML = "Wait a bit please";
              } else {
                  // Update remaining seconds
                  document.getElementById("countdown").innerHTML = seconds;
@@ -117,7 +120,7 @@
       <script>
          setTimeout(function(){
           	document.getElementById("demo").textContent = "Redirect failed. Please refresh the page. ";
-         }, 30000);//wait 2 seconds
+         }, 20000);//wait 2 seconds
       </script>
       </head>
       <body>

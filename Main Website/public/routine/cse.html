@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name="theme-color" content="#4285f4" />
+      <!--Import Google Icon Font-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <link rel="icon" href="https://i.ibb.co/gzC5K94/received-2119028734810944.png" type="image/gif" sizes="16x16">
+      <title>NITER NOTEBOT </title>
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   </head>
+   <style>
+      #hea{
+      text-align: center;
+      margin-top: 100px;
+      margin-bottom: 100px;
+      }
+      h3{
+      font-family: 'Courier Prime', monospace;
+      }
+      #level1{
+      margin-bottom: 70px;
+      text-align: center;
+    
+     
+      }
+      #level2{
+      
+      margin-left: 40px;
+      }
+      #level3{
+      margin-bottom: 70px;
+      text-align: center;
+     
+      }
+      #level4{
+      
+      margin-left: 40px;
+      }
+      .dropdown-trigger{
+         background-color: rgb(72, 200, 243)   ;
+         color: rgb(0, 0, 0);
+
+      }
+   </style>
+   <body >
+      <div id="hea">
+         <h3 >NITER NOTEBOT</h3>
+         <h5> Questions-CSE</h5>
+      </div>
+      <div id="level1">
+         <!-- Dropdown Trigger -->
+         <a class='dropdown-trigger btn' href='#' data-target='dropdown1'><i class="material-icons right">book</i>Level 1</a>
+         <!-- Dropdown Structure -->
+         <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="/../cse/term1/">Term 1</a></li>
+            <li><a href="#!">Term 2</a></li>
+         </ul>
+    
+         <!-- Dropdown Trigger -->
+         <a id="level2" class='dropdown-trigger btn' href='#' data-target='dropdown1'><i class="material-icons right">book</i>Level 2</a>
+         <!-- Dropdown Structure -->
+         <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="#!">Term 1</a></li>
+            <li><a href="#!">Term 2</a></li>
+         </ul>
+      </div >
+      <div id="level3">
+         <!-- Dropdown Trigger -->
+         <a class='dropdown-trigger btn' href='#' data-target='dropdown1'><i class="material-icons right">book</i>Level 3</a>
+         <!-- Dropdown Structure -->
+         <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="#!">Term 1</a></li>
+            <li><a href="#!">Term 2</a></li>
+         </ul>
+    
+         <!-- Dropdown Trigger -->
+         <a id="level4" class='dropdown-trigger btn' href='#' data-target='dropdown1'><i class="material-icons right">book</i>Level 4</a>
+         <!-- Dropdown Structure -->
+         <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="#!">Term 1</a></li>
+            <li><a href="#!">Term 2</a></li>
+         </ul>
+      </div >
+      <script>
+         $(document).ready(function(){
+            $('.modal').modal();
+            $('.dropdown-trigger').dropdown();
+         });
+      </script>
+   </body>
+</html>

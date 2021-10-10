@@ -19,9 +19,6 @@
          margin-top: 20px;
          margin-bottom: 30px;
          }
-         
-
-
          * {
          box-sizing: border-box;
          }
@@ -84,8 +81,6 @@
          text-align: center;
          margin-bottom: 6px;
          }
-     
-
       </style>
    </head>
    <body>
@@ -94,9 +89,8 @@
          <a href ="https://niternotebot.web.app"><button id="home" type="button" class="btn btn-outline-dark" >NITER NOTEBOT</button></a>
       </div>
       <div class="sticky">
-         <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by names.." title="Type in a name">
+         <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by names, Blood_Group, Batch.." title="Type in a name">
       </div>
-
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <style>
@@ -104,7 +98,7 @@
          color:#fff;
          }
       </style>
-      <table class="table table-striped">
+      <table id="myTable" class="table table-striped">
          <tr  class="bg-info">
             <th>Name</th>
             <th>Batch</th>
@@ -115,14 +109,14 @@
             <th>Current Location</th>
             <th>ID</th>
          </tr>
-         <tbody id="myTable">
+         <tbody id="myble">
          </tbody>
       </table>
       <script>
          var myArray = []
          
          buildTable(myArray)
-
+         
          $.ajax({
          	method:'GET',
          	url:'https://gsx2json.com/api?id=1Nu7GGynQslu358y0Cjwx7Gynn8stWkFTSEfu1AciikE&&columns=false&sheet=Form%20Responses%201',
@@ -136,15 +130,19 @@
          
          
          function buildTable(rows){
-         	var table = document.getElementById('myTable')
+         	var table = document.getElementById('myble')
          
          	for (var i = 0; i < rows.length; i++){
          		var row = `<tr>
          						<td>${rows[i].Name}</td>
          						<td>${rows[i].Batch}</td>
          						<td>${rows[i].Department}</td>
-                           <td>${rows[i].Phone}</td>
-                           <td>${rows[i].Email}</td>
+                           <td>
+                           <a href="tel:${rows[i].Phone}"> ${rows[i].Phone}</a></td>
+                           <td>
+                              <a href = "mailto: ${rows[i].Email}">${rows[i].Email}</a>
+                              </td>
+                           
                            <td>${rows[i].Blood_Group}</td>
                            <td>${rows[i].Current_Location}</td>
                            <td>${rows[i].ID}</td>
@@ -156,26 +154,27 @@
          }
          
       </script>
-
-<script>
-   function myFunction() {
-     var input, filter, table, tr, td, i, txtValue;
-     input = document.getElementById("myInput");
-     filter = input.value.toUpperCase();
-     table = document.getElementById("myTable");
-     tr = table.getElementsByTagName("tr");
-     for (i = 0; i < tr.length; i++) {
-       td = tr[i].getElementsByTagName("td")[0];
-       if (td) {
-         txtValue = td.textContent || td.innerText;
-         if (txtValue.toUpperCase().indexOf(filter) > -1) {
-           tr[i].style.display = "";
-         } else {
-           tr[i].style.display = "none";
-         }
-       }       
-     }
-   }
-</script>
+      <script>
+         function myFunction() {
+         var input, filter, table, tr, td, i;
+           input = document.getElementById("myInput");
+           filter = input.value.toUpperCase();
+           table = document.getElementById("myTable");
+           tr = table.getElementsByTagName("tr");
+           for (i = 0; i < tr.length; i++) {
+             td = tr[i].getElementsByTagName("td")[0]; // for column one
+              td1 = tr[i].getElementsByTagName("td")[5]; // for column two
+              td3 = tr[i].getElementsByTagName("td")[1];
+         /* ADD columns here that you want you to filter to be used on */
+             if (td) {
+               if ( (td3.innerHTML.toUpperCase().indexOf(filter) > -1) || (td.innerHTML.toUpperCase().indexOf(filter) > -1) || (td1.innerHTML.toUpperCase().indexOf(filter) > -1) )  {            
+                 tr[i].style.display = "";
+               } else {
+                 tr[i].style.display = "none";
+               }
+             }
+           }
+         } 
+      </script>
    </body>
 </html>

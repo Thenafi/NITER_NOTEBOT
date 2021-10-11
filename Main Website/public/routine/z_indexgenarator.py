@@ -41,7 +41,10 @@ def process_dir(top_dir, opts):
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#4edbd4" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="icon" href="https://i.ibb.co/gzC5K94/received-2119028734810944.png" type="image/gif" sizes="16x16">
+    <title>NITER NOTEBOT </title>
     <style>
     * { padding: 0; margin: 0; }
 
@@ -298,9 +301,7 @@ def process_dir(top_dir, opts):
     </defs>
     </svg>
 <header>
-    <h1>"""
-                     f'{path_top_dir.name}'
-                     """</h1>
+    <h1>Routine</h1>
                  </header>
                  <main>
                  <div class="listing">

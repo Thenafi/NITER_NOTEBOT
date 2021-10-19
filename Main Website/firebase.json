@@ -2,6 +2,9 @@
   "hosting": {
     "site": "niternotebot",
     "public": "public",
+    
+"appAssociation": "AUTO",
+"rewrites": [ { "source": "/beep/**", "dynamicLinks": true } ],
     "ignore": [
       "firebase.json",
       "**/.*",

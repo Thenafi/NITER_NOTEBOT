@@ -14,37 +14,70 @@
     <section class="section">
       <div class="container">
         <h1 class="title">NITER NOTEBOT</h1>
-        <p class="subtitle">CGPA Calculator</p>
+        <h1 class="title is-6">CGPA Calculator</h1>
+        <div>
+          <!--dont remove that first p tag-->
+          <p class="subtitle"></p>
+          <p class="subtitle is-6 is-hidden">
+            Department Of Textile Engineering
+          </p>
+          <p class="subtitle is-6 is-hidden">
+            Department Of Computer Science & Software Engineering
+          </p>
+          <p class="subtitle is-6 is-hidden">
+            Department Of Electrical & Electornics Engineering
+          </p>
+          <p class="subtitle is-6 is-hidden">
+            Department Of Fashion Design & Apparel Engineering
+          </p>
+          <p class="subtitle is-6 is-hidden">
+            Department Of Industrial & Production Engineering
+          </p>
+        </div>
       </div>
     </section>
-    <section class="section">
+
+    <section class="sectionCustom">
       <div class="container">
-      <div class="dropdown select">
-        <div class="dropdown-trigger">
-          <button
-            class="button"
-            aria-haspopup="true"
-            aria-controls="dropdown-menu"
-          >
-            <span>Select Your Department</span>
-            <span class="icon is-small">
-              <i class="fas fa-angle-down" aria-hidden="true"></i>
-            </span>
-          </button>
+        <h6 class="dep">Select Department</h6>
+        <div class="buttons is-centered">
+          <button class="button is-primary is-light">TEX</button>
+          <button class="button is-primary is-light">IPE</button>
+          <button class="button is-primary is-light">FDAE</button>
+          <button class="button is-primary is-light">CSE</button>
+          <button class="button is-primary is-light">EEE</button>
         </div>
-        <div class="dropdown-menu" id="dropdown-menu" role="menu">
-          <div class="dropdown-content">
-            <a href="tex.html" class="dropdown-item">TEX</a>
-            <a href="ipe.html" class="dropdown-item">IPE</a>
-            <a href="fdae.html" class="dropdown-item">FDAE</a>
-            <a href="cse.html" class="dropdown-item">CSE</a>
-            <a href="eee.html" class="dropdown-item">EEE</a>
+      </div>
+    </section>
+
+    <section class="section is-hidden">
+      <div class="container">
+        <div class="dropdown select">
+          <div class="dropdown-trigger">
+            <button
+              class="button is-centered"
+              aria-haspopup="true"
+              aria-controls="dropdown-menu"
+            >
+              <span>Select Level</span>
+              <span class="icon is-small">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </span>
+            </button>
+          </div>
+          <div class="dropdown-menu" id="dropdown-menu" role="menu">
+            <div class="dropdown-content">
+              <a href="tex.html" class="dropdown-item">TEX</a>
+              <a href="tex.html" class="dropdown-item">IPE</a>
+              <a href="tex.html" class="dropdown-item">FDAE</a>
+              <a href="tex.html" class="dropdown-item">CSE</a>
+              <a href="tex.html" class="dropdown-item">EEE</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
   </body>
-
   <script>
     const dropdownActivator = function () {
       if (!dropdown1.classList.contains("is-active")) {
@@ -53,8 +86,94 @@
         dropdown1.classList.remove("is-active");
       }
     };
-
     const dropdown1 = document.querySelector(".dropdown");
     dropdown1.addEventListener("click", dropdownActivator);
+
+    const button = document.querySelectorAll(".button");
+    for (let i = 0; i < button.length; i++) {
+      button[i].addEventListener("click", function () {
+        if (button[i].textContent === "TEX") {
+          document
+            .querySelectorAll(".section")[1]
+            .classList.remove("is-hidden");
+          for (
+            let i = 1;
+            i < document.querySelectorAll(".subtitle").length;
+            i++
+          ) {
+            document
+              .querySelectorAll(".subtitle")
+              [i].classList.add("is-hidden");
+          }
+          document
+            .querySelectorAll(".subtitle")[1]
+            .classList.remove("is-hidden");
+        } else if (button[i].textContent === "IPE") {
+          document
+            .querySelectorAll(".section")[1]
+            .classList.remove("is-hidden");
+          for (
+            let i = 1;
+            i < document.querySelectorAll(".subtitle").length;
+            i++
+          ) {
+            document
+              .querySelectorAll(".subtitle")
+              [i].classList.add("is-hidden");
+          }
+          document
+            .querySelectorAll(".subtitle")[5]
+            .classList.remove("is-hidden");
+        } else if (button[i].textContent === "FDAE") {
+          document
+            .querySelectorAll(".section")[1]
+            .classList.remove("is-hidden");
+          for (
+            let i = 1;
+            i < document.querySelectorAll(".subtitle").length;
+            i++
+          ) {
+            document
+              .querySelectorAll(".subtitle")
+              [i].classList.add("is-hidden");
+          }
+          document
+            .querySelectorAll(".subtitle")[4]
+            .classList.remove("is-hidden");
+        } else if (button[i].textContent === "EEE") {
+          document
+            .querySelectorAll(".section")[1]
+            .classList.remove("is-hidden");
+          for (
+            let i = 1;
+            i < document.querySelectorAll(".subtitle").length;
+            i++
+          ) {
+            document
+              .querySelectorAll(".subtitle")
+              [i].classList.add("is-hidden");
+          }
+          document
+            .querySelectorAll(".subtitle")[3]
+            .classList.remove("is-hidden");
+        } else if (button[i].textContent === "CSE") {
+          document
+            .querySelectorAll(".section")[1]
+            .classList.remove("is-hidden");
+          for (
+            let i = 1;
+            i < document.querySelectorAll(".subtitle").length;
+            i++
+          ) {
+            document
+              .querySelectorAll(".subtitle")
+              [i].classList.add("is-hidden");
+          }
+          document
+            .querySelectorAll(".subtitle")[2]
+            .classList.remove("is-hidden");
+        }
+      });
+    }
   </script>
 </html>

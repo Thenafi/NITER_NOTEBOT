@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NITER NOTEBOT</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">NITER NOTEBOT</h1>
+        <p class="subtitle">CGPA Calculator</p>
+        <p class="subtitle">
+          Department Of Electrical & Electornics Engineering
+        </p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="dropdown select">
+        <div class="dropdown-trigger">
+          <button
+            class="button"
+            aria-haspopup="true"
+            aria-controls="dropdown-menu"
+          >
+            <span>Select Your Department</span>
+            <span class="icon is-small">
+              <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </span>
+          </button>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+          <div class="dropdown-content">
+            <a href="tex.html" class="dropdown-item">TEX</a>
+            <a class="dropdown-item">IPE</a>
+            <a href="#" class="dropdown-item">FDAE</a>
+            <a href="#" class="dropdown-item">CSE</a>
+            <a href="#" class="dropdown-item">EEE</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+
+  <script>
+    const dropdownActivator = function () {
+      if (!dropdown1.classList.contains("is-active")) {
+        dropdown1.classList.add("is-active");
+      } else {
+        dropdown1.classList.remove("is-active");
+      }
+    };
+
+    const dropdown1 = document.querySelector(".dropdown");
+    dropdown1.addEventListener("click", dropdownActivator);
+  </script>
+</html>

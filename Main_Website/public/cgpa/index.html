@@ -15,30 +15,27 @@
       <div class="container">
         <h1 class="title">NITER NOTEBOT</h1>
         <h1 class="title is-6">CGPA Calculator</h1>
-        <div>
-          <!--dont remove that first p tag-->
-          <p class="subtitle"></p>
-          <p class="subtitle is-6 is-hidden">
-            Department Of Textile Engineering
-          </p>
-          <p class="subtitle is-6 is-hidden">
-            Department Of Computer Science & Software Engineering
-          </p>
-          <p class="subtitle is-6 is-hidden">
-            Department Of Electrical & Electornics Engineering
-          </p>
-          <p class="subtitle is-6 is-hidden">
-            Department Of Fashion Design & Apparel Engineering
-          </p>
-          <p class="subtitle is-6 is-hidden">
-            Department Of Industrial & Production Engineering
-          </p>
-        </div>
       </div>
     </section>
 
     <section class="sectionCustom">
       <div class="container">
+        <div>
+          <p class="subtitle is-6 is-hidden">Dept. of Textile Engineering</p>
+          <p class="subtitle is-6 is-hidden">
+            Dept. of Computer Science & Software Engineering
+          </p>
+          <p class="subtitle is-6 is-hidden">
+            Dept. of Electrical & Electornics Engineering
+          </p>
+          <p class="subtitle is-6 is-hidden">
+            Dept. of Fashion Design & Apparel Engineering
+          </p>
+          <p class="subtitle is-6 is-hidden">
+            Dept. of Industrial & Production Engineering
+          </p>
+        </div>
+        <br />
         <h6 class="dep">Select Department</h6>
         <div class="buttons is-centered">
           <button class="button is-primary is-light">TEX</button>
@@ -97,7 +94,7 @@
             .querySelectorAll(".section")[1]
             .classList.remove("is-hidden");
           for (
-            let i = 1;
+            let i = 0;
             i < document.querySelectorAll(".subtitle").length;
             i++
           ) {
@@ -106,30 +103,14 @@
               [i].classList.add("is-hidden");
           }
           document
-            .querySelectorAll(".subtitle")[1]
+            .querySelectorAll(".subtitle")[0]
             .classList.remove("is-hidden");
         } else if (button[i].textContent === "IPE") {
           document
             .querySelectorAll(".section")[1]
             .classList.remove("is-hidden");
           for (
-            let i = 1;
-            i < document.querySelectorAll(".subtitle").length;
-            i++
-          ) {
-            document
-              .querySelectorAll(".subtitle")
-              [i].classList.add("is-hidden");
-          }
-          document
-            .querySelectorAll(".subtitle")[5]
-            .classList.remove("is-hidden");
-        } else if (button[i].textContent === "FDAE") {
-          document
-            .querySelectorAll(".section")[1]
-            .classList.remove("is-hidden");
-          for (
-            let i = 1;
+            let i = 0;
             i < document.querySelectorAll(".subtitle").length;
             i++
           ) {
@@ -140,12 +121,12 @@
           document
             .querySelectorAll(".subtitle")[4]
             .classList.remove("is-hidden");
-        } else if (button[i].textContent === "EEE") {
+        } else if (button[i].textContent === "FDAE") {
           document
             .querySelectorAll(".section")[1]
             .classList.remove("is-hidden");
           for (
-            let i = 1;
+            let i = 0;
             i < document.querySelectorAll(".subtitle").length;
             i++
           ) {
@@ -156,12 +137,12 @@
           document
             .querySelectorAll(".subtitle")[3]
             .classList.remove("is-hidden");
-        } else if (button[i].textContent === "CSE") {
+        } else if (button[i].textContent === "EEE") {
           document
             .querySelectorAll(".section")[1]
             .classList.remove("is-hidden");
           for (
-            let i = 1;
+            let i = 0;
             i < document.querySelectorAll(".subtitle").length;
             i++
           ) {
@@ -171,6 +152,22 @@
           }
           document
             .querySelectorAll(".subtitle")[2]
+            .classList.remove("is-hidden");
+        } else if (button[i].textContent === "CSE") {
+          document
+            .querySelectorAll(".section")[1]
+            .classList.remove("is-hidden");
+          for (
+            let i = 0;
+            i < document.querySelectorAll(".subtitle").length;
+            i++
+          ) {
+            document
+              .querySelectorAll(".subtitle")
+              [i].classList.add("is-hidden");
+          }
+          document
+            .querySelectorAll(".subtitle")[1]
             .classList.remove("is-hidden");
         }
       });

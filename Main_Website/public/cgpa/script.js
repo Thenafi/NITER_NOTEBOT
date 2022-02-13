@@ -25,39 +25,40 @@ function isodd(number) {
     return true;
   }
 }
+// hiding all setion function
+function hideSection() {
+  for (let i = 0; i < document.querySelectorAll(".subtitle").length; i++) {
+    document.querySelectorAll(".subtitle")[i].classList.add("is-hidden");
+  }
+}
+
+// making the fist section visiable
+function thirdsectionVisibler() {
+  document.querySelectorAll(".section")[1].classList.remove("is-hidden");
+}
 
 //activating deparmetn select
 for (let i = 0; i < button.length; i++) {
   button[i].addEventListener("click", function () {
     if (button[i].textContent === "TEX") {
-      document.querySelectorAll(".section")[1].classList.remove("is-hidden");
-      for (let i = 0; i < document.querySelectorAll(".subtitle").length; i++) {
-        document.querySelectorAll(".subtitle")[i].classList.add("is-hidden");
-      }
+      thirdsectionVisibler();
+      hideSection();
       document.querySelectorAll(".subtitle")[0].classList.remove("is-hidden");
     } else if (button[i].textContent === "IPE") {
-      document.querySelectorAll(".section")[1].classList.remove("is-hidden");
-      for (let i = 0; i < document.querySelectorAll(".subtitle").length; i++) {
-        document.querySelectorAll(".subtitle")[i].classList.add("is-hidden");
-      }
+      thirdsectionVisibler();
+      hideSection();
       document.querySelectorAll(".subtitle")[4].classList.remove("is-hidden");
     } else if (button[i].textContent === "FDAE") {
-      document.querySelectorAll(".section")[1].classList.remove("is-hidden");
-      for (let i = 0; i < document.querySelectorAll(".subtitle").length; i++) {
-        document.querySelectorAll(".subtitle")[i].classList.add("is-hidden");
-      }
+      thirdsectionVisibler();
+      hideSection();
       document.querySelectorAll(".subtitle")[3].classList.remove("is-hidden");
     } else if (button[i].textContent === "EEE") {
-      document.querySelectorAll(".section")[1].classList.remove("is-hidden");
-      for (let i = 0; i < document.querySelectorAll(".subtitle").length; i++) {
-        document.querySelectorAll(".subtitle")[i].classList.add("is-hidden");
-      }
+      thirdsectionVisibler();
+      hideSection();
       document.querySelectorAll(".subtitle")[2].classList.remove("is-hidden");
     } else if (button[i].textContent === "CSE") {
-      document.querySelectorAll(".section")[1].classList.remove("is-hidden");
-      for (let i = 0; i < document.querySelectorAll(".subtitle").length; i++) {
-        document.querySelectorAll(".subtitle")[i].classList.add("is-hidden");
-      }
+      thirdsectionVisibler();
+      hideSection();
       document.querySelectorAll(".subtitle")[1].classList.remove("is-hidden");
     }
   });

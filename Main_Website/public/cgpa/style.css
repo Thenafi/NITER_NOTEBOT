@@ -22,6 +22,12 @@ p {
 .container {
   text-align: center;
 }
+.divCenter {
+  display: flex;
+  justify-content: center;
+  border: 2px;
+  text-align: center;
+}
 .calculationBtn {
   text-align: center;
   margin-top: 35px;
@@ -49,6 +55,7 @@ body > footer {
 .custom-select {
   position: relative;
   font-family: Arial;
+  margin: 5px:
 }
 
 .custom-select select {

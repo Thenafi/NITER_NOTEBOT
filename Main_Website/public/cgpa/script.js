@@ -25,6 +25,8 @@ function isodd(number) {
     return true;
   }
 }
+
+
 // hiding all hdiding all department
 function hideSection() {
   for (let i = 0; i < document.querySelectorAll(".subtitle").length; i++) {
@@ -100,8 +102,9 @@ function calculation_function() {
     }
   }
   cgpa = SPGA_Credit / totalSGPA;
+  var cg = parseFloat(cgpa).toFixed( 2 );
   console.log(SPGA_Credit);
-  document.getElementById("resultCGPA").innerHTML = `Your CGPA is ${cgpa}  `;
+  document.getElementById("resultCGPA").innerHTML = `Your CGPA is ${cg}  `;
 }
 
 //starting main calculation

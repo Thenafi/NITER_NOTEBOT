@@ -55,11 +55,12 @@ body > footer {
 .custom-select {
   position: relative;
   font-family: Arial;
-  margin: 5px:
+  margin: 5px;
 }
 
 .custom-select select {
   display: none; /*hide original SELECT element: */
+  
 }
 
 .select-selected {
@@ -123,9 +124,11 @@ body > footer {
 .custom-select2 {
   position: relative;
   font-family: Arial;
+  margin: 5px;
 }
 
 .custom-select2 select {
   display: none; /*hide original SELECT element: */
+  
 }
 

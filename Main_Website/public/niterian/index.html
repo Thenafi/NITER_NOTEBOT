@@ -3,9 +3,9 @@
    <head>
       <!-- Required meta tags -->
       <meta charset="utf-8">
-      <link rel="icon" href="https://i.ibb.co/gzC5K94/received-2119028734810944.png" type="image/gif" sizes="16x16">
+    <!-- head icon -->
+    <link rel="icon" href="https://i.ibb.co/gzC5K94/received-2119028734810944.png" type="image/gif" sizes="16x16"> 
       <title>NITER NOTEBOT </title>
-      
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
@@ -93,17 +93,18 @@
    <body>
       <h1>NITER Database</h1>
       <div class="buttonone">
-         <a href ="https://niternotebot.web.app"><button id="home" type="button" class="btn btn-outline-dark" >NITER NOTEBOT</button></a>
+         <a href ="../"><button id="home" type="button" class="btn btn-outline-dark" >NITER NOTEBOT</button></a>
       </div>
       <div class="paragraph">
+         <div>
          <p>
             From this phonebook you can get niterians contact information. So that incase of emergency this service can help.
             <br><br>
-            If there's any update or need to change any data, please contact us. <Button href="https://sites.google.com/view/contactniternotebot/home">Contact</button> 
-               <br><br>
+            If there's any update or need to change any data, please contact us.  <a href="../join"><Button >Contact</Button></a></div>
+               <br>
             At the right side (beside search bar) there is a menu bar option, it will allow you to find more information about the students.
           </p>
-      </div>
+         </div>
       
       <table
          id="table"
@@ -135,7 +136,7 @@
                <th data-field="Email" >Email</th>
                <th data-field="Current_Location" >Current_Location</th>
                <th data-field="ID" >ID</th>
-               <th data-field="Link" >Link</th>
+               <th data-field="Link" data-searchable="false">Link</th>
             </tr>
          </thead>
       </table>

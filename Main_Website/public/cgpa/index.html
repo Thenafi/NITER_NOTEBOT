@@ -8,6 +8,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
     />
+
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
@@ -48,11 +49,11 @@
     </section>
 
     <section class="section is-hidden">
-      <div class="container">
-        <div class="dropdown select">
+      <div class="container divCenter">
+        <div class="dropdown select dropdown_1">
           <div class="dropdown-trigger">
             <button
-              class="button is-centered"
+              class="button is-centered buttonCustom"
               aria-haspopup="true"
               aria-controls="dropdown-menu"
             >
@@ -64,113 +65,101 @@
           </div>
           <div class="dropdown-menu" id="dropdown-menu" role="menu">
             <div class="dropdown-content">
-              <a href="tex.html" class="dropdown-item">TEX</a>
-              <a href="tex.html" class="dropdown-item">IPE</a>
-              <a href="tex.html" class="dropdown-item">FDAE</a>
-              <a href="tex.html" class="dropdown-item">CSE</a>
-              <a href="tex.html" class="dropdown-item">EEE</a>
+              <a href="#" class="dropdown-item">Level 1</a>
+              <a href="#" class="dropdown-item">Level 2</a>
+              <a href="#" class="dropdown-item">Level 3</a>
+              <a href="#" class="dropdown-item">Level 4</a>
+            </div>
+          </div>
+        </div>
+        <div class="dropdown select dropdown_2">
+          <div class="dropdown-trigger">
+            <button
+              class="button is-centered"
+              aria-haspopup="true"
+              aria-controls="dropdown-menu"
+            >
+              <span>Select Term</span>
+              <span class="icon is-small">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </span>
+            </button>
+          </div>
+          <div class="dropdown-menu" id="dropdown-menu" role="menu">
+            <div class="dropdown-content">
+              <a href="tex.html" class="dropdown-item">Term 1</a>
+              <a href="tex.html" class="dropdown-item">Term 2</a>
             </div>
           </div>
         </div>
       </div>
+      <div>
+        <button id="start_calculation" class="button is-normal is-responsive">
+          Start Calculation
+        </button>
+      </div>
     </section>
-  </body>
-  <script>
-    const dropdownActivator = function () {
-      if (!dropdown1.classList.contains("is-active")) {
-        dropdown1.classList.add("is-active");
-      } else {
-        dropdown1.classList.remove("is-active");
-      }
-    };
-    const dropdown1 = document.querySelector(".dropdown");
-    dropdown1.addEventListener("click", dropdownActivator);
 
-    const button = document.querySelectorAll(".button");
-    for (let i = 0; i < button.length; i++) {
-      button[i].addEventListener("click", function () {
-        if (button[i].textContent === "TEX") {
-          document
-            .querySelectorAll(".section")[1]
-            .classList.remove("is-hidden");
-          for (
-            let i = 0;
-            i < document.querySelectorAll(".subtitle").length;
-            i++
-          ) {
-            document
-              .querySelectorAll(".subtitle")
-              [i].classList.add("is-hidden");
-          }
-          document
-            .querySelectorAll(".subtitle")[0]
-            .classList.remove("is-hidden");
-        } else if (button[i].textContent === "IPE") {
-          document
-            .querySelectorAll(".section")[1]
-            .classList.remove("is-hidden");
-          for (
-            let i = 0;
-            i < document.querySelectorAll(".subtitle").length;
-            i++
-          ) {
-            document
-              .querySelectorAll(".subtitle")
-              [i].classList.add("is-hidden");
-          }
-          document
-            .querySelectorAll(".subtitle")[4]
-            .classList.remove("is-hidden");
-        } else if (button[i].textContent === "FDAE") {
-          document
-            .querySelectorAll(".section")[1]
-            .classList.remove("is-hidden");
-          for (
-            let i = 0;
-            i < document.querySelectorAll(".subtitle").length;
-            i++
-          ) {
-            document
-              .querySelectorAll(".subtitle")
-              [i].classList.add("is-hidden");
-          }
-          document
-            .querySelectorAll(".subtitle")[3]
-            .classList.remove("is-hidden");
-        } else if (button[i].textContent === "EEE") {
-          document
-            .querySelectorAll(".section")[1]
-            .classList.remove("is-hidden");
-          for (
-            let i = 0;
-            i < document.querySelectorAll(".subtitle").length;
-            i++
-          ) {
-            document
-              .querySelectorAll(".subtitle")
-              [i].classList.add("is-hidden");
-          }
-          document
-            .querySelectorAll(".subtitle")[2]
-            .classList.remove("is-hidden");
-        } else if (button[i].textContent === "CSE") {
-          document
-            .querySelectorAll(".section")[1]
-            .classList.remove("is-hidden");
-          for (
-            let i = 0;
-            i < document.querySelectorAll(".subtitle").length;
-            i++
-          ) {
-            document
-              .querySelectorAll(".subtitle")
-              [i].classList.add("is-hidden");
-          }
-          document
-            .querySelectorAll(".subtitle")[1]
-            .classList.remove("is-hidden");
-        }
-      });
-    }
-  </script>
+    <section id="sectionCalc" class="calculation is-hidden">
+      <div  class="table-container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Semister</th>
+              <th>Total Credit</th>
+              <th>SGPA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class ="T0">
+              <td>S1</td>
+              <td><input id="credit_input"  class="input is-small is-hovered"value="20"></input></td>
+              <td><input id="cgpa_input"class="input is-small is-hovered"value=""></input></td>
+
+            </tr>
+            <tr class ="T1 ">
+              <td>S2</td>
+              <td><input id="credit_input" class="input is-small is-hovered"value="21"></input></td>
+              <td><input id="cgpa_input" class="input is-small is-hovered"value=""></input></td>
+
+            </tr>
+            <tr class ="T2 ">
+              <td>S3</td>
+              <td><input id="credit_input" class="input is-small is-hovered"value="22"></input></td>
+              <td><input id="cgpa_input"class="input is-small is-hovered"value=""></input></td>
+
+            </tr>
+            <tr class ="T3 ">
+              <td>S4</td>
+              <td><input id="credit_input"  class="input is-small is-hovered"value="23"></input></td>
+              <td><input id="cgpa_input" class="input is-small is-hovered"value=""></input></td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <button id="calculate_cgpa" class="button is-success is-responsive">
+          Calculate CGPA 
+        </button>
+      </div>
+    </section>
+
+    <section id="result" class="">
+      <div class="box">
+        
+      </div>
+      <article class="message is-warning">
+        <div class="message-header">
+          <p>Your  CGPA</p>
+          <button class="delete" aria-label="delete"></button>
+        </div>
+        <div class="message-body">
+<strong id ="resultCGPA">Tumi tw CGPA calculation korla na </strong>
+        </div>
+      </article>
+    </section>
+
+  </body>
+  <script src="script.js"></script>
 </html>

@@ -102,6 +102,7 @@ body > footer {
 .select-items {
   position: absolute;
   background-color: #dbfffa;
+  border-radius: 5px;
   top: 100%;
   left: 0;
   right: 0;

@@ -35,7 +35,7 @@ function hideSection() {
 
 // making the fist section visiable
 function thirdsectionVisibler() {
-  document.querySelectorAll(".section")[1].classList.toggle("is-hidden");
+  document.querySelectorAll(".section")[1].classList.remove("is-hidden");
 }
 
 //activating deparmetn select
@@ -64,19 +64,6 @@ for (let i = 0; i < button.length; i++) {
     }
   });
 }
-
-//activating both dropdown
-// dropdown1.addEventListener("click", function () {
-//   dropdown1.classList.toggle("is-active");
-// });
-
-// dropdown2.addEventListener("click", function () {
-//   if (dropdown1.classList.contains("is-active")) {
-//     window.alert("Select Level First");
-//   } else {
-//     dropdown2.classList.toggle("is-active");
-//   }
-// });
 
 //showing cgpa calculation section
 startCalc.addEventListener("click", function () {

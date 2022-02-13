@@ -37,7 +37,6 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 3px solid green;
 }
 .buttonCustom {
   margin-left: 20px;

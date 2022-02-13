@@ -25,7 +25,7 @@ function isodd(number) {
     return true;
   }
 }
-// hiding all setion function
+// hiding all hdiding all department
 function hideSection() {
   for (let i = 0; i < document.querySelectorAll(".subtitle").length; i++) {
     document.querySelectorAll(".subtitle")[i].classList.add("is-hidden");

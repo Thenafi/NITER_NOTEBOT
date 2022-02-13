@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NITER NOTEBOT</title>
+    <!-- head icon -->
+    <link rel="icon" href="https://i.ibb.co/gzC5K94/received-2119028734810944.png" type="image/gif" sizes="16x16"> 
+    <title>CGPA Calculator</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
@@ -87,27 +89,28 @@
           </div>
           <div class="dropdown-menu" id="dropdown-menu" role="menu">
             <div class="dropdown-content">
-              <a href="tex.html" class="dropdown-item">Term 1</a>
-              <a href="tex.html" class="dropdown-item">Term 2</a>
+              <a href="#" class="dropdown-item">Term 1</a>
+              <a href="#" class="dropdown-item">Term 2</a>
             </div>
           </div>
         </div>
       </div>
-      <div>
-        <button id="start_calculation" class="button is-normal is-responsive">
-          Start Calculation
-        </button>
-      </div>
+        <div class="calculationBtn">
+          <button id="start_calculation" class="button is-normal is-responsive ">
+            Start Calculation
+          </button>
+        </div>
     </section>
 
     <section id="sectionCalc" class="calculation is-hidden">
+      <div class="packet">
       <div  class="table-container">
-        <table class="table">
+        <table class="table is-hoverable is-fullwidth">
           <thead>
             <tr>
               <th>Semister</th>
               <th>Total Credit</th>
-              <th>SGPA</th>
+              <th>CGPA</th>
             </tr>
           </thead>
           <tbody>
@@ -143,9 +146,10 @@
           Calculate CGPA 
         </button>
       </div>
+    </div>
     </section>
 
-    <section id="result" class="">
+    <section id="result" class="finalResult">
       <div class="box">
         
       </div>

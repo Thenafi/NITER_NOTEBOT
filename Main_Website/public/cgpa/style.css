@@ -13,6 +13,13 @@ p {
   font-size: 14px;
   color: #333333;
 }
+.container {
+  text-align: center;
+}
+.calculationBtn {
+  text-align: center;
+  margin-top: 35px;
+}
 .dep {
   color: #000000;
   text-align: center;
@@ -34,4 +41,16 @@ p {
 }
 .buttonCustom {
   margin-left: 20px;
+}
+.dropdown_1 {
+  margin-right: 20px;
+}
+.dropdown_2 {
+  margin-left: 20px;
+}
+.packet {
+  text-align: center;
+}
+.finalResult {
+  text-align: center;
 }

@@ -17,7 +17,7 @@
     />
     <link rel="stylesheet" href="./style.css" />
   </head>
-  <body>
+  <body class="main">
     <section class="section">
       <div class="container">
         <h1 class="title">NITER NOTEBOT</h1>
@@ -196,17 +196,22 @@
         </div>
       </div>
     </section>
-    <div class="box"></div>
-    <section id="result" class="finalResult">
-      <div class="message is-warning">
-        <div class="message-header">
-          <p>Your CGPA</p>
+    <footer>
+      <section id="result" class="finalResult">
+        <div class="box">
+          <div class="message is-warning">
+            <div class="message-header">
+              <p>Your CGPA</p>
+            </div>
+            <div class="message-body">
+              <strong id="resultCGPA"
+                >Tumi tw CGPA calculation korla na
+              </strong>
+            </div>
+          </div>
         </div>
-        <div class="message-body">
-          <strong id="resultCGPA">Tumi tw CGPA calculation korla na </strong>
-        </div>
-      </div>
-    </section>
+      </section>
+    </footer>
   </body>
   <script src="script.js"></script>
 </html>

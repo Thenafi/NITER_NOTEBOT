@@ -56,8 +56,8 @@ body > footer {
 }
 
 .select-selected {
-  background-color: #dbfffa;
-  border-radius: 5px;
+  background-color: #fff;
+  
 }
 
 /* Style the arrow inside the select element: */
@@ -83,9 +83,11 @@ body > footer {
 .select-selected {
   color: #00947e;
   padding: 8px 16px;
-  border: 1px solid transparent;
-  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  border: 1px solid;
+  border-color: #00947e;
   cursor: pointer;
+  border-radius: 5px;
+  
 }
 
 /* Style items (options): */
@@ -107,3 +109,16 @@ body > footer {
 .same-as-selected {
   background-color: rgba(0, 0, 0, 0.1);
 }
+
+
+
+
+.custom-select2 {
+  position: relative;
+  font-family: Arial;
+}
+
+.custom-select2 select {
+  display: none; /*hide original SELECT element: */
+}
+

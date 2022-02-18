@@ -1,25 +1,13 @@
-import re
 import json
-import time
 from random import randrange
 from unicodedata import name
 from selenium import webdriver
-from airbnb import Api
 from urllib.parse import urlparse
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support import expected_conditions as EC
 
 
-
-
-
 driver = webdriver.Chrome(ChromeDriverManager().install())
-
 
 
 driver.get("http://niter.edu.bd/index.php/academic/faculties")
@@ -27,68 +15,84 @@ driver.get("http://niter.edu.bd/index.php/academic/faculties")
 
 urls = []
 data = []
+numberClean = []
 
-url_elements  = driver.find_elements_by_xpath('//div[@class="sprocket-grids-b-content overlay-mode overlay-mode-update"]/a[@href]')
+url_elements = driver.find_elements_by_xpath(
+    '//div[@class="sprocket-grids-b-content overlay-mode overlay-mode-update"]/a[@href]')
 
 
-for  i in url_elements :
+for i in url_elements:
     urls.append(i.get_attribute("href"))
 
-print (len(urls))
+print(len(urls))
 
 for url in urls:
-    try: 
+    try:
         driver.get(url)
-        driver.find_element_by_xpath('//*[@id="t3-content"]/div/article/section/table')
+        driver.find_element_by_xpath(
+            '//*[@id="t3-content"]/div/article/section/table')
         try:
             driver.get(url)
-            driver.find_element_by_xpath('//*[@id="t3-content"]/div/article/section/table')
+            driver.find_element_by_xpath(
+                '//*[@id="t3-content"]/div/article/section/table')
         except:
             try:
                 driver.get(url)
-                driver.find_element_by_xpath('//*[@id="t3-content"]/div/article/section/table')
+                driver.find_element_by_xpath(
+                    '//*[@id="t3-content"]/div/article/section/table')
             except:
                 pass
     except:
         continue
 
-    # here we are searching for name 
+    # here we are searching for name
     try:
         try:
-            namee = driver.find_element_by_xpath('//table/tbody/tr[2]//p/span[@style="color: #000000; font-size: 18pt;"]').text
+            namee = driver.find_element_by_xpath(
+                '//table/tbody/tr[2]//p/span[@style="color: #000000; font-size: 18pt;"]').text
         except:
             try:
-                namee = driver.find_element_by_xpath('//table/tbody/tr[2]//p/span[@style="font-size: 18pt; color: #000000;"]').text
+                namee = driver.find_element_by_xpath(
+                    '//table/tbody/tr[2]//p/span[@style="font-size: 18pt; color: #000000;"]').text
             except:
-                try: 
-                    namee = driver.find_element_by_xpath('//table/tbody/tr[2]//p//span[@style="font-size: 18pt;"]').text
+                try:
+                    namee = driver.find_element_by_xpath(
+                        '//table/tbody/tr[2]//p//span[@style="font-size: 18pt;"]').text
                 except:
-                    namee = driver.find_element_by_xpath('//*[@id="t3-content"]/div/article/header/h1/a').text
+                    namee = driver.find_element_by_xpath(
+                        '//*[@id="t3-content"]/div/article/header/h1/a').text
 
-    except:     
-        namee  = "No Name"
+    except:
+        namee = "No Name"
 
     # finding number
-    number = driver.find_element_by_xpath ('//td//*[contains(text(),"1")]/ancestor::td').text.split(", ")
-    
-    
+    number = driver.find_element_by_xpath(
+        '//td//*[contains(text(),"1")]/ancestor::td').text.split(", ")
+    for i in number:
+        x = i.replace("(", "")
+        x = x.replace(" ", "")
+        x = x.replace(")", "")
 
-    #finding email
-    email = driver.find_element_by_xpath ('//td//*[contains(text(),"@")]/ancestor::td').text.split(", ")
-    if email[0].find("\n" ) >1 :
-        print 
-        email = driver.find_element_by_xpath ('//td//*[contains(text(),"@")]/ancestor::td').text.split("\n")
-        
+        x = x.replace("-", "")
+
+        numberClean.append(x)
+
+    # finding email
+    email = driver.find_element_by_xpath(
+        '//td//*[contains(text(),"@")]/ancestor::td').text.split(", ")
+    if email[0].find("\n") > 1:
+        email = driver.find_element_by_xpath(
+            '//td//*[contains(text(),"@")]/ancestor::td').text.split("\n")
 
     teacher = {
         "url ": url,
-        "name" : namee,
-        "number" : number,
-        "email" : email
+        "name": namee,
+        "number": numberClean,
+        "email": email
 
     }
     data.append(teacher)
-    print (teacher)
+    print(teacher)
 driver.quit()
 
 jsonString = json.dumps(data)

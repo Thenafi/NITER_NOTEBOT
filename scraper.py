@@ -15,7 +15,7 @@ driver.get("http://niter.edu.bd/index.php/academic/faculties")
 
 urls = []
 data = []
-numberClean = []
+
 
 url_elements = driver.find_elements_by_xpath(
     '//div[@class="sprocket-grids-b-content overlay-mode overlay-mode-update"]/a[@href]')
@@ -27,6 +27,7 @@ for i in url_elements:
 print(len(urls))
 
 for url in urls:
+    numberClean = []
     try:
         driver.get(url)
         driver.find_element_by_xpath(
@@ -72,7 +73,6 @@ for url in urls:
         x = i.replace("(", "")
         x = x.replace(" ", "")
         x = x.replace(")", "")
-
         x = x.replace("-", "")
 
         numberClean.append(x)

@@ -75,7 +75,8 @@ for url in urls:
 
     #finding email
     email = driver.find_element_by_xpath ('//td//*[contains(text(),"@")]/ancestor::td').text.split(", ")
-    if email[0].find("\n"):
+    if email[0].find("\n" ) >1 :
+        print 
         email = driver.find_element_by_xpath ('//td//*[contains(text(),"@")]/ancestor::td').text.split("\n")
         
 

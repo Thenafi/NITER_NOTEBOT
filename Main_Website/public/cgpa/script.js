@@ -35,7 +35,7 @@ function hideSection() {
 
 // making the fist section visiable
 function thirdsectionVisibler() {
-  document.querySelectorAll(".section")[1].classList.remove("is-hidden");
+  document.querySelectorAll(".section")[1].classList.toggle("is-hidden");
 }
 
 //activating deparmetn select
@@ -64,6 +64,19 @@ for (let i = 0; i < button.length; i++) {
     }
   });
 }
+
+//activating both dropdown
+// dropdown1.addEventListener("click", function () {
+//   dropdown1.classList.toggle("is-active");
+// });
+
+// dropdown2.addEventListener("click", function () {
+//   if (dropdown1.classList.contains("is-active")) {
+//     window.alert("Select Level First");
+//   } else {
+//     dropdown2.classList.toggle("is-active");
+//   }
+// });
 
 //showing cgpa calculation section
 startCalc.addEventListener("click", function () {
@@ -181,11 +194,6 @@ function closeAllSelect(elmnt) {
 /* If the user clicks anywhere outside the select box,
 then close all select boxes: */
 document.addEventListener("click", closeAllSelect);
-
-
-
-
-
 
 var x, i, j, l, ll, selElmnt, a, b, c;
 /* Look for any elements with the class "custom-select": */

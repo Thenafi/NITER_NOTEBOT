@@ -15,6 +15,13 @@ const resultBOX = document.getElementById("result"); // result box
 
 const tableArray = ["DEPT", 0];
 
+//semister credit
+const tex = [19, 20, 20, 20.5, 20, 20, 22, 22.5, 22.5];
+const ipe = [1, 20, 20, 20.5, 20, 20, 22, 22.5, 22.5];
+const cse = [2, 20, 20, 20.5, 20, 20, 22, 22.5, 22.5];
+const eee = [3, 20, 20, 20.5, 20, 20, 22, 22.5, 22.5];
+const fdae = [4, 20, 20, 20.5, 20, 20, 22, 22.5, 22.5];
+
 //odd even checker for later
 function isodd(number) {
   if (number % 2 == 0) {
@@ -319,7 +326,26 @@ startCalc.addEventListener("click", function () {
   if (isLevelSelected()) {
     sectionCalc.classList.remove("is-hidden");
     tableArrayCreator();
-    console.log(tableArray);
+
+    //table value updater according to department
+    let tempIndex = 0; // just to get the values from the tex array
+    for (const [index, input] of inputSelction.entries()) {
+      if (!isodd(index)) {
+        if (tableArray[0] === "TEX") {
+          input.value = tex[tempIndex];
+        } else if (tableArray[0] === "IPE") {
+          input.value = ipe[tempIndex];
+        } else if (tableArray[0] === "CSE") {
+          input.value = cse[tempIndex];
+        } else if (tableArray[0] === "EEE") {
+          input.value = eee[tempIndex];
+        } else if (tableArray[0] === "FDAE") {
+          input.value = fdae[tempIndex];
+        }
+
+        tempIndex++;
+      }
+    }
   } else {
     alert("Please Select Level and Term");
   }

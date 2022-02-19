@@ -11,52 +11,59 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <section class="section">
-      <div class="container">
-        <h1 class="title">NITER NOTEBOT</h1>
-        <p class="subtitle">CGPA Calculator</p>
-        <p class="subtitle">
-          Department Of Fashion Design & Apparel Engineering
-        </p>
-      </div>
-    </section>
-    <section class="section">
-      <div class="dropdown select">
-        <div class="dropdown-trigger">
-          <button
-            class="button"
-            aria-haspopup="true"
-            aria-controls="dropdown-menu"
-          >
-            <span>Select Your Department</span>
-            <span class="icon is-small">
-              <i class="fas fa-angle-down" aria-hidden="true"></i>
-            </span>
-          </button>
-        </div>
-        <div class="dropdown-menu" id="dropdown-menu" role="menu">
-          <div class="dropdown-content">
-            <a href="tex.html" class="dropdown-item">TEX</a>
-            <a class="dropdown-item">IPE</a>
-            <a href="#" class="dropdown-item">FDAE</a>
-            <a href="#" class="dropdown-item">CSE</a>
-            <a href="#" class="dropdown-item">EEE</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div class="table-container">
+      <table class="table is-hoverable is-fullwidth">
+        <thead>
+          <tr>
+            <th>Semister</th>
+            <th>Total Credit</th>
+            <th>CGPA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="T0">
+            <td>S1</td>
+            <td><input class="input is-small is-hovered" value="" /></td>
+            <td><input class="input is-small is-hovered" value="" /></td>
+          </tr>
+          <tr class="T1">
+            <td>S2</td>
+            <td><input class="input is-small is-hovered" value="" /></td>
+            <td><input class="input is-small is-hovered" value="" /></td>
+          </tr>
+          <tr class="T2">
+            <td>S3</td>
+            <td><input class="input is-small is-hovered" value="" /></td>
+            <td><input class="input is-small is-hovered" value="" /></td>
+          </tr>
+          <tr class="T3">
+            <td>S4</td>
+            <td><input class="input is-small is-hovered" value="" /></td>
+            <td><input class="input is-small is-hovered" value="" /></td>
+          </tr>
+          <tr class="T4">
+            <td>S5</td>
+            <td><input class="input is-small is-hovered" value="" /></td>
+            <td><input class="input is-small is-hovered" value="" /></td>
+          </tr>
+          <tr class="T5">
+            <td>S6</td>
+            <td><input class="input is-small is-hovered" value="" /></td>
+            <td><input class="input is-small is-hovered" value="" /></td>
+          </tr>
+          <tr class="T6">
+            <td>S7</td>
+            <td><input class="input is-small is-hovered" value="" /></td>
+            <td><input class="input is-small is-hovered" value="" /></td>
+          </tr>
+          <tr class="T7">
+            <td>S8</td>
+            <td><input class="input is-small is-hovered" value="" /></td>
+            <td><input class="input is-small is-hovered" value="" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </body>
 
-  <script>
-    const dropdownActivator = function () {
-      if (!dropdown1.classList.contains("is-active")) {
-        dropdown1.classList.add("is-active");
-      } else {
-        dropdown1.classList.remove("is-active");
-      }
-    };
-
-    const dropdown1 = document.querySelector(".dropdown");
-    dropdown1.addEventListener("click", dropdownActivator);
-  </script>
-</html>
+  </html>

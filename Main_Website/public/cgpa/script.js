@@ -13,15 +13,13 @@ const inputSelctionCredit = document.querySelectorAll("#credit_input"); // selec
 const inputSelctionCGPA = document.querySelectorAll("#cgpa_input"); // selecting cgpa input box
 const resultBOX = document.getElementById("result"); // result box
 
+const tableArray = ["DEPT", 0];
+
 //odd even checker for later
 function isodd(number) {
-  //check if the number is even
   if (number % 2 == 0) {
     return false;
-  }
-
-  // if the number is odd
-  else {
+  } else {
     return true;
   }
 }
@@ -35,7 +33,7 @@ function hideSection() {
 
 // making the fist section visiable
 function thirdsectionVisibler() {
-  document.querySelectorAll(".section")[1].classList.toggle("is-hidden");
+  document.querySelectorAll(".section")[1].classList.remove("is-hidden");
 }
 
 //activating deparmetn select
@@ -44,44 +42,31 @@ for (let i = 0; i < button.length; i++) {
     if (button[i].textContent === "TEX") {
       thirdsectionVisibler();
       hideSection();
+      tableArray[0] = "TEX";
       document.querySelectorAll(".subtitle")[0].classList.remove("is-hidden");
     } else if (button[i].textContent === "IPE") {
       thirdsectionVisibler();
       hideSection();
+      tableArray[0] = "IPE";
       document.querySelectorAll(".subtitle")[4].classList.remove("is-hidden");
     } else if (button[i].textContent === "FDAE") {
       thirdsectionVisibler();
       hideSection();
+      tableArray[0] = "FDAE";
       document.querySelectorAll(".subtitle")[3].classList.remove("is-hidden");
     } else if (button[i].textContent === "EEE") {
       thirdsectionVisibler();
       hideSection();
+      tableArray[0] = "EEE";
       document.querySelectorAll(".subtitle")[2].classList.remove("is-hidden");
     } else if (button[i].textContent === "CSE") {
       thirdsectionVisibler();
       hideSection();
+      tableArray[0] = "CSE";
       document.querySelectorAll(".subtitle")[1].classList.remove("is-hidden");
     }
   });
 }
-
-//activating both dropdown
-// dropdown1.addEventListener("click", function () {
-//   dropdown1.classList.toggle("is-active");
-// });
-
-// dropdown2.addEventListener("click", function () {
-//   if (dropdown1.classList.contains("is-active")) {
-//     window.alert("Select Level First");
-//   } else {
-//     dropdown2.classList.toggle("is-active");
-//   }
-// });
-
-//showing cgpa calculation section
-startCalc.addEventListener("click", function () {
-  sectionCalc.classList.remove("is-hidden");
-});
 
 //calculation function
 function calculation_function() {
@@ -106,9 +91,7 @@ function calculation_function() {
   document.getElementById("resultCGPA").innerHTML = `Your CGPA is ${cg}  `;
 }
 
-//starting main calculation
-calcCGPA.addEventListener("click", calculation_function);
-
+// custom dropdown menu-------------------------------
 var x, i, j, l, ll, selElmnt, a, b, c;
 /* Look for any elements with the class "custom-select": */
 x = document.getElementsByClassName("custom-select");
@@ -131,7 +114,7 @@ for (i = 0; i < l; i++) {
     c.innerHTML = selElmnt.options[j].innerHTML;
     c.addEventListener("click", function (e) {
       /* When an item is clicked, update the original select box,
-        and the selected item: */
+      and the selected item: */
       var y, i, k, s, h, sl, yl;
       s = this.parentNode.parentNode.getElementsByTagName("select")[0];
       sl = s.length;
@@ -217,7 +200,7 @@ for (i = 0; i < l; i++) {
     c.innerHTML = selElmnt.options[j].innerHTML;
     c.addEventListener("click", function (e) {
       /* When an item is clicked, update the original select box,
-        and the selected item: */
+      and the selected item: */
       var y, i, k, s, h, sl, yl;
       s = this.parentNode.parentNode.getElementsByTagName("select")[0];
       sl = s.length;
@@ -280,3 +263,67 @@ function closeAllSelect(elmnt) {
 /* If the user clicks anywhere outside the select box,
 then close all select boxes: */
 document.addEventListener("click", closeAllSelect);
+
+const levelSelector = document.querySelectorAll(".select-selected")[0]; // selects the level element
+const termSelector = document.querySelectorAll(".select-selected")[1]; // selects the term element
+// ei duita selecteor ekhane karon eder class gula uporer javascript diya toiri hoie
+// custom dropdown menu created-------------------------------------------------------
+
+/* making function to select level first then level and then calculation***
+ checking if both are selected or not and returning true or false based on that */
+
+const isLevelSelected = function () {
+  if (
+    levelSelector.textContent !== "Select Level:" &&
+    termSelector.textContent !== "Select Term:"
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+// function to generate identifire Array for table creator
+let level = 0;
+let term = 0;
+
+const tableArrayCreator = function () {
+  // level
+  if (levelSelector.textContent === "Level 1") {
+    level = 1;
+  } else if (levelSelector.textContent === "Level 2") {
+    level = 2;
+  } else if (levelSelector.textContent === "Level 3") {
+    level = 3;
+  } else if (levelSelector.textContent === "Level 4") {
+    level = 4;
+  }
+  //term
+  if (termSelector.textContent === "Term 1") {
+    term = 1;
+  } else if (termSelector.textContent === "Term 2") {
+    term = 2;
+  }
+  let mimi;
+  if (term === 1) {
+    mimi = level * 2 - 1;
+  } else {
+    mimi = level * term;
+  }
+
+  tableArray[1] = mimi;
+};
+
+//showing cgpa calculation section based on level and term selected or not
+startCalc.addEventListener("click", function () {
+  if (isLevelSelected()) {
+    sectionCalc.classList.remove("is-hidden");
+    tableArrayCreator();
+    console.log(tableArray);
+  } else {
+    alert("Please Select Level and Term");
+  }
+});
+
+//starting main calculation
+calcCGPA.addEventListener("click", calculation_function);

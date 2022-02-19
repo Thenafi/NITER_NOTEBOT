@@ -119,6 +119,10 @@ body > footer {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+.test {
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
 
 
 
@@ -132,4 +136,5 @@ body > footer {
   display: none; /*hide original SELECT element: */
   
 }
+
 

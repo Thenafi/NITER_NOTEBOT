@@ -136,5 +136,22 @@ body > footer {
   display: none; /*hide original SELECT element: */
   
 }
-
-
+.out-hd{
+  background-color: #ffe08a;
+  color: rgba(0,0,0,.7);
+  align-items: center;
+  border-radius: 4px 4px 0 0;
+  font-weight: 700;
+  justify-content: space-between;
+  line-height: 1.25;
+  padding: 0.75em 1em;
+  position: relative;
+}
+.out-body{
+  border-color: #fffaec;
+  background-color: #fffaec;
+  color: #946c00;
+  padding: 1.25em 1.5em;
+  border-radius: 4px;
+  border-style: solid;
+}

@@ -342,7 +342,7 @@ startCalc.addEventListener("click", function () {
     let tempIndex = 0; // an index to get and update the values from the dept array
     //adding values in credit
     for (const [index, credit] of inputSelctionCredit.entries()) {
-      console.log(credit.value);
+      credit.value = "";
       if (index <= tableArray[1] - 1) {
         if (tableArray[0] === "TEX") {
           credit.value = tex[tempIndex];
@@ -357,7 +357,6 @@ startCalc.addEventListener("click", function () {
         }
         tempIndex++;
       }
-      console.log(credit.value);
     }
   } else {
     alert("Please Select Level and Term");

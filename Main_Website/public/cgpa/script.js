@@ -9,10 +9,14 @@ const startCalc = document.getElementById("start_calculation");
 const sectionCalc = document.getElementById("sectionCalc");
 const calcCGPA = document.getElementById("calculate_cgpa");
 const inputSelction = document.querySelectorAll(".input"); // selecting all input box
-const inputSelctionCredit = document.querySelectorAll("#credit_input"); // selecting credit input box
-const inputSelctionCGPA = document.querySelectorAll("#cgpa_input"); // selecting cgpa input box
+const inputSelctionCredit = document.querySelectorAll("#inputCredit"); // selecting credit input box
+const inputSelctionCGPA = document.querySelectorAll("#inputCgpa"); // selecting cgpa input box
 const resultBOX = document.getElementById("result"); // result box
+const tableRow = document.querySelectorAll(".Tr"); // selecting a table row
 
+//ei tablearray multo kaje lage hocche kon department ar kun semister et
+//cgap calculatopn hobe eitar info hold kore
+//farther down the script we update the value according to script
 const tableArray = ["DEPT", 0];
 
 //semister credit
@@ -295,7 +299,7 @@ let level = 0;
 let term = 0;
 
 const tableArrayCreator = function () {
-  // level
+  // level er value update kortesi selcetion using
   if (levelSelector.textContent === "Level 1") {
     level = 1;
   } else if (levelSelector.textContent === "Level 2") {
@@ -305,46 +309,55 @@ const tableArrayCreator = function () {
   } else if (levelSelector.textContent === "Level 4") {
     level = 4;
   }
-  //term
+  //same for the term
   if (termSelector.textContent === "Term 1") {
     term = 1;
   } else if (termSelector.textContent === "Term 2") {
     term = 2;
   }
-  let mimi;
+  // tablearray er semeister number update kortesi based on level and term selection
   if (term === 1) {
-    mimi = level * 2 - 1;
+    tableArray[1] = level * 2 - 1;
   } else {
-    mimi = level * term;
+    tableArray[1] = level * term;
   }
 
-  tableArray[1] = mimi;
+  //tablearay updated usng the level and term
 };
 
-//showing cgpa calculation section based on level and term selected or not
+//showing tbale calculation section based on level and term selected or not
 startCalc.addEventListener("click", function () {
   if (isLevelSelected()) {
     sectionCalc.classList.remove("is-hidden");
     tableArrayCreator();
 
-    //table value updater according to department
-    let tempIndex = 0; // just to get the values from the tex array
-    for (const [index, input] of inputSelction.entries()) {
-      if (!isodd(index)) {
-        if (tableArray[0] === "TEX") {
-          input.value = tex[tempIndex];
-        } else if (tableArray[0] === "IPE") {
-          input.value = ipe[tempIndex];
-        } else if (tableArray[0] === "CSE") {
-          input.value = cse[tempIndex];
-        } else if (tableArray[0] === "EEE") {
-          input.value = eee[tempIndex];
-        } else if (tableArray[0] === "FDAE") {
-          input.value = fdae[tempIndex];
-        }
+    // for loop that show specific number of table  row by removing the is hidden tag
+    for (const [ind, row] of tableRow.entries()) {
+      row.classList.add("is-hidden");
+      if (ind <= tableArray[1] - 1) {
+        row.classList.remove("is-hidden");
+      }
+    }
 
+    let tempIndex = 0; // an index to get and update the values from the dept array
+    //adding values in credit
+    for (const [index, credit] of inputSelctionCredit.entries()) {
+      console.log(credit.value);
+      if (index <= tableArray[1] - 1) {
+        if (tableArray[0] === "TEX") {
+          credit.value = tex[tempIndex];
+        } else if (tableArray[0] === "IPE") {
+          credit.value = ipe[tempIndex];
+        } else if (tableArray[0] === "CSE") {
+          credit.value = cse[tempIndex];
+        } else if (tableArray[0] === "EEE") {
+          credit.value = eee[tempIndex];
+        } else if (tableArray[0] === "FDAE") {
+          credit.value = fdae[tempIndex];
+        }
         tempIndex++;
       }
+      console.log(credit.value);
     }
   } else {
     alert("Please Select Level and Term");

@@ -18,31 +18,42 @@ data = []
 
 
 url_elements = driver.find_elements_by_xpath(
-    '//div[@class="sprocket-grids-b-content overlay-mode overlay-mode-update"]/a[@href]')
+    '//div[@class="sprocket-grids-b-content overlay-mode overlay-mode-update"]/a[@href]'
+)
 
 
 for i in url_elements:
     urls.append(i.get_attribute("href"))
 
 print(len(urls))
+for url in urls:
+    print(url)
+
 
 for url in urls:
     numberClean = []
     try:
         driver.get(url)
-        driver.find_element_by_xpath(
-            '//*[@id="t3-content"]/div/article/section/table')
+        driver.find_element_by_xpath('//*[@id="t3-content"]/div/article/section/table')
         try:
             driver.get(url)
             driver.find_element_by_xpath(
-                '//*[@id="t3-content"]/div/article/section/table')
+                '//*[@id="t3-content"]/div/article/section/table'
+            )
         except:
             try:
                 driver.get(url)
                 driver.find_element_by_xpath(
-                    '//*[@id="t3-content"]/div/article/section/table')
+                    '//*[@id="t3-content"]/div/article/section/table'
+                )
             except:
-                pass
+                try:
+                    driver.get(url)
+                    driver.find_element_by_xpath(
+                        '//*[@id="t3-content"]/div/article/section/table'
+                    )
+                except:
+                    continue
     except:
         continue
 
@@ -50,25 +61,30 @@ for url in urls:
     try:
         try:
             namee = driver.find_element_by_xpath(
-                '//table/tbody/tr[2]//p/span[@style="color: #000000; font-size: 18pt;"]').text
+                '//table/tbody/tr[2]//p/span[@style="color: #000000; font-size: 18pt;"]'
+            ).text
         except:
             try:
                 namee = driver.find_element_by_xpath(
-                    '//table/tbody/tr[2]//p/span[@style="font-size: 18pt; color: #000000;"]').text
+                    '//table/tbody/tr[2]//p/span[@style="font-size: 18pt; color: #000000;"]'
+                ).text
             except:
                 try:
                     namee = driver.find_element_by_xpath(
-                        '//table/tbody/tr[2]//p//span[@style="font-size: 18pt;"]').text
+                        '//table/tbody/tr[2]//p//span[@style="font-size: 18pt;"]'
+                    ).text
                 except:
                     namee = driver.find_element_by_xpath(
-                        '//*[@id="t3-content"]/div/article/header/h1/a').text
+                        '//*[@id="t3-content"]/div/article/header/h1/a'
+                    ).text
 
     except:
         namee = "No Name"
 
     # finding number
     number = driver.find_element_by_xpath(
-        '//td//*[contains(text(),"1")]/ancestor::td').text.split(", ")
+        '//td//*[contains(text(),"1")]/ancestor::td'
+    ).text.split(", ")
     for i in number:
         x = i.replace("(", "")
         x = x.replace(" ", "")
@@ -79,18 +95,14 @@ for url in urls:
 
     # finding email
     email = driver.find_element_by_xpath(
-        '//td//*[contains(text(),"@")]/ancestor::td').text.split(", ")
+        '//td//*[contains(text(),"@")]/ancestor::td'
+    ).text.split(", ")
     if email[0].find("\n") > 1:
         email = driver.find_element_by_xpath(
-            '//td//*[contains(text(),"@")]/ancestor::td').text.split("\n")
+            '//td//*[contains(text(),"@")]/ancestor::td'
+        ).text.split("\n")
 
-    teacher = {
-        "url ": url,
-        "name": namee,
-        "number": numberClean,
-        "email": email
-
-    }
+    teacher = {"url ": url, "name": namee, "number": numberClean, "email": email}
     data.append(teacher)
     print(teacher)
 driver.quit()

@@ -1,97 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-    <meta charset="utf-8">
-    <meta name="theme-color" content="#4edbd4" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <meta name="description" content="An educational platform, NITERNOTEBOT. A NoteBot Service: Provides Notes and Questions to Students of NITER Creator: Sazzadur Rahman Sadib, Mahmodul Haque">
+  <head>
+    <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="UTF-8" />
+    <title>NITER NOTEBOT</title>
+    <meta name="description" content="Free Study Materials for niterian" />
+    <meta
+      name="keywords"
+      content="Niter, Niterian, Question, Routine, Notes, CoverPage, CV, Notebot, Niter Notebot"
+    />
+    <meta name="author" content="Niter Notebot" />
 
-    <!-- head icon -->
-    <link rel="icon" href="./logo.svg" type="image/gif" sizes="16x16">
-    <title>NITER NOTEBOT </title>
+    <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" defer >
-    <link rel="stylesheet" href="./style.css">
-</head>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./style.css" />
 
-<body>
-    <div class="night">
-        <!-- Content before waves -->
-        <div class="inner-header flex">
-            <!-- main logo -->
-            <img class="logo" src="logo.svg" alt="Niter NoteBot">
-            <h1>NITER NOTEBOT</h1>
+    <!-- Favicon -->
+    <link rel="icon" href="./Ntblogo.png" sizes="16x16" />
+  </head>
+  <body>
+    <!-- Layout div -->
+    <div class="wrapper">
+      <!-- Logo and Title of Notebot -->
+      <div class="title">
+        <img src="./logo.svg" alt="NITER NOTEBOT" />
+        <h1>NITER NOTEBOT</h1>
+      </div>
+
+      <!-- Buttons to to navigate features of Notebot -->
+      <div class="btn">
+        <!-- Buttons for first row -->
+        <div class="btnrow">
+          <a href="https://niternotebot.chest.workers.dev/" class="button"
+            >Notes</a
+          >
+          <a
+            href="https://drive.google.com/drive/folders/1R7Wr7MbxlEHXQfjBLTcsk9m1TZjXdjLb"
+            class="button"
+            >Questions</a
+          >
         </div>
-        <section>
-            <div id="tiger">
-                <a id="btn" href="https://niternotebot.chest.workers.dev/" class="btn btn-outline-light" role="button"
-                    aria-pressed="true">Notes</a>
-                <a id="dog" href="https://drive.google.com/drive/folders/1R7Wr7MbxlEHXQfjBLTcsk9m1TZjXdjLb"
-                    class="btn btn-outline-light" role="button" aria-pressed="true">Questions</a>
-                <br>
-                <a href="./cover" class=" niter btn btn-outline-light disabled" role="button" aria-pressed="true" aria-disabled="true">Cover
-                    Maker</a>
 
+        <!-- Buttons for second row -->
+        <div class="btnrow">
+          <a href="./cover" class="button">Cover Maker</a>
+          <a href="https://www.jobseeker.com/app" class="button">CV Maker</a>
+        </div>
 
-                <button type="button" class="hall btn btn-outline-light " data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    PhoneBook
-                </button>
-                <div class="dropdown-menu dropdown-menu-">
-                    <a class="dropdown-item" href="./niterian">Niterian</a>
-                    </br>
-                    <a class="dropdown-item" href="./teachers">Teachers</a>
+        <!-- Buttons for third row -->
+        <div class="btnrow">
+          <a href="./niterian" class="button">Niterian List</a>
+          <a href="./teachers" class="button">Teachers List</a>
+        </div>
 
-                </div>
-                <br>
-                <a href="https://drive.google.com/drive/folders/1-vLBb30D0_Z1bSEFOxH8y3ius1xSrZ-i"
-                    class="niter btn btn-outline-light disabled" role="button" aria-pressed="true" aria-disabled="true" >Routine</a>
+        <!-- Buttons for fourth row -->
+        <div class="btnrow">
+          <a
+            href="https://docs.google.com/forms/d/1QScbhYVbZ7Vd3WOEfkBZoRcb0Y4JQYof8TubXy5Ubec/edit?usp=drivesdk"
+            class="button"
+            >Submit Notes</a
+          >
+          <a href="./join" class="button">Join us</a>
+        </div>
+      </div>
 
-                <a href="https://www.boredbutton.com/" class="hall btn btn-outline-light" role="button"
-                    aria-pressed="true">Fun</a>
-                <br>
-                <a
-                    href="https://docs.google.com/forms/d/1QScbhYVbZ7Vd3WOEfkBZoRcb0Y4JQYof8TubXy5Ubec/edit?usp=drivesdk"
-                    class="niter btn btn-outline-light" role="button" aria-pressed="true">Submit Note</a>
-                <a href="./join" class="hall btn btn-outline-light" role="button" aria-pressed="true">Join Us</a>
-            </div>
-            <!--Waves Container-->
-            <div>
-                <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                    <defs>
-                        <path id="gentle-wave"
-                            d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-                    </defs>
-                    <g class="parallax">
-                        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(0,157,196,0.7" />
-                        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-                        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-                        <use xlink:href="#gentle-wave" x="48" y="7" fill="#d0efff" />
-                    </g>
-                </svg>
-            </div>
-            <!--Waves end-->
+      <!-- Waves Container-->
+      <div>
+        <svg
+          class="waves"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 24 150 28"
+          preserveAspectRatio="none"
+          shape-rendering="auto"
+        >
+          <defs>
+            <path
+              id="gentle-wave"
+              d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+            />
+          </defs>
+          <g class="parallax">
+            <use
+              xlink:href="#gentle-wave"
+              x="48"
+              y="0"
+              fill="rgba(0,157,196,0.7"
+            />
+            <use
+              xlink:href="#gentle-wave"
+              x="48"
+              y="3"
+              fill="rgba(255,255,255,0.5)"
+            />
+            <use
+              xlink:href="#gentle-wave"
+              x="48"
+              y="5"
+              fill="rgba(255,255,255,0.3)"
+            />
+            <use xlink:href="#gentle-wave" x="48" y="7" fill="#d0efff" />
+          </g>
+        </svg>
+      </div>
+      <!-- Waves end-->
     </div>
-</body>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MNHSBWGL98"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-MNHSBWGL98');
-</script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-
+  </body>
 </html>

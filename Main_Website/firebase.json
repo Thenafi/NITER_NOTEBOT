@@ -1,14 +1,20 @@
 {
-  "hosting": {
-    "site": "niternotebot",
-    "public": "public",
-    
-"appAssociation": "AUTO",
-"rewrites": [ { "source": "/beep/**", "dynamicLinks": true } ],
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ]
-  }
+  "hosting": [
+    {
+      "site": "niternote-bot",
+      "public": "public",
+
+      "appAssociation": "AUTO",
+      "rewrites": [{ "source": "/beep/**", "dynamicLinks": true }],
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+    },
+    {
+      "site": "niternotebot",
+      "public": "public",
+
+      "appAssociation": "AUTO",
+      "rewrites": [{ "source": "/beep/**", "dynamicLinks": true }],
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+    }
+  ]
 }

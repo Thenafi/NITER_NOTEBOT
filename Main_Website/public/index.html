@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="./style.css" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
   </head>
   <body>
     <!-- Layout div -->
@@ -54,7 +54,7 @@
         <!-- Buttons for third row -->
         <div class="btnrow">
           <a href="./niterian" class="button">Niterian List</a>
-          <a href="./teachers" class="button">Teachers List</a>
+          <a onclick="teacher()" class="button">Teachers List</a>
         </div>
 
         <!-- Buttons for fourth row -->
@@ -110,4 +110,24 @@
       <!-- Waves end-->
     </div>
   </body>
+  <script>
+    let data 
+    function fetchHtml() {
+      fetch("./teachers/index.html")
+        .then((response) => {
+          return response.text();
+        })
+        .then((html) => {
+
+          data = html;
+        });
+    }
+    fetchHtml()
+    function teacher() {
+      document.write(data);
+      
+      // history.pushState(data, 'PhoneBook', '/teachers/index.html');
+    }
+    
+  </script>
 </html>

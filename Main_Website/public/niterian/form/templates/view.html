@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- HTML Meta Tags -->
+    <title>NITER NOTEBOT</title>
+    <meta name="description" content="Educational Platform" />
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://niternotebot.herokuapp.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="NITER NOTEBOT" />
+    <meta property="og:description" content="Educational Platform" />
+    <meta
+      property="og:image"
+      content="https://cdn.statically.io/og/Data Entry NITERNOTEBOT.jpg"
+    />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="niternotebot.herokuapp.com" />
+    <meta
+      property="twitter:url"
+      content="https://niternotebot.herokuapp.com/"
+    />
+    <meta name="twitter:title" content="NITER NOTEBOT" />
+    <meta name="twitter:description" content="Educational Platform" />
+    <meta
+      name="twitter:image"
+      content="https://cdn.statically.io/og/Data Entry NITERNOTEBOT.jpg"
+    />
+
+    <title>NITER NOTEBOT</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
+      body {
+        font-size: 16px;
+        color: #404040;
+        font-family: sans-serif;
+        background-image: linear-gradient(
+          to bottom right,
+          #c4f2f0 0% 65%,
+          #8cedfc 95% 100%
+        );
+        background-position: center;
+        background-attachment: fixed;
+        margin: 0;
+        padding: 0.5rem 0 0;
+        display: grid;
+        place-items: center;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+      .card {
+        background-color: #fff;
+        max-width: 360px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        border-radius: 2rem;
+        box-shadow: 0px 1rem 1.5rem rgba(0, 0, 0, 0.2);
+        width: 90%;
+        height: 28rem;
+      }
+      .card .banner {
+        background-image: url("https://singlecolorimage.com/get/ededed/1000x1000");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 11rem;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        box-sizing: border-box;
+      }
+      .card .banner svg {
+        background-color: #fff;
+        width: 8rem;
+        height: 8rem;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+        border-radius: 50%;
+        transform: translateY(50%);
+        transition: transform 200ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
+      }
+      .card .banner svg:hover {
+        transform: translateY(50%) scale(1.3);
+      }
+      .card h2.name {
+        text-align: center;
+        padding: 1rem 2rem 1rem;
+        margin: 0;
+      }
+      .card .title {
+        color: #a0a0a0;
+        font-size: 1rem;
+        text-align: center;
+        padding: 0 2rem 1.2rem;
+      }
+      .card .desc {
+        text-align: justify;
+        padding: 0 2rem 2.5rem;
+        order: 100;
+      }
+      .loader {
+        border: 16px solid #f3f3f3; /* Light grey */
+        border-top: 16px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      .card h2.name.skeleton {
+        min-height: 27px;
+        margin: 10px;
+        border-radius: 4px;
+      }
+      .card .banner.skeleton {
+        width: 100px;
+        height: 100px;
+
+        border-radius: 4px;
+      }
+      .card .title.skeleton {
+        margin: 10px;
+        border-radius: 4px;
+      }
+      .card .desc.skeleton {
+        margin: 10px;
+        min-height: 72px;
+        border-radius: 4px;
+      }
+      .skeleton {
+        background-color: #e2e5e7;
+        background-image: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0.5),
+          rgba(255, 255, 255, 0)
+        );
+        background-size: 40px 100%;
+        background-repeat: no-repeat;
+        background-position: left -40px top 0;
+        animation: shine 1s ease infinite;
+      }
+      @keyframes shine {
+        to {
+          background-position: right -40px top 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <p>Under Development</p>
+    <input
+    id="myTextInputID"
+    name="search"
+    class="input"
+    type="text"
+    placeholder="Search by ID"
+  />
+  <br>
+  <button onclick="getData()" id="searchButton">search</button>
+  <br>
+
+    <div id="card" class="card">
+      <div class="banner">
+        <img id="initial_image" width="100" height="100" />
+      </div>
+      <div id="catLaughed">
+        <h2 class="name">---</h2>
+        <div class="title">---</div>
+        <div class="desc">
+          --- <br />
+          --- <br />
+          --- <br />
+          --- <br />
+        </div>
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      const genRand = (len) => {
+        return Math.random()
+          .toString(36)
+          .substring(2, len + 2);
+      };
+
+      const initial_image = document.getElementById("initial_image");
+      initial_image.setAttribute(
+        "src",
+        `https://avatars.dicebear.com/api/pixel-art/${genRand(5)}.svg`
+      );
+      const getData = function () {
+        let loader = `
+        <h2 class="name skeleton" ></h2>
+        <div class="title skeleton"></div>
+        <div class="desc skeleton">`;
+        document.getElementById("catLaughed").innerHTML = loader;
+        fetch("https://niternotebot.herokuapp.com/search/", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            id: document.getElementById("myTextInputID").value.toUpperCase(),
+          }),
+        })
+          .then((response) => response.json())
+          .then(function (data) {
+            let result;
+            if (data) {
+              result = `
+            <div class="card">
+            <div class="banner">
+              <img
+                src="https://avatars.dicebear.com/api/${
+                  data.gender === "M" ? "male" : "female"
+                }/${data.name.split(" ")[0]}.svg"
+                width="100"
+                height="100"
+              />
+            </div>
+            <div id="catLaughed">
+            <h2 class="name">${data.name}</h2>
+            <div class="title">${data.id}</div>
+            <div class="desc" id="catLaughed">
+                NITER ${data.batch}th Batch <br>
+                From ${data.htown} <br>
+            </div>
+          </div>
+          </div>
+      `;
+              console.log(result);
+            } else {
+              result = `
+              
+              <div id="card" class="card">
+      <div class="banner">
+        <img
+          src="https://avatars.dicebear.com/api/pixel-art/nafi.svg"
+          width="100"
+          height="100"
+        />
+      </div>
+      <div id="catLaughed">
+        <h2 class="name" style ='color: red'> No Data Found</h2>
+        <div class="title"> --- </div>
+        <div class="desc">
+          Please Check the ID <br>
+          Or add new data. <br>
+        </div>
+      </div>
+      </div>
+              `;
+            }
+            document.getElementById("card").innerHTML = result;
+          });
+      };
+    </script>
+  </body>
+</html>

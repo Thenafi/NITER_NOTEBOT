@@ -55,10 +55,14 @@
         <div class="btnrow">
           <div class="dropdown">
             <a href="#" class="button">Niterian List</a>
-              <div class="dropdown-content">
-                <a href="./niterian/form/templates/form.html" style="text-align:left;">Add Data</a>
-                <a href="./niterian/form/templates/view.html" style="text-align:left;">Search Data</a>
-                <a href="./niterian/" style="text-align:left;">View Database</a>
+            <div class="dropdown-content">
+              <a href="./niterian/form/form.html" style="text-align: left"
+                >Add Data</a
+              >
+              <a href="./niterian/form/view.html" style="text-align: left"
+                >Search Data</a
+              >
+              <a href="./niterian/" style="text-align: left">View Database</a>
             </div>
           </div>
           <a onclick="teacher()" class="button">Teachers List</a>
@@ -118,23 +122,21 @@
     </div>
   </body>
   <script>
-    let data 
+    let data;
     function fetchHtml() {
       fetch("./teachers/index.html")
         .then((response) => {
           return response.text();
         })
         .then((html) => {
-
           data = html;
         });
     }
-    fetchHtml()
+    fetchHtml();
     function teacher() {
       document.write(data);
-      
+
       // history.pushState(data, 'PhoneBook', '/teachers/index.html');
     }
-    
   </script>
 </html>

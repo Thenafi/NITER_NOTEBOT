@@ -1,3 +1,7 @@
+fetch("https://niternotebot.herokuapp.com/");
+
+console.log("hello 💛, I am Nafi from 8th batch, a NITERian");
+
 const form = document.getElementById("form");
 const fname = document.getElementById("fname");
 const batch = document.getElementById("batch");
@@ -21,7 +25,30 @@ form.addEventListener("submit", (e) => {
   sec.value = sec.value.toUpperCase().trim();
   clg.value = clg.value.toUpperCase().trim();
   dept.value = dept.value.toUpperCase().trim();
-  checkInputs();
+  if (checkInputs()) {
+    new FormData(form);
+    document.getElementById("submit").innerHTML =
+      "<i class='fa fa-circle-o-notch fa-spin'> Submitting...";
+  } else {
+    console.log("error");
+  }
+});
+
+form.addEventListener("formdata", (e) => {
+  fetch("http://127.0.0.1:5000/entry_web/", {
+    method: "POST",
+    body: e.formData,
+  }).then((response) => {
+    if (response.ok) {
+      fetch("http://127.0.0.1:5000/mail/", {
+        method: "POST",
+        body: e.formData,
+      });
+      window.location.href = "./redirect.html";
+    } else {
+      console.log("error");
+    }
+  });
 });
 
 function checkInputs() {
@@ -117,10 +144,9 @@ function checkInputs() {
 
   if (bloodValue === "") {
     setErrorFor(blood, "Blood Group field cannot be blank");
-  }else if(bloodValue.length>3) {
-    setErrorFor(blood, "Lengthy than usual.")
-  }
-   else {
+  } else if (bloodValue.length > 3) {
+    setErrorFor(blood, "Lengthy than usual.");
+  } else {
     setSuccessFor(blood);
     bloodValue_state = true;
   }
@@ -171,9 +197,9 @@ function checkInputs() {
 
   if (linkValue === "") {
     setErrorFor(link, "Link field cannot be blank");
-  }else if (!isURL(linkValue)) {
-    setErrorFor(link, "Not a valid link");}
-   else {
+  } else if (!isURL(linkValue)) {
+    setErrorFor(link, "Not a valid link");
+  } else {
     setSuccessFor(link);
     linkValue_state = true;
   }
@@ -192,9 +218,10 @@ function checkInputs() {
     emailValue_state &&
     phoneValue_state === true
   ) {
-    form.submit();
+    return true;
   } else {
     console.log("Still Something is missing");
+    return false;
   }
 }
 
@@ -432,7 +459,6 @@ function autocomplete(inp, arr) {
   });
 }
 
-/*An array containing all the country names in the world:*/
 var countries = [
   "Dhaka",
   "Faridpur",
@@ -500,8 +526,7 @@ var countries = [
   "Satkhira",
 ];
 
-/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
-autocomplete(document.getElementById("htown"), countries);
-
 var bg = ["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"];
+
+autocomplete(document.getElementById("htown"), countries);
 autocomplete(document.getElementById("blood"), bg);

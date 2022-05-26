@@ -32,7 +32,11 @@
       name="twitter:image"
       content="https://cdn.statically.io/og/Data Entry NITERNOTEBOT.jpg"
     />
-    <link rel="stylesheet" href="./style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
     <title>Niterian Data Entry Form</title>
   </head>
 
@@ -46,13 +50,6 @@
           Date : {{date}} <br />
           TimeZone : Asia/Dhaka
         </h6>
-
-        <!-- Warning error message -->
-        {% for message in get_flashed_messages() %}
-        <article class="message is-danger">
-          <div class="message-body">{{ message}}</div>
-        </article>
-        {% endfor %}
       </div>
 
       <!-- form start -->
@@ -65,7 +62,7 @@
             placeholder="Your Fullname"
             id="fname"
             name="fname"
-            value="{{ request.form['fname'] }}"
+            value
           />
           <small>Error message</small>
         </div>
@@ -80,7 +77,7 @@
             placeholder="eg: TE-1808015"
             id="clid"
             name="clid"
-            value="{{ request.form['clid'] }}"
+            value
           />
           <small>Error message</small>
         </div>
@@ -94,7 +91,7 @@
             placeholder="Your Batch Number"
             id="batch"
             name="batch"
-            value="{{ request.form['batch'] }}"
+            value
           />
           <small>Error message</small>
         </div>
@@ -108,7 +105,7 @@
             placeholder="Department Name"
             id="dept"
             name="dept"
-            value="{{ request.form['dept'] }}"
+            value
           />
           <small>Error message</small>
         </div>
@@ -125,7 +122,7 @@
             placeholder="only A/B/C "
             id="sec"
             name="section"
-            value="{{ request.form['section'] }}"
+            value
           />
           <small>Error message</small>
         </div>
@@ -168,7 +165,7 @@
             placeholder="Your Blood Group eg: A+"
             id="blood"
             name="blood"
-            value="{{ request.form['blood'] }}"
+            value
           />
 
           <small>Error message</small>
@@ -182,7 +179,7 @@
             placeholder="Your College Name"
             id="clg"
             name="clg"
-            value="{{ request.form['clg'] }}"
+            value
           />
           <small>Error message</small>
         </div>
@@ -195,7 +192,7 @@
             placeholder="District Name only"
             id="htown"
             name="htown"
-            value="{{ request.form['htown'] }}"
+            value
           />
           <small>Error message</small>
         </div>
@@ -208,7 +205,7 @@
             placeholder="Format 01723111111"
             name="phone"
             id="phone"
-            value="{{ request.form['phone'] }}"
+            value
           />
           <small>Error message</small>
         </div>
@@ -221,7 +218,7 @@
             placeholder="eg: florin@pop.com"
             id="email"
             name="email"
-            value="{{ request.form['email'] }}"
+            value
           />
           <small>Error message</small>
         </div>
@@ -233,12 +230,12 @@
             placeholder="Facebook/Linkedin profile link"
             id="link"
             name="link"
-            value="{{ request.form['link'] }}"
+            value
           />
           <small>Error message</small>
         </div>
 
-        <button type="submit">Submit</button>
+        <button id="submit" type="submit">Submit</button>
       </form>
       <details>
         <summary style="color: rgb(245, 75, 75)">Notes *</summary>
@@ -250,6 +247,6 @@
       </details>
     </div>
 
-    <script src="./main.js/"></script>
+    <script src="index.js"></script>
   </body>
 </html>

@@ -35,12 +35,12 @@ form.addEventListener("submit", (e) => {
 });
 
 form.addEventListener("formdata", (e) => {
-  fetch("http://127.0.0.1:5000/entry_web/", {
+  fetch("https://niternotebot.herokuapp.com/entry_web/", {
     method: "POST",
     body: e.formData,
   }).then((response) => {
     if (response.ok) {
-      fetch("http://127.0.0.1:5000/mail/", {
+      fetch("https://niternotebot.herokuapp.com/mail/", {
         method: "POST",
         body: e.formData,
       });

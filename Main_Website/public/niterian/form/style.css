@@ -137,6 +137,29 @@ input[type="radio"]:checked ~ label {
   width: 100%;
 }
 
+.btnrow{
+  margin: 20px 0;
+}
+.button{
+  background-color: transparent;
+  border: 2px solid #8e44ad;
+  border-radius: 4px;
+  color: #8e44ad;
+  display: inline-block;
+  font-family: inherit;
+  font-size: 16px;
+  margin: 10px;
+  padding: 6px;
+
+  width: 40%;
+}
+.button:hover{
+  background-color: #8e44ad;
+  color: #fff;
+}
+a{
+  text-decoration: none;
+}
 /*the container must be positioned relative:*/
 .autocomplete {
   position: relative;

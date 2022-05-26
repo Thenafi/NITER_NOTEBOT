@@ -16,7 +16,7 @@ const htown = document.getElementById("htown");
 const link = document.getElementById("link");
 const email = document.getElementById("email");
 const phone = document.getElementById("phone");
-
+const submit = document.getElementById("submit");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   fname.value = fname.value.toUpperCase().trim();
@@ -27,8 +27,10 @@ form.addEventListener("submit", (e) => {
   dept.value = dept.value.toUpperCase().trim();
   if (checkInputs()) {
     new FormData(form);
-    document.getElementById("submit").innerHTML =
-      "<i class='fa fa-circle-o-notch fa-spin'> Submitting...";
+    submit.style.backgroundColor = "#8e44ad";
+    submit.style.border = "2px solid #8e44ad";
+    submit.innerHTML =
+      "<i class='fa fa-circle-o-notch fa-spin'> </i>Submitting...";
   } else {
     console.log("error");
   }
@@ -47,6 +49,11 @@ form.addEventListener("formdata", (e) => {
       window.location.href = "./redirect.html";
     } else {
       console.log("error");
+      submit.innerHTML = "Failed";
+      submit.style.backgroundColor = "red";
+      submit.style.border = "2px solid red";
+      submit.scrollIntoView();
+      setErrorFor(clid, "Sorry, this ID is already registered");
     }
   });
 });

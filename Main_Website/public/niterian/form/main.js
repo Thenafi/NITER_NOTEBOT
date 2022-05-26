@@ -52,8 +52,8 @@ form.addEventListener("formdata", (e) => {
       submit.innerHTML = "Failed";
       submit.style.backgroundColor = "red";
       submit.style.border = "2px solid red";
-      submit.scrollIntoView();
       setErrorFor(clid, "Sorry, this ID is already registered");
+      clid.scrollIntoView(true);
     }
   });
 });
@@ -223,6 +223,7 @@ function checkInputs() {
     htownValue_state &&
     linkValue_state &&
     emailValue_state &&
+    clgValue_state &&
     phoneValue_state === true
   ) {
     return true;

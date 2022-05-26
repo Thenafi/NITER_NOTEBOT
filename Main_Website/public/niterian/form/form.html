@@ -32,7 +32,7 @@
       name="twitter:image"
       content="https://cdn.statically.io/og/Data Entry NITERNOTEBOT.jpg"
     />
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css" />
     <title>Niterian Data Entry Form</title>
   </head>
 
@@ -47,12 +47,30 @@
           TimeZone : Asia/Dhaka
         </h6>
 
-        <!-- Warning error message -->
-        {% for message in get_flashed_messages() %}
-        <article class="message is-danger">
-          <div class="message-body">{{ message}}</div>
-        </article>
-        {% endfor %}
+        <div class="btnrow">
+          <a href="../../index.html" class="button">Back to Home</a>
+        </div>
+
+        <div>
+          <div style="color: rgb(245, 75, 75)">Notes *</div>
+          <ul style="text-align: left">
+            <li> ◘ Female student doesn't need to provide their phone number.</li>
+            <li> ◘ Every field must be filled with accurate information.</li>
+            <li>
+              If any bug found or suggestions please report to
+              <a href="mailto:nafio62346@gmail.com">Nafi</a> or
+              <a href="mailto:sadib400@gmail.com">Sadib</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <!-- Warning error message -->
+          {% for message in get_flashed_messages() %}
+          <article class="message is-danger">
+            <div class="message-body">{{ message}}</div>
+          </article>
+          {% endfor %}
+        </div>
       </div>
 
       <!-- form start -->
@@ -240,16 +258,8 @@
 
         <button type="submit">Submit</button>
       </form>
-      <details>
-        <summary style="color: rgb(245, 75, 75)">Notes *</summary>
-        <p>
-          If any bug found or suggestions please report to
-          <a href="mailto:nafio62346@gmail.com">Nafi</a> or
-          <a href="mailto:sadib400@gmail.com">Sadib</a>
-        </p>
-      </details>
     </div>
 
-    <script src="./main.js/"></script>
+    <script src="./main.js"></script>
   </body>
 </html>

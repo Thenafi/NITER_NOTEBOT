@@ -182,16 +182,6 @@
 
   <body>
     <p>Under Development</p>
-    <input
-      id="myTextInputID"
-      name="search"
-      class="input"
-      type="text"
-      placeholder="Search by ID"
-      style="text-align: center"
-    />
-    <br />
-    <button onclick="getData()" id="searchButton">search</button>
 
     <div id="card" class="card">
       <div class="banner">
@@ -211,8 +201,17 @@
     <br />
     <br />
     <br />
+    <input
+      autocomplete="off"
+      id="myTextInputID"
+      name="search"
+      class="input"
+      type="text"
+      placeholder="Search by ID"
+      style="text-align: center"
+    />
     <br />
-
+    <button onclick="getData()" id="searchButton">search</button>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
       const genRand = (len) => {

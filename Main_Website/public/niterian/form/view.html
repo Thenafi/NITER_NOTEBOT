@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
 
@@ -57,10 +57,20 @@
         box-sizing: border-box;
         overflow: auto;
       }
+
+      .searchbox {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        max-width: 360px;
+        width: 90%;
+      }
       .input {
         border-radius: 5px;
         padding: 10px;
         border: 1px solid #777;
+        display: block;
       }
       #searchButton {
         padding: 10px;
@@ -69,7 +79,9 @@
         width: 90px;
         background-color: #fff;
         box-shadow: 0px 1rem 1.5rem rgba(0, 0, 0, 0.1);
-        margin-bottom: 20px;
+      }
+      #searchButton:hover {
+        background-color: greenyellow;
       }
       .card {
         background-color: #fff;
@@ -82,6 +94,7 @@
         box-shadow: 0px 1rem 1.5rem rgba(0, 0, 0, 0.2);
         width: 90%;
         height: 25rem;
+        margin-bottom: 40px;
       }
       .card .banner {
         background-image: url("https://singlecolorimage.com/get/ededed/1000x1000");
@@ -121,7 +134,7 @@
         padding: 0 2rem 1.2rem;
       }
       .card .desc {
-        text-align: justify;
+        text-align: center;
         padding: 0 2rem 2.5rem;
         order: 100;
       }
@@ -201,20 +214,19 @@
         </div>
       </div>
     </div>
-    <br />
-    <br />
-    <br />
-    <input
-      autocomplete="off"
-      id="myTextInputID"
-      name="search"
-      class="input"
-      type="text"
-      placeholder="Search by ID"
-      style="text-align: center"
-    />
-    <br />
-    <button onclick="getData()" id="searchButton">search</button>
+    <div class="searchbox">
+      <input
+        autocomplete="off"
+        id="myTextInputID"
+        name="search"
+        class="input"
+        type="text"
+        placeholder="Search by ID"
+        style="text-align: center"
+      />
+
+      <button onclick="getData()" id="searchButton">search</button>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
       const genRand = (len) => {
@@ -281,8 +293,8 @@
         <h2 class="name" style ='color: red'> No Data Found</h2>
         <div class="title"> --- </div>
         <div class="desc">
-          Please Check the ID <br>
-          Or add new data. <br>
+          Please Check the ID <br><br>
+          Or <br><br> Add new data. <br>
         </div>
       </div>
               `;

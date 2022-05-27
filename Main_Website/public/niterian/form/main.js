@@ -29,8 +29,7 @@ form.addEventListener("submit", (e) => {
     new FormData(form);
     submit.style.backgroundColor = "#8e44ad";
     submit.style.border = "2px solid #8e44ad";
-    submit.innerHTML =
-      "<i class='fa fa-circle-o-notch fa-spin'> </i>Submitting...";
+    submit.innerHTML = "<center><div class='loader'></div><center>";
   } else {
     console.log("error");
   }
@@ -53,7 +52,10 @@ form.addEventListener("formdata", (e) => {
       submit.style.backgroundColor = "red";
       submit.style.border = "2px solid red";
       setErrorFor(clid, "Sorry, this ID is already registered");
-      clid.scrollIntoView(true);
+      //add delay
+      setTimeout(() => {
+        clid.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 175);
     }
   });
 });

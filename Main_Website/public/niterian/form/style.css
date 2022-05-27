@@ -133,14 +133,13 @@ input[type="radio"]:checked ~ label {
   font-family: inherit;
   font-size: 16px;
   padding: 10px;
-  margin-top: 20px;
   width: 100%;
 }
 
-.btnrow{
+.btnrow {
   margin: 20px 0;
 }
-.button{
+.button {
   background-color: transparent;
   border: 2px solid #8e44ad;
   border-radius: 4px;
@@ -153,11 +152,11 @@ input[type="radio"]:checked ~ label {
 
   width: 40%;
 }
-.button:hover{
+.button:hover {
   background-color: #8e44ad;
   color: #fff;
 }
-a{
+a {
   text-decoration: none;
 }
 /*the container must be positioned relative:*/
@@ -237,15 +236,31 @@ details[open] > summary::before {
 }
 
 /* submit button with loading animation */
-.buttonload {
-  border: none; /* Remove borders */
-  color: white; /* White text */
-  padding: 12px 24px; /* Some padding */
-  font-size: 16px; /* Set a font-size */
+.loader {
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  border-top: 2px solid #0099ff;
+  width: 20px;
+  height: 20px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
 }
 
-/* Add a right margin to each icon */
-.fa {
-  margin-left: -12px;
-  margin-right: 8px;
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

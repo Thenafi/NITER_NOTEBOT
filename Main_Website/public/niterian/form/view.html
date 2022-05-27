@@ -52,7 +52,21 @@
         display: grid;
         place-items: center;
         box-sizing: border-box;
-        overflow: hidden;
+        overflow: auto;
+      }
+      .input{
+        border-radius: 5px;
+        padding: 10px;
+        border: 1px solid #777;
+      }
+      #searchButton{
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        width: 90px;
+        background-color: #fff;
+        box-shadow: 0px 1rem 1.5rem rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
       }
       .card {
         background-color: #fff;
@@ -60,11 +74,11 @@
         display: flex;
         align-items: center;
         flex-direction: column;
-        overflow: hidden;
-        border-radius: 2rem;
+        overflow: none;
+        border-radius: 1.5rem;
         box-shadow: 0px 1rem 1.5rem rgba(0, 0, 0, 0.2);
         width: 90%;
-        height: 28rem;
+        height: 25rem;
       }
       .card .banner {
         background-image: url("https://singlecolorimage.com/get/ededed/1000x1000");
@@ -76,6 +90,8 @@
         display: flex;
         align-items: flex-end;
         justify-content: center;
+        border-top-left-radius: 1.5rem;
+        border-top-right-radius: 1.5rem;
         box-sizing: border-box;
       }
       .card .banner svg {
@@ -172,11 +188,12 @@
     class="input"
     type="text"
     placeholder="Search by ID"
+    style="text-align: center;"
   />
   <br>
   <button onclick="getData()" id="searchButton">search</button>
-  <br>
 
+  
     <div id="card" class="card">
       <div class="banner">
         <img id="initial_image" width="100" height="100" />

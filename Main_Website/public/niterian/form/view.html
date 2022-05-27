@@ -102,7 +102,7 @@
         background-repeat: no-repeat;
         background-size: cover;
         width: -webkit-fill-available;
-        height: 11rem;
+        height: 9rem;
         display: flex;
         align-items: flex-end;
         justify-content: center;
@@ -128,8 +128,9 @@
         margin: 0;
       }
       .card .title {
-        color: #a0a0a0;
+        color: #3300ff;
         font-size: 1rem;
+        font-weight: 700;
         text-align: center;
         padding: 0 2rem 1.2rem;
       }
@@ -240,6 +241,20 @@
         "src",
         `https://avatars.dicebear.com/api/pixel-art/${genRand(5)}.svg`
       );
+
+      let input = document.getElementById("myTextInputID");
+
+        // Execute a function when the user presses a key on the keyboard
+        input.addEventListener("keypress", function(event) {
+          // If the user presses the "Enter" key on the keyboard
+          if (event.key === "Enter") {
+            // Trigger the button element with a click
+            document.getElementById("searchButton").click();
+          }
+        });
+
+
+
       const getData = function () {
         let loader = `
         <h2 class="name skeleton" ></h2>

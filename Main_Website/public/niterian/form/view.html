@@ -57,12 +57,12 @@
         box-sizing: border-box;
         overflow: auto;
       }
-      .input{
+      .input {
         border-radius: 5px;
         padding: 10px;
         border: 1px solid #777;
       }
-      #searchButton{
+      #searchButton {
         padding: 10px;
         border: none;
         border-radius: 5px;
@@ -87,7 +87,7 @@
         background-image: url("https://singlecolorimage.com/get/ededed/1000x1000");
         background-position: center;
         background-repeat: no-repeat;
-        background-size: cover;        
+        background-size: cover;
         width: -webkit-fill-available;
         height: 11rem;
         display: flex;
@@ -186,22 +186,21 @@
   <body>
     <p>Under Development</p>
     <input
-    id="myTextInputID"
-    name="search"
-    class="input"
-    type="text"
-    placeholder="Search by ID"
-    style="text-align: center;"
-  />
-  <br>
-  <button onclick="getData()" id="searchButton">search</button>
+      id="myTextInputID"
+      name="search"
+      class="input"
+      type="text"
+      placeholder="Search by ID"
+      style="text-align: center"
+    />
+    <br />
+    <button onclick="getData()" id="searchButton">search</button>
 
-  
     <div id="card" class="card">
       <div class="banner">
         <img id="initial_image" width="100" height="100" />
       </div>
-      <div id="catLaughed">
+      <div id="catLaughed" style="height: 50%; width: 80%">
         <h2 class="name">---</h2>
         <div class="title">---</div>
         <div class="desc">
@@ -216,7 +215,6 @@
     <br />
     <br />
     <br />
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
@@ -252,7 +250,6 @@
             let result;
             if (data) {
               result = `
-            <div class="card">
             <div class="banner">
               <img
                 src="https://avatars.dicebear.com/api/${
@@ -262,7 +259,7 @@
                 height="100"
               />
             </div>
-            <div id="catLaughed">
+            <div id="catLaughed" style="height: 50%;width: 80%;">
             <h2 class="name">${data.name}</h2>
             <div class="title">${data.id}</div>
             <div class="desc" id="catLaughed">
@@ -270,13 +267,10 @@
                 From ${data.htown} <br>
             </div>
           </div>
-          </div>
       `;
               console.log(result);
             } else {
               result = `
-              
-              <div id="card" class="card">
       <div class="banner">
         <img
           src="https://avatars.dicebear.com/api/pixel-art/nafi.svg"
@@ -284,14 +278,13 @@
           height="100"
         />
       </div>
-      <div id="catLaughed">
+      <div id="catLaughed" style="height: 50%;width: 80%;">
         <h2 class="name" style ='color: red'> No Data Found</h2>
         <div class="title"> --- </div>
         <div class="desc">
           Please Check the ID <br>
           Or add new data. <br>
         </div>
-      </div>
       </div>
               `;
             }

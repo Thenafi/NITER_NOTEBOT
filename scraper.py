@@ -1,10 +1,6 @@
 import json
-from random import randrange
-from unicodedata import name
 from selenium import webdriver
-from urllib.parse import urlparse
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.support import expected_conditions as EC
 
 
 driver = webdriver.Chrome(ChromeDriverManager().install())

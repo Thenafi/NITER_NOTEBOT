@@ -56,16 +56,14 @@
           <div class="dropdown">
             <a href="#" class="button">Niterian List</a>
             <div class="dropdown-content">
-              <a href="./niterian/form/index.html" style="text-align: left"
-                >Add Data</a
-              >
+              <a href="./niterian/form/" style="text-align: left">Add Data</a>
               <a href="./niterian/form/view.html" style="text-align: left"
                 >Search Data</a
               >
               <a href="./niterian/" style="text-align: left">View Database</a>
             </div>
           </div>
-          <a onclick="teacher()" class="button">Teachers List</a>
+          <a href="./teachers/" class="button">Teachers List</a>
         </div>
 
         <!-- Buttons for fourth row -->
@@ -122,19 +120,6 @@
     </div>
   </body>
   <script>
-    let data;
-    fetch("https://f000.backblazeb2.com/file/ShareX2022/random/style.css");
-    fetch("./teachers/index.html")
-      .then((response) => {
-        return response.text();
-      })
-      .then((html) => {
-        data = html;
-      });
-    function teacher() {
-      document.write(data);
-
-      // history.pushState(data, 'PhoneBook', '/teachers/index.html');
-    }
+    fetch("https://niternotebot.herokuapp.com");
   </script>
 </html>

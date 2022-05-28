@@ -6,7 +6,12 @@
 }
 
 body {
-  background-color: #ebfffc !important;
+  background: linear-gradient(
+          43deg,
+          rgba(53, 161, 239, 1) 36%,
+          rgba(78, 219, 212, 1) 100%
+        );
+  /* background-color: #ebfffc !important; */
   font-family: "Open Sans", sans-serif;
   display: flex;
   align-items: center;
@@ -29,12 +34,40 @@ body {
 .header {
   border-bottom: 1px solid #f0f0f0;
   background-color: #f7f7f7;
-  padding: 20px 40px;
+  padding: 20px 0px;
   text-align: center;
+  display: flex;
+  flex-direction: column; 
 }
 
 .header h2 {
+  padding: 0 40px;
   margin: 0;
+}
+.header h6{
+  margin: 20px 0 0 0;
+}
+
+.button{
+  background-color: transparent;
+  border: 2px solid #8e44ad;
+  border-radius: 4px;
+  color: #8e44ad;
+  display: inline-block;
+  font-family: inherit;
+  font-size: 16px;
+  margin: 10px;
+  padding: 6px;
+
+  width: 40%;
+}
+.button:hover{
+  background-color: #8e44ad;
+  color: #fff;
+}
+
+.button a{
+  text-decoration: none;
 }
 
 .is-danger {
@@ -84,6 +117,10 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+}
+
+ul{
+  padding-inline-end: 40px;
 }
 
 ul li {
@@ -137,13 +174,13 @@ input[type="radio"]:checked ~ label {
 }
 
 .btnrow {
-  margin: 20px 0;
+  margin: 10px 0;
 }
 .button {
   background-color: transparent;
-  border: 2px solid #8e44ad;
+  border: 2px solid #0099ff;
   border-radius: 4px;
-  color: #8e44ad;
+  color: #0099ff;
   display: inline-block;
   font-family: inherit;
   font-size: 16px;
@@ -153,7 +190,7 @@ input[type="radio"]:checked ~ label {
   width: 40%;
 }
 .button:hover {
-  background-color: #8e44ad;
+  background-color: #0099ff;
   color: #fff;
 }
 a {
@@ -217,24 +254,8 @@ input[type="submit"] {
 }
 
 details {
-  padding: 20px;
+  padding: 0;
 }
-details > summary {
-  list-style-type: none;
-}
-
-details > summary::-webkit-details-marker {
-  display: none;
-}
-
-details > summary::before {
-  content: "– ";
-}
-
-details[open] > summary::before {
-  content: "¬ ";
-}
-
 /* submit button with loading animation */
 .loader {
   border: 2px solid #ffffff;

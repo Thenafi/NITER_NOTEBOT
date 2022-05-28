@@ -43,57 +43,37 @@
         font-size: 16px;
         color: #404040;
         font-family: sans-serif;
-        background-image: linear-gradient(
+        background: linear-gradient(
+          43deg,
+          rgba(53, 161, 239, 1) 36%,
+          rgba(78, 219, 212, 1) 100%
+        );
+
+        /* background-image: linear-gradient(
           to bottom right,
           #c4f2f0 0% 65%,
           #8cedfc 95% 100%
-        );
+        ); */
         background-position: center;
         background-attachment: fixed;
-        margin: 0;
-        padding: 0.5rem 0 0;
+        margin-top: 2rem;
         display: grid;
         place-items: center;
         box-sizing: border-box;
-        overflow: auto;
+        overflow: none;
       }
 
-      .searchbox {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-
-        max-width: 360px;
-        width: 90%;
-      }
-      .input {
-        border-radius: 5px;
-        padding: 10px;
-        border: 1px solid #777;
-        display: block;
-      }
-      #searchButton {
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        width: 90px;
-        background-color: #fff;
-        box-shadow: 0px 1rem 1.5rem rgba(0, 0, 0, 0.1);
-      }
-      #searchButton:hover {
-        background-color: greenyellow;
-      }
       .card {
         background-color: #fff;
         max-width: 360px;
-        display: flex;
+        display: none;
         align-items: center;
         flex-direction: column;
         overflow: none;
         border-radius: 1.5rem;
         box-shadow: 0px 1rem 1.5rem rgba(0, 0, 0, 0.2);
         width: 90%;
-        height: 25rem;
+        height: 28rem;
         margin-bottom: 40px;
       }
       .card .banner {
@@ -124,8 +104,10 @@
       }
       .card h2.name {
         text-align: center;
-        padding: 1rem 2rem 1rem;
         margin: 0;
+      }
+      .card .detl{
+        margin-top: 30px;
       }
       .card .title {
         color: #3300ff;
@@ -136,8 +118,12 @@
       }
       .card .desc {
         text-align: center;
-        padding: 0 2rem 2.5rem;
         order: 100;
+      }
+      
+      .lnk{
+        text-decoration: none;
+        color:rgb(117, 189, 8);
       }
       .loader {
         border: 16px solid #f3f3f3; /* Light grey */
@@ -194,17 +180,59 @@
           background-position: right -40px top 0;
         }
       }
+
+      
+      .searchbox {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        max-width: 360px;
+        width: 90%;
+        margin-top: 150px;
+      }
+      .input {
+        border-radius: 5px;
+        padding: 10px;
+        border: 1px solid #777;
+        display: block;
+      }
+      #searchButton {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        width: 90px;
+        background-color: #fff;
+        box-shadow: 0px 1rem 1.5rem rgba(0, 0, 0, 0.1);
+      }
+      
+      #searchButton:hover {
+        background-color: greenyellow;
+      }
+      .add{
+        padding: 20px;
+        border: #404040;
+        border-radius: 5px;
+        background-color: rgb(255, 255, 255);
+        color: #404040;
+        box-shadow: 0px 1rem 1.5rem rgba(0.1, 0.1, 0.1, 0.1);
+      }
+      .add a{
+        color: #404040;
+        text-decoration: none;
+      }
+      .add:hover{
+        background-color: #8cedfc;
+      }
     </style>
   </head>
 
+  <p class="disclaim" id="disclaim" style="text-align: center;"> Search Niterian by their ID or Name. ID format should be like "TE-1808151". Without using proper ID format you won't find any result.</p>
   <body>
-    <p>Under Development</p>
-
     <div id="card" class="card">
       <div class="banner">
         <img id="initial_image" width="100" height="100" />
       </div>
-      <div id="catLaughed" style="height: 50%; width: 80%">
+      <div id="catLaughed" style="height: 50%; width: 80%; margin-top: 30px;">
         <h2 class="name">---</h2>
         <div class="title">---</div>
         <div class="desc">
@@ -215,7 +243,7 @@
         </div>
       </div>
     </div>
-    <div class="searchbox">
+    <div class="searchbox" id="searchbox">
       <input
         autocomplete="off"
         id="myTextInputID"
@@ -256,6 +284,10 @@
 
 
       const getData = function () {
+        document.getElementById("card").style.display = "flex";
+        document.getElementById("searchbox").style.margin = "0";
+        document.getElementById("disclaim").style.display = "none";
+
         let loader = `
         <h2 class="name skeleton" ></h2>
         <div class="title skeleton"></div>
@@ -285,13 +317,18 @@
                 height="100"
               />
             </div>
-            <div id="catLaughed" style="height: 50%;width: 80%;">
+            <div id="catLaughed" class="detl" style="height: 50%;width: 80%; overflow: auto">
+             
             <h2 class="name">${data.name}</h2>
             <div class="title">${data.id}</div>
             <div class="desc" id="catLaughed">
                 NITER ${data.batch}th Batch <br>
                 From ${data.htown} <br>
-            </div>
+                Department of ${data.dept} <br><br>
+                Blood Group: ${data.blood} <br><br>
+                Email: <a href="mailto:${data.email}" class="lnk">${data.email}</a> <br><br>
+                Phone: <a href="tel:${data.phone}" class="lnk">${data.phone}</a>
+                </div>
           </div>
       `;
               console.log(result);
@@ -304,12 +341,15 @@
           height="100"
         />
       </div>
-      <div id="catLaughed" style="height: 50%;width: 80%;">
+      <div id="catLaughed" style="height: 50%;width: 80%; margin-top: 30px; overflow: none">
         <h2 class="name" style ='color: red'> No Data Found</h2>
         <div class="title"> --- </div>
         <div class="desc">
           Please Check the ID <br><br>
-          Or <br><br> Add new data. <br>
+          Or <br><br>
+          <button class="add"><a href="./index.html">Add New Data</a></button>
+          
+          
         </div>
       </div>
               `;

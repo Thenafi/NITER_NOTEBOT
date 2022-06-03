@@ -62,28 +62,25 @@
         box-sizing: border-box;
       }
 
-      .vugichugi{
+      #canvus {
         max-width: 360px;
-        display: block;
-        align-items: center;
-        flex-direction: column;
         width: 90%;
         margin-bottom: 40px;
-        
-        height: auto;
+        background-color: transparent;
       }
-
       .card {
         background-color: #fff;
-        
+        display: none;
+        align-items: center;
+        flex-direction: column;
+        padding: 10px;
+        height: auto;
         overflow: none;
         border-radius: 1.5rem;
         box-shadow: 0px 1rem 1.5rem rgba(0, 0, 0, 0.2);
-       
-        
       }
       .card .banner {
-        background-image: url("https://singlecolorimage.com/get/ededed/1000x1000");
+        background-color: aliceblue;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -250,24 +247,26 @@
       Search Niterian by their ID or Name. ID format should be like
       "TE-1808151". Without using proper ID format you won't find any result.
     </p>
-
-    <div class="vugichugi">
-    <div id="card" class="card">
-      <div class="banner">
-        <img id="initial_image" width="100" height="100" />
-      </div>
-      <div id="catLaughed" style="height: 50%; width: 80%; margin: 30px 0">
-        <h2 class="name">---</h2>
-        <div class="title">---</div>
-        <div class="desc">
-          --- <br />
-          --- <br />
-          --- <br />
-          --- <br />
+    <div id="canvus">
+      <div class="vugis" style="margin: 15px">
+        <div id="card" class="card">
+          <div class="banner">
+            <img id="initial_image" width="100" height="100" />
+          </div>
+          <div id="catLaughed" style="height: 50%; width: 80%; margin: 30px 0">
+            <h2 class="name">---</h2>
+            <div class="title">---</div>
+            <div class="desc">
+              --- <br />
+              --- <br />
+              --- <br />
+              --- <br />
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+
     <div class="searchbox" id="searchbox">
       <input
         autocomplete="off"
@@ -314,9 +313,9 @@
 
       const sharebtn = function () {
         document.getElementById("share").style.display = "none";
-        html2canvas(document.getElementById("card"), {
+        html2canvas(document.getElementById("canvus"), {
           useCORS: true,
-          backgroundColor: "#000",
+          backgroundColor: "#FFFCDC",
         }).then(function (canvas) {
           document.body.appendChild(canvas);
           document.getElementsByTagName("canvas")[0].style.display = "none";

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico" />
 
     <!-- HTML Meta Tags -->
     <title>NITER NOTEBOT</title>
@@ -60,7 +60,6 @@
         display: grid;
         place-items: center;
         box-sizing: border-box;
-        overflow: none;
       }
 
       .card {
@@ -73,7 +72,7 @@
         border-radius: 1.5rem;
         box-shadow: 0px 1rem 1.5rem rgba(0, 0, 0, 0.2);
         width: 90%;
-        height: 28rem;
+        height: auto;
         margin-bottom: 40px;
       }
       .card .banner {
@@ -106,8 +105,8 @@
         text-align: center;
         margin: 0;
       }
-      .card .detl{
-        margin-top: 30px;
+      .card .detl {
+        margin: 30px 0;
       }
       .card .title {
         color: #3300ff;
@@ -120,10 +119,10 @@
         text-align: center;
         order: 100;
       }
-      
-      .lnk{
+
+      .lnk {
         text-decoration: none;
-        color:rgb(117, 189, 8);
+        color: #777;
       }
       .loader {
         border: 16px solid #f3f3f3; /* Light grey */
@@ -181,7 +180,11 @@
         }
       }
 
-      
+      .smlicon {
+        width: 15px;
+        padding-right: 10px;
+      }
+
       .searchbox {
         display: flex;
         align-items: center;
@@ -204,35 +207,55 @@
         background-color: #fff;
         box-shadow: 0px 1rem 1.5rem rgba(0, 0, 0, 0.1);
       }
-      
+
       #searchButton:hover {
         background-color: greenyellow;
       }
-      .add{
-        padding: 20px;
-        border: #404040;
+
+      .add {
+        padding: 10px 20px;
+        border: 1px solid;
         border-radius: 5px;
         background-color: rgb(255, 255, 255);
         color: #404040;
-        box-shadow: 0px 1rem 1.5rem rgba(0.1, 0.1, 0.1, 0.1);
-      }
-      .add a{
-        color: #404040;
+        cursor: pointer;
         text-decoration: none;
       }
-      .add:hover{
-        background-color: #8cedfc;
+
+      .add:hover {
+        background-color: #0099ff;
+        color: #fff;
+      }
+
+      #more {
+        display: none;
+      }
+
+      #share {
+        margin: 20px auto 0;
+        display: block;
       }
     </style>
   </head>
 
-  <p class="disclaim" id="disclaim" style="text-align: center;"> Search Niterian by their ID or Name. ID format should be like "TE-1808151". Without using proper ID format you won't find any result.</p>
   <body>
+    <p class="disclaim" id="disclaim" style="text-align: center">
+      Search Niterian by their ID or Name. ID format should be like
+      "TE-1808151". Without using proper ID format you won't find any result.
+    </p>
+    <canvas
+      id="myCanvas"
+      width="200"
+      height="100"
+      style="border: 2px solid #000000"
+    >
+    </canvas>
+
     <div id="card" class="card">
       <div class="banner">
         <img id="initial_image" width="100" height="100" />
       </div>
-      <div id="catLaughed" style="height: 50%; width: 80%; margin-top: 30px;">
+      <div id="catLaughed" style="height: 50%; width: 80%; margin: 30px 0">
         <h2 class="name">---</h2>
         <div class="title">---</div>
         <div class="desc">
@@ -272,16 +295,66 @@
 
       let input = document.getElementById("myTextInputID");
 
-        // Execute a function when the user presses a key on the keyboard
-        input.addEventListener("keypress", function(event) {
-          // If the user presses the "Enter" key on the keyboard
-          if (event.key === "Enter") {
-            // Trigger the button element with a click
-            document.getElementById("searchButton").click();
-          }
-        });
+      // Execute a function when the user presses a key on the keyboard
+      input.addEventListener("keypress", function (event) {
+        // If the user presses the "Enter" key on the keyboard
+        if (event.key === "Enter") {
+          // Trigger the button element with a click
+          document.getElementById("searchButton").click();
+        }
+      });
+
+      const expnd = function () {
+        document.getElementById("more").style.display = "block";
+        document.getElementById("btn").style.display = "none";
+      };
+
+      const sharebtn = function () {
+        document.getElementById("share").style.display = "none";
 
 
+        async function shareCanvas() {
+  const canvasElement = document.getElementById("myCanvas");
+  const dataUrl = canvasElement.toDataURL();
+  const blob = await (await fetch(dataUrl)).blob();
+  const filesArray = [
+    new File(
+      [blob],
+      'animation.png',
+      {
+        type: blob.type,
+        lastModified: new Date().getTime()
+      }
+    )
+  ];
+  const shareData = {
+    files: filesArray,
+  };
+  navigator.share(shareData);
+}
+shareCanvas()
+        // if (navigator.canShare) {
+        //   async function shareCanvas() {
+        //     const canvasElement = document.getElementById("myCanvas");
+        //     console.log(canvasElement);
+        //     const dataUrl = canvasElement.toDataURL();
+        //     const blob = await (await fetch(dataUrl)).blob();
+        //     const filesArray = [
+        //       new File([blob], "animation.png", {
+        //         type: blob.type,
+        //         lastModified: new Date().getTime(),
+        //       }),
+        //     ];
+        //     const shareData = {
+        //       files: filesArray,
+        //     };
+        //     navigator.share(shareData);
+        //   }
+        //   shareCanvas();
+        // } else {
+        //   console.log("failed");
+        // }
+      };
 
       const getData = function () {
         document.getElementById("card").style.display = "flex";
@@ -289,9 +362,9 @@
         document.getElementById("disclaim").style.display = "none";
 
         let loader = `
-        <h2 class="name skeleton" ></h2>
-        <div class="title skeleton"></div>
-        <div class="desc skeleton">`;
+              <h2 class="name skeleton" ></h2>
+              <div class="title skeleton"></div>
+              <div class="desc skeleton">`;
         document.getElementById("catLaughed").innerHTML = loader;
         fetch("https://niternotebot.herokuapp.com/search/", {
           method: "POST",
@@ -308,55 +381,66 @@
             let result;
             if (data) {
               result = `
+              
+                  <div class="banner">
+                    <img
+                      src="https://avatars.dicebear.com/api/${
+                        data.gender === "M" ? "male" : "female"
+                      }/${data.name.split(" ")[0]}.svg"
+                      width="100"
+                      height="100"
+                    />
+                  </div>
+                  <div id="catLaughed" class="detl" style="height: 50%;width: 80%">
+
+                  <h2 class="name">${data.name}</h2>
+                  <div class="title">${data.id}</div>
+                  <div class="desc" id="catLaughed">
+                      NITER ${data.batch}th Batch <br>
+                      From ${data.htown} <br>
+                      Department of ${data.dept} <br>
+                      Section: ${data.sec}<br><br>
+                      <button onclick="expnd()" class="add" id="btn">See More</button>
+                      <div id="more">
+                      Blood Group: ${data.blood} <br><br>
+                      Email: <a href="mailto:${data.email}" class="lnk">${
+                data.email
+              }</a> <br><br>
+                      Phone: <a href="tel:${data.phone}" class="lnk">${
+                data.phone
+              }</a>
+                      <button onclick="sharebtn()" class="add" id="share"><svg class="smlicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M568.9 143.5l-150.9-138.2C404.8-6.773 384 3.039 384 21.84V96C241.2 97.63 128 126.1 128 260.6c0 54.3 35.2 108.1 74.08 136.2c12.14 8.781 29.42-2.238 24.94-16.46C186.7 252.2 256 224 384 223.1v74.2c0 18.82 20.84 28.59 34.02 16.51l150.9-138.2C578.4 167.8 578.4 152.2 568.9 143.5zM416 384c-17.67 0-32 14.33-32 32v31.1l-320-.0013V128h32c17.67 0 32-14.32 32-32S113.7 64 96 64H64C28.65 64 0 92.65 0 128v319.1c0 35.34 28.65 64 64 64l320-.0013c35.35 0 64-28.66 64-64V416C448 398.3 433.7 384 416 384z"/></svg>Share</button>
+                      </div>
+                      </div>
+                </div>
+
+            `;
+            } else {
+              result = `
             <div class="banner">
               <img
-                src="https://avatars.dicebear.com/api/${
-                  data.gender === "M" ? "male" : "female"
-                }/${data.name.split(" ")[0]}.svg"
+                src="https://avatars.dicebear.com/api/pixel-art/nafi.svg"
                 width="100"
                 height="100"
               />
             </div>
-            <div id="catLaughed" class="detl" style="height: 50%;width: 80%; overflow: auto">
-             
-            <h2 class="name">${data.name}</h2>
-            <div class="title">${data.id}</div>
-            <div class="desc" id="catLaughed">
-                NITER ${data.batch}th Batch <br>
-                From ${data.htown} <br>
-                Department of ${data.dept} <br><br>
-                Blood Group: ${data.blood} <br><br>
-                Email: <a href="mailto:${data.email}" class="lnk">${data.email}</a> <br><br>
-                Phone: <a href="tel:${data.phone}" class="lnk">${data.phone}</a>
-                </div>
-          </div>
-      `;
-              console.log(result);
-            } else {
-              result = `
-      <div class="banner">
-        <img
-          src="https://avatars.dicebear.com/api/pixel-art/nafi.svg"
-          width="100"
-          height="100"
-        />
-      </div>
-      <div id="catLaughed" style="height: 50%;width: 80%; margin-top: 30px; overflow: none">
-        <h2 class="name" style ='color: red'> No Data Found</h2>
-        <div class="title"> --- </div>
-        <div class="desc">
-          Please Check the ID <br><br>
-          Or <br><br>
-          <button class="add"><a href="./index.html">Add New Data</a></button>
-          
-          
-        </div>
-      </div>
-              `;
+            <div id="catLaughed" style="height: 50%;width: 80%; margin: 30px 0">
+              <h2 class="name" style ='color: red'> No Data Found</h2>
+              <div class="title"> --- </div>
+              <div class="desc">
+                Please Check the ID <br><br>
+                Or <br><br>
+                <a href="./index.html" class= "add">Add New Data</a>
+
+
+              </div>
+            </div>
+                    `;
             }
             document.getElementById("card").innerHTML = result;
           });
       };
     </script>
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </html>

@@ -243,13 +243,6 @@
       Search Niterian by their ID or Name. ID format should be like
       "TE-1808151". Without using proper ID format you won't find any result.
     </p>
-    <canvas
-      id="myCanvas"
-      width="200"
-      height="100"
-      style="border: 2px solid #000000"
-    >
-    </canvas>
 
     <div id="card" class="card">
       <div class="banner">
@@ -280,6 +273,7 @@
       <button onclick="getData()" id="searchButton">search</button>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./html2canvas.js"></script>
     <script>
       const genRand = (len) => {
         return Math.random()
@@ -311,28 +305,35 @@
 
       const sharebtn = function () {
         document.getElementById("share").style.display = "none";
+        html2canvas(document.getElementById("card")).then(function (canvas) {
+          document.body.appendChild(canvas);
+          document.getElementsByTagName("canvas")[0].style.display = "none";
 
-        if (navigator.canShare) {
-          async function shareCanvas() {
-            const canvasElement = document.getElementById("myCanvas");
-            const dataUrl = canvasElement.toDataURL();
-            const blob = await (await fetch(dataUrl)).blob();
-            const filesArray = [
-              new File([blob], "animation.png", {
-                type: blob.type,
-                lastModified: new Date().getTime(),
-              }),
-            ];
-            const shareData = {
-              files: filesArray,
-            };
-            navigator.share(shareData);
+          if (navigator.canShare) {
+            async function shareCanvas() {
+              const canvasElement = document.getElementsByTagName("canvas")[0];
+              console.log(canvasElement);
+              const dataUrl = canvasElement.toDataURL();
+              const blob = await (await fetch(dataUrl)).blob();
+              const filesArray = [
+                new File([blob], "animation.png", {
+                  type: blob.type,
+                  lastModified: new Date().getTime(),
+                }),
+              ];
+              const shareData = {
+                files: filesArray,
+              };
+              navigator.share(shareData);
+            }
+            shareCanvas();
+          } else {
+            alert(
+              "Your browser doesnot support share. Try a different browser."
+            );
+            console.log("failed");
           }
-          shareCanvas();
-        } else {
-          alert("Your browser doesnot support share. Try a different browser.")
-          console.log("failed");
-        }
+        });
       };
 
       const getData = function () {
@@ -421,5 +422,4 @@
       };
     </script>
   </body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </html>

@@ -10,6 +10,8 @@ const dept = document.getElementById("dept");
 const sec = document.getElementById("sec");
 const male = document.getElementById("male");
 const female = document.getElementById("female");
+const donor = document.getElementById("y");
+const notdonor = document.getElementById("n");
 const blood = document.getElementById("blood");
 const clg = document.getElementById("clg");
 const htown = document.getElementById("htown");
@@ -80,6 +82,7 @@ function checkInputs() {
   let deptValue_state = false;
   let secValue_state = false;
   let genderValue_state = false;
+  let donorValue_state = false;
   let bloodValue_state = false;
   let clgValue_state = false;
   let htownValue_state = false;
@@ -149,6 +152,17 @@ function checkInputs() {
     setErrorForGender("Please select your gender");
   }
 
+  // -------------- donor Entry ---------------
+
+  if (y.checked) {
+    setSuccessForDonor();
+    donorValue_state = true;
+  } else if (n.checked) {
+    setSuccessForDonor();
+    donorValue_state = true;
+  } else {
+    setErrorForDonor("Please select");
+  }
   // ------------- blood group entry ---------------
 
   if (bloodValue === "") {
@@ -221,6 +235,7 @@ function checkInputs() {
     deptValue_state &&
     secValue_state &&
     genderValue_state &&
+    donorValue_state &&
     bloodValue_state &&
     htownValue_state &&
     linkValue_state &&
@@ -249,12 +264,24 @@ function setErrorForGender(message) {
   small.innerText = message;
 }
 
+function setErrorForDonor(message) {
+  const formControl = document.getElementById("donor");
+  const small = formControl.querySelector("small");
+  formControl.className = "form-control error";
+  small.innerText = message;
+}
+
 function setSuccessFor(input) {
   const formControl = input.parentElement;
   formControl.className = "form-control success";
 }
 function setSuccessForGender() {
   const formControl = document.getElementById("gender");
+  formControl.className = "form-control success";
+}
+
+function setSuccessForD7onor() {
+  const formControl = document.getElementById("donor");
   formControl.className = "form-control success";
 }
 

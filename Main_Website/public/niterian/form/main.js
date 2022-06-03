@@ -280,7 +280,7 @@ function setSuccessForGender() {
   formControl.className = "form-control success";
 }
 
-function setSuccessForD7onor() {
+function setSuccessForDonor() {
   const formControl = document.getElementById("donor");
   formControl.className = "form-control success";
 }

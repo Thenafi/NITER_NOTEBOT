@@ -306,35 +306,41 @@
 
       const sharebtn = function () {
         document.getElementById("share").style.display = "none";
-        html2canvas(document.getElementById("card"),{ useCORS: true }).then(function (canvas) {
-          document.body.appendChild(canvas);
-          document.getElementsByTagName("canvas")[0].style.display = "none";
-
-          if (navigator.canShare) {
-            async function shareCanvas() {
-              const canvasElement = document.getElementsByTagName("canvas")[0];
-              console.log(canvasElement);
-              const dataUrl = canvasElement.toDataURL();
-              const blob = await (await fetch(dataUrl)).blob();
-              const filesArray = [
-                new File([blob], "animation.png", {
-                  type: blob.type,
-                  lastModified: new Date().getTime(),
-                }),
-              ];
-              const shareData = {
-                files: filesArray,
-              };
-              navigator.share(shareData);
+        html2canvas(document.getElementById("card"), { useCORS: true }).then(
+          function (canvas) {
+            document.body.appendChild(canvas);
+            const elemetn = document.getElementsByTagName("canvas");
+            for (let i = 0; i < elemetn.length; i++) {
+              elemetn[i].style.display = 'none';
             }
-            shareCanvas();
-          } else {
-            alert(
-              "Your browser doesnot support share. Try a different browser."
-            );
-            console.log("failed");
+
+            if (navigator.canShare) {
+              async function shareCanvas() {
+                const canvasElement =
+                  document.getElementsByTagName("canvas")[0];
+                console.log(canvasElement);
+                const dataUrl = canvasElement.toDataURL();
+                const blob = await (await fetch(dataUrl)).blob();
+                const filesArray = [
+                  new File([blob], "animation.png", {
+                    type: blob.type,
+                    lastModified: new Date().getTime(),
+                  }),
+                ];
+                const shareData = {
+                  files: filesArray,
+                };
+                navigator.share(shareData);
+              }
+              shareCanvas();
+            } else {
+              alert(
+                "Your browser doesnot support share. Try a different browser."
+              );
+              console.log("failed");
+            }
           }
-        });
+        );
       };
 
       const getData = function () {

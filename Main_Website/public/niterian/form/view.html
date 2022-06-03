@@ -312,48 +312,27 @@
       const sharebtn = function () {
         document.getElementById("share").style.display = "none";
 
-
-        async function shareCanvas() {
-  const canvasElement = document.getElementById("myCanvas");
-  const dataUrl = canvasElement.toDataURL();
-  const blob = await (await fetch(dataUrl)).blob();
-  const filesArray = [
-    new File(
-      [blob],
-      'animation.png',
-      {
-        type: blob.type,
-        lastModified: new Date().getTime()
-      }
-    )
-  ];
-  const shareData = {
-    files: filesArray,
-  };
-  navigator.share(shareData);
-}
-shareCanvas()
-        // if (navigator.canShare) {
-        //   async function shareCanvas() {
-        //     const canvasElement = document.getElementById("myCanvas");
-        //     console.log(canvasElement);
-        //     const dataUrl = canvasElement.toDataURL();
-        //     const blob = await (await fetch(dataUrl)).blob();
-        //     const filesArray = [
-        //       new File([blob], "animation.png", {
-        //         type: blob.type,
-        //         lastModified: new Date().getTime(),
-        //       }),
-        //     ];
-        //     const shareData = {
-        //       files: filesArray,
-        //     };
-        //     navigator.share(shareData);
-        //   }
-        //   shareCanvas();
-        // } else {
-        //   console.log("failed");
-        // }
+        if (navigator.canShare) {
+          async function shareCanvas() {
+            const canvasElement = document.getElementById("myCanvas");
+            const dataUrl = canvasElement.toDataURL();
+            const blob = await (await fetch(dataUrl)).blob();
+            const filesArray = [
+              new File([blob], "animation.png", {
+                type: blob.type,
+                lastModified: new Date().getTime(),
+              }),
+            ];
+            const shareData = {
+              files: filesArray,
+            };
+            navigator.share(shareData);
+          }
+          shareCanvas();
+        } else {
+          alert("Your browser doesnot support share. Try a different browser.")
+          console.log("failed");
+        }
       };
 
       const getData = function () {

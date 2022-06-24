@@ -7,17 +7,17 @@
 
 body {
   background: linear-gradient(
-          43deg,
-          rgba(53, 161, 239, 1) 36%,
-          rgba(78, 219, 212, 1) 100%
-        );
+    43deg,
+    rgba(53, 161, 239, 1) 36%,
+    rgba(78, 219, 212, 1) 100%
+  );
   /* background-color: #ebfffc !important; */
   font-family: "Open Sans", sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  margin: 0;
+  margin: 20px 0;
   overflow: auto;
 }
 
@@ -27,7 +27,7 @@ body {
   box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%),
     0 0 0 1px rgb(10 10 10 / 2%);
   overflow: hidden;
-  width: 400px;
+  width: 35rem;
   max-width: 90%;
 }
 
@@ -37,18 +37,18 @@ body {
   padding: 20px 0px;
   text-align: center;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 .header h2 {
   padding: 0 40px;
   margin: 0;
 }
-.header h6{
+.header h6 {
   margin: 20px 0 0 0;
 }
 
-.button{
+.button {
   background-color: transparent;
   border: 2px solid #8e44ad;
   border-radius: 4px;
@@ -61,12 +61,12 @@ body {
 
   width: 40%;
 }
-.button:hover{
+.button:hover {
   background-color: #8e44ad;
   color: #fff;
 }
 
-.button a{
+.button a {
   text-decoration: none;
 }
 
@@ -119,7 +119,7 @@ body {
   overflow: hidden;
 }
 
-ul{
+ul {
   padding-inline-end: 40px;
 }
 

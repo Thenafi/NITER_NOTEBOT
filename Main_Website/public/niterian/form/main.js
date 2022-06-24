@@ -351,7 +351,7 @@ function batchFinder(clid) {
     case "IP":
       dept.value = "IPE";
       break;
-    case "FE":
+    case "FD":
       dept.value = "FDAE";
       break;
     case "EE":

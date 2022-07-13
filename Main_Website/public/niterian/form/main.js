@@ -19,6 +19,10 @@ const link = document.getElementById("link");
 const email = document.getElementById("email");
 const phone = document.getElementById("phone");
 const submit = document.getElementById("submit");
+
+const urlParams = new URLSearchParams(window.location.search);
+const clid_from_query = urlParams.get("clid");
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   fname.value = fname.value.toUpperCase().trim();
@@ -37,8 +41,38 @@ form.addEventListener("submit", (e) => {
   }
 });
 
+if (clid_from_query) {
+  console.log(clid_from_query);
+  fname.value = urlParams.get("fname");
+  batch.value = urlParams.get("batch");
+  clid.value = clid_from_query;
+  dept.value = urlParams.get("dept");
+  sec.value = urlParams.get("sec");
+  phone.value = urlParams.get("phone");
+  if (urlParams.get("gender") === "M") {
+    male.checked = true;
+  } else {
+    female.checked = true;
+  }
+  if (urlParams.get("active_donor") === "YES") {
+    donor.checked = true;
+  } else {
+    notdonor.checked = true;
+  }
+  blood.value = urlParams.get("blood");
+  clg.value = urlParams.get("clg");
+  htown.value = urlParams.get("htown");
+  email.value = urlParams.get("email");
+  link.value = urlParams.get("link");
+}
+
 form.addEventListener("formdata", (e) => {
-  fetch("https://niternotebot.herokuapp.com/entry_web/", {
+  if (clid_from_query) {
+    url = `https://niternotebot.herokuapp.com/update_api/${clid_from_query}`;
+  } else {
+    url = "https://niternotebot.herokuapp.com/entry_web/";
+  }
+  fetch(url, {
     method: "POST",
     body: e.formData,
   }).then((response) => {

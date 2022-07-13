@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico" />
+
+    <!-- HTML Meta Tags -->
+    <title>NITER NOTEBOT</title>
+    <meta name="description" content="Educational Platform" />
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://niternotebot.herokuapp.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="NITER NOTEBOT" />
+    <meta property="og:description" content="Data Entry Point" />
+    <meta
+      property="og:image"
+      content="https://cdn.statically.io/og/Data Entry NITERNOTEBOT.jpg"
+    />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="niternotebot.herokuapp.com" />
+    <meta
+      property="twitter:url"
+      content="https://niternotebot.herokuapp.com/"
+    />
+    <meta name="twitter:title" content="NITER NOTEBOT" />
+    <meta name="twitter:description" content="Data Entry Point" />
+    <meta
+      name="twitter:image"
+      content="https://cdn.statically.io/og/Data Entry NITERNOTEBOT.jpg"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Niterian Data Entry Form</title>
+  </head>
+
+  <body>
+    <div id="main">
+      <h1>Looking for the ID</h1>
+    </div>
+    <script>
+      fetch("https://niternotebot.herokuapp.com/");
+
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const class_id = urlParams.get("class_id");
+      if (class_id) {
+        fetch(`https://niternotebot.herokuapp.com/update_api/${class_id}`)
+          .then((response) => {
+            if (response.ok) {
+              console.log(response);
+              return response.json();
+            } else {
+              document.getElementById("main").innerHTML = `
+              <h1>
+                Can't Find The ID. Try
+                <i><a style="color: red" href="./search.html">Searching</a></i> again.
+                <br /><i><a  style="color: red" href="../form/"> Add Data</a></i>
+              </h1>
+              `;
+            }
+          })
+          .then((data) => {
+            window.location.href = `../form/?fname=${data.name}&batch=${data.batch}&clid=${data.id}&dept=${data.dept}&sec=${data.sec}&phone=${data.phone}&gender=${data.gender}&active_donor=${data.active_donor}&blood=${data.blood}&clg=${data.clg}&htown=${data.htown}&email=${data.email}&link=${data.link}`;
+          });
+      } else {
+        window.location.href = "./search.html";
+      }
+    </script>
+    <script src="./main.js"></script>
+  </body>
+</html>

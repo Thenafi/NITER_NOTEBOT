@@ -70,7 +70,7 @@ form.addEventListener("formdata", (e) => {
   if (clid_from_query) {
     url = `https://niternotebot.herokuapp.com/update_api/${clid_from_query}`;
   } else {
-    url = "https://niternotebot.herokuapp.com/entry_web/";
+    url = "https://niternotebot.herokuapp.com/entry_api/";
   }
   fetch(url, {
     method: "POST",

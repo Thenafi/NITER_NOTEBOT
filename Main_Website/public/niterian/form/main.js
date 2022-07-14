@@ -19,8 +19,11 @@ const link = document.getElementById("link");
 const email = document.getElementById("email");
 const phone = document.getElementById("phone");
 const submit = document.getElementById("submit");
-
-const urlParams = new URLSearchParams(window.location.search);
+const smallmessageElement = document.getElementById("smallMessage");
+const urlParams = new URLSearchParams(
+  "?".concat(atob(window.location.search.substring(1)))
+);
+console.log(atob(window.location.search.substring(1)));
 const clid_from_query = urlParams.get("clid");
 
 form.addEventListener("submit", (e) => {
@@ -87,6 +90,7 @@ form.addEventListener("formdata", (e) => {
       submit.innerHTML = "Failed";
       submit.style.backgroundColor = "red";
       submit.style.border = "2px solid red";
+      smallmessageElement.innerHTML = `<p style="color: Tomato;font-style: italic; padding = 10px" >Try Again with correct Id or check our id with database <p>`;
       setErrorFor(clid, "Sorry, this ID is already registered");
       //add delay
       setTimeout(() => {
@@ -279,6 +283,7 @@ function checkInputs() {
   ) {
     return true;
   } else {
+    smallmessageElement.innerHTML = `<p style="color: Tomato;font-style: italic; padding = 10px" >Some Values are fields are still empty above. Please fill them up correctly <p>`;
     console.log("Still Something is missing");
     return false;
   }

@@ -70,12 +70,20 @@
             }
           })
           .then((data) => {
-            window.location.href = `../form/?fname=${data.name}&batch=${data.batch}&clid=${data.id}&dept=${data.dept}&sec=${data.sec}&phone=${data.phone}&gender=${data.gender}&active_donor=${data.active_donor}&blood=${data.blood}&clg=${data.clg}&htown=${data.htown}&email=${data.email}&link=${data.link}`;
+            uri = `fname=${data.name}&batch=${data.batch}&clid=${
+              data.id
+            }&dept=${data.dept}&sec=${data.sec}&phone=${data.phone}&gender=${
+              data.gender
+            }&active_donor=${data.active_donor}&blood=${encodeURIComponent(
+              data.blood
+            )}&clg=${data.clg}&htown=${data.htown}&email=${data.email}&link=${
+              data.link
+            }`;
+            window.location.href = "../form/?".concat(btoa(uri));
           });
       } else {
         window.location.href = "./search.html";
       }
     </script>
-    <script src="./main.js"></script>
   </body>
 </html>

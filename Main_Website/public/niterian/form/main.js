@@ -20,10 +20,9 @@ const email = document.getElementById("email");
 const phone = document.getElementById("phone");
 const submit = document.getElementById("submit");
 const smallmessageElement = document.getElementById("smallMessage");
-const urlParams = new URLSearchParams(
-  "?".concat(atob(window.location.search.substring(1)))
-);
-console.log(atob(window.location.search.substring(1)));
+
+const urlParams = new URLSearchParams(window.location.search);
+console.log(window.location.search);
 const clid_from_query = urlParams.get("clid");
 
 form.addEventListener("submit", (e) => {

@@ -45,12 +45,12 @@ form.addEventListener("submit", (e) => {
 
 if (clid_from_query) {
   console.log(clid_from_query);
-  fname.value = urlParams.get("fname");
-  batch.value = urlParams.get("batch");
-  clid.value = clid_from_query;
-  dept.value = urlParams.get("dept");
-  sec.value = urlParams.get("sec");
-  phone.value = urlParams.get("phone");
+  fname.value = urlParams.get("fname") !== "null" ? urlParams.get("fname") : "";
+  batch.value = urlParams.get("batch") !== "null" ? urlParams.get("batch") : "";
+  clid.value = clid_from_query !== "null" ? clid_from_query : "";
+  dept.value = urlParams.get("dept") !== "null" ? urlParams.get("dept") : "";
+  sec.value = urlParams.get("sec") !== "null" ? urlParams.get("sec") : "";
+  phone.value = urlParams.get("phone") !== "null" ? urlParams.get("phone") : "";
   if (urlParams.get("gender") === "M") {
     male.checked = true;
   } else if (urlParams.get("gender") === "F") {
@@ -61,11 +61,11 @@ if (clid_from_query) {
   } else if (urlParams.get("active_donor") === "NO") {
     notdonor.checked = true;
   }
-  blood.value = urlParams.get("blood");
-  clg.value = urlParams.get("clg");
-  htown.value = urlParams.get("htown");
-  email.value = urlParams.get("email");
-  link.value = urlParams.get("link");
+  blood.value = urlParams.get("blood") !== "null" ? urlParams.get("blood") : "";
+  clg.value = urlParams.get("clg") !== "null" ? urlParams.get("clg") : "";
+  htown.value = urlParams.get("htown") !== "null" ? urlParams.get("htown") : "";
+  email.value = urlParams.get("email") !== "null" ? urlParams.get("email") : "";
+  link.value = urlParams.get("link") !== "null" ? urlParams.get("email") : "";
 }
 
 form.addEventListener("formdata", (e) => {

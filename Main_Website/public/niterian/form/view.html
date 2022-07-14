@@ -110,7 +110,7 @@
         margin: 30px 0;
       }
       .card .title {
-        color: #00E0FF;
+        color: #00e0ff;
         font-size: 1rem;
         font-weight: 700;
         text-align: center;
@@ -125,7 +125,7 @@
         text-decoration: none;
         color: #777;
       }
-      .lnk:hover{
+      .lnk:hover {
         color: #0099ff;
       }
       .loader {
@@ -244,8 +244,8 @@
 
   <body>
     <p class="disclaim" id="disclaim" style="text-align: center">
-      Search Niterian by their ID or Name. ID format should be like
-      "TE-1808151". Without using proper ID format you won't find any result.
+      Search Niterian by their ID. ID format should be like "TE-1808151".
+      Without using proper ID format you won't find any result.
     </p>
 
     <div id="card" class="card">
@@ -274,34 +274,52 @@
         style="text-align: center"
       />
 
-      <button onclick="getData()" id="searchButton">search</button>
+      <button id="searchButton">search</button>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./html2canvas.js"></script>
     <script>
+      let input = document.getElementById("myTextInputID");
+      const initial_image = document.getElementById("initial_image");
+      const searchButtonElement = document.getElementById("searchButton");
+      const disclaimElement = document.getElementById("disclaim");
       const genRand = (len) => {
         return Math.random()
           .toString(36)
           .substring(2, len + 2);
       };
 
-      const initial_image = document.getElementById("initial_image");
       initial_image.setAttribute(
         "src",
         `https://avatars.dicebear.com/api/pixel-art/${genRand(5)}.svg`
       );
 
-      let input = document.getElementById("myTextInputID");
-
-      // Execute a function when the user presses a key on the keyboard
       input.addEventListener("keypress", function (event) {
-        // If the user presses the "Enter" key on the keyboard
         if (event.key === "Enter") {
-          // Trigger the button element with a click
-          document.getElementById("searchButton").click();
+          searchButtonElement.click();
         }
       });
-
+      searchButtonElement.addEventListener("click", () => {
+        if (checkInputs()) {
+          getData();
+        } else {
+          document.getElementById("disclaim").style.display = "block";
+          disclaimElement.innerHTML = `
+          <h1 style="background-color:Tomato; border-radius: 5px; padding:5px">Wrong Id Format. Please write like this "TE-1808151"</h1>
+          `;
+        }
+      });
+      const checkInputs = function () {
+        if (input.value.length === 10) {
+          let re = new RegExp(/[A-Z]{2}-[0-9]{7}/, "i");
+          if (re.test(input.value)) {
+            return true;
+          } else {
+            return new Error("Format Wrong"), false;
+          }
+        } else {
+          return new Error("Lenght Wrong"), false;
+        }
+      };
       const expnd = function () {
         document.getElementById("more").style.display = "block";
         document.getElementById("btn").style.display = "none";
@@ -314,7 +332,7 @@
             document.body.appendChild(canvas);
             const elemetn = document.getElementsByTagName("canvas");
             for (let i = 0; i < elemetn.length; i++) {
-              elemetn[i].style.display = 'none';
+              elemetn[i].style.display = "none";
             }
 
             if (navigator.canShare) {
@@ -325,7 +343,7 @@
                 const dataUrl = canvasElement.toDataURL();
                 const blob = await (await fetch(dataUrl)).blob();
                 const filesArray = [
-                  new File([blob], "animation.png", {
+                  new File([blob], "ID.png", {
                     type: blob.type,
                     lastModified: new Date().getTime(),
                   }),
@@ -354,7 +372,8 @@
         let loader = `
               <h2 class="name skeleton" ></h2>
               <div class="title skeleton"></div>
-              <div class="desc skeleton">`;
+              <div class="desc skeleton">
+                `;
         document.getElementById("catLaughed").innerHTML = loader;
         fetch("https://niternotebot.herokuapp.com/search/", {
           method: "POST",
@@ -371,7 +390,6 @@
             let result;
             if (data) {
               result = `
-              
                   <div class="banner">
                     <img
                       src="https://avatars.dicebear.com/api/${
@@ -395,7 +413,8 @@
                       Blood Group: ${data.blood} <br><br>
                       Email: <a href="mailto:${data.email}" class="lnk">${
                 data.email
-              }</a> <br><br>
+              }</a>
+                      <br/><br/>
                       Phone: <a href="tel:${data.phone}" class="lnk">${
                 data.phone
               }</a>

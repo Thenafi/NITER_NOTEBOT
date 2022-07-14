@@ -51,12 +51,12 @@ if (clid_from_query) {
   phone.value = urlParams.get("phone");
   if (urlParams.get("gender") === "M") {
     male.checked = true;
-  } else {
+  } else if (urlParams.get("gender") === "F") {
     female.checked = true;
   }
   if (urlParams.get("active_donor") === "YES") {
     donor.checked = true;
-  } else {
+  } else if (urlParams.get("active_donor") === "NO") {
     notdonor.checked = true;
   }
   blood.value = urlParams.get("blood");

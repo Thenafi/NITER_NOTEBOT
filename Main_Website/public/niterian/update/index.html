@@ -78,7 +78,7 @@
               data.blood
             )}&clg=${data.clg}&htown=${data.htown}&email=${data.email}&link=${
               data.link
-            }`;
+            }&birthday=${encodeURIComponent(data.birthday)}`;
             window.location.href = "../form/?".concat(uri);
           });
       } else {

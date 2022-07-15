@@ -65,9 +65,10 @@ if (clid_from_query) {
   blood.value = urlParams.get("blood") !== "null" ? urlParams.get("blood") : "";
   clg.value = urlParams.get("clg") !== "null" ? urlParams.get("clg") : "";
   htown.value = urlParams.get("htown") !== "null" ? urlParams.get("htown") : "";
-  bDate.value = urlParams.get("bDate") !== "null" ? urlParams.get("bDate") : "";
+  bDate.value =
+    urlParams.get("birthday") !== "null" ? urlParams.get("birthday") : null;
   email.value = urlParams.get("email") !== "null" ? urlParams.get("email") : "";
-  link.value = urlParams.get("link") !== "null" ? urlParams.get("email") : "";
+  link.value = urlParams.get("link") !== "null" ? urlParams.get("link") : "";
 }
 
 form.addEventListener("formdata", (e) => {

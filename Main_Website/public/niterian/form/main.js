@@ -15,6 +15,7 @@ const notdonor = document.getElementById("n");
 const blood = document.getElementById("blood");
 const clg = document.getElementById("clg");
 const htown = document.getElementById("htown");
+const bDate = document.getElementById("bDate");
 const link = document.getElementById("link");
 const email = document.getElementById("email");
 const phone = document.getElementById("phone");
@@ -64,6 +65,7 @@ if (clid_from_query) {
   blood.value = urlParams.get("blood") !== "null" ? urlParams.get("blood") : "";
   clg.value = urlParams.get("clg") !== "null" ? urlParams.get("clg") : "";
   htown.value = urlParams.get("htown") !== "null" ? urlParams.get("htown") : "";
+  bDate.value = urlParams.get("bDate") !== "null" ? urlParams.get("bDate") : "";
   email.value = urlParams.get("email") !== "null" ? urlParams.get("email") : "";
   link.value = urlParams.get("link") !== "null" ? urlParams.get("email") : "";
 }
@@ -109,6 +111,7 @@ function checkInputs() {
   const clgValue = clg.value.trim();
   const bloodValue = blood.value.trim();
   const htownValue = htown.value.trim();
+  const bDateValue = bDate.value.trim();
   const linkValue = link.value.trim();
   const emailValue = email.value.trim();
   const phoneValue = phone.value.trim();
@@ -123,6 +126,7 @@ function checkInputs() {
   let bloodValue_state = false;
   let clgValue_state = false;
   let htownValue_state = false;
+  let bDateValue_state = false;
   let linkValue_state = false;
   let emailValue_state = false;
   let phoneValue_state = false;
@@ -228,6 +232,14 @@ function checkInputs() {
     htownValue_state = true;
   }
 
+  // Birthdate
+  if (bDateValue === "") {
+    setErrorFor(bDate, "Please select your Birthdate");
+  } else {
+    setSuccessFor(bDate);
+    bDateValue_state = true;
+  }
+
   // ------------ phone entry ---------------
   if (phoneValue === "") {
     setErrorFor(phone, "Phone should be like: 01723111111");
@@ -275,6 +287,7 @@ function checkInputs() {
     donorValue_state &&
     bloodValue_state &&
     htownValue_state &&
+    bDateValue_state &&
     linkValue_state &&
     emailValue_state &&
     clgValue_state &&

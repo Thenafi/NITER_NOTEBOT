@@ -8,7 +8,7 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../../favicon.ico" />
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 
     <!-- HTML Meta Tags -->
     <title>NITER NOTEBOT</title>
@@ -222,7 +222,9 @@
               <div class="dwnbtm">
                       <button onclick="sharebtn()" class="add dwn" id="share"><img src="./share.svg" class="smlicon"/>Share</button>
 
-                        <a href="#" class="add dwn" id="updtbtn"><img src="./update.svg" class="smlicon"/>Update</a>
+                        <a href="../update/?class_id=${
+                          data.id
+                        }" class="add dwn" id="updtbtn"><img src="./update.svg" class="smlicon"/>Update</a>
 
 
               </div>

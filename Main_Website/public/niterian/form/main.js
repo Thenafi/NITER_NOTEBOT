@@ -117,20 +117,20 @@ function checkInputs() {
   const emailValue = email.value.trim();
   const phoneValue = phone.value.trim();
 
-  let fnameValue_state = false;
-  let batchValue_state = false;
-  let clidValue_state = false;
-  let deptValue_state = false;
-  let secValue_state = false;
-  let genderValue_state = false;
-  let donorValue_state = false;
-  let bloodValue_state = false;
-  let clgValue_state = false;
-  let htownValue_state = false;
-  let bDateValue_state = false;
-  let linkValue_state = false;
-  let emailValue_state = false;
-  let phoneValue_state = false;
+  let fnameValue_state,
+    batchValue_state,
+    clidValue_state,
+    deptValue_state,
+    secValue_state,
+    genderValue_state,
+    donorValue_state,
+    bloodValue_state,
+    clgValue_state,
+    htownValue_state,
+    bDateValue_state,
+    linkValue_state,
+    emailValue_state,
+    phoneValue_state = false;
 
   // -----------Name Entry---------------
   if (fnameValue === "") {
@@ -211,6 +211,8 @@ function checkInputs() {
     setErrorFor(blood, "Blood Group field cannot be blank");
   } else if (bloodValue.length > 3) {
     setErrorFor(blood, "Lengthy than usual.");
+  } else if (bloodValue.length < 2) {
+    setErrorFor(blood, "Less than usual.");
   } else {
     setSuccessFor(blood);
     bloodValue_state = true;
@@ -296,7 +298,10 @@ function checkInputs() {
   ) {
     return true;
   } else {
-    smallmessageElement.innerHTML = `<p style="color: Tomato;font-style: italic; padding = 10px" >Some Values are fields are still empty above. Please fill them up correctly <p>`;
+    smallmessageElement.innerHTML = `
+    <p style="color: Tomato;font-style: italic; padding = 10px">Some Values are fields are still empty above. Please fill them up correctly
+    </p>
+  `;
     console.log("Still Something is missing");
     return false;
   }

@@ -190,67 +190,60 @@
           .then(function (data) {
             let result;
             if (data) {
-              result = `
-                  <div class="banner">
-                    <img
-                      src="https://avatars.dicebear.com/api/${
-                        data.gender === "M" ? "male" : "female"
-                      }/${data.name.split(" ")[0]}.svg?size=100"
-                      width="100"
-                      height="100"
-                    />
-                  </div>
-                  <div id="catLaughed" class="detl" style="height: 50%;width: 80%">
-
+              result =
+                /*html*/
+                `
+                <div class="banner">
+                  <img src="https://avatars.dicebear.com/api/${
+                    data.gender === " M" ? "male" : "female"
+                  }/${data.name.split(" ")[0]}.svg?size=100" width="100"
+                    height="100" />
+                </div>
+                <div id="catLaughed" class="detl" style="height: 50%;width: 80%">
                   <h2 class="name">${data.name}</h2>
                   <div class="title">${data.id}</div>
                   <div class="desc" id="catLaughed">
-                      NITER ${data.batch}th Batch <br>
-                      From ${data.htown} <br>
-                      Department of ${data.dept} <br>
-                      Section: ${data.sec}<br><br>
-                      <button onclick="expnd()" class="add" id="btn">See More</button>
-                      <div id="more">
+                    NITER ${data.batch}th Batch <br>
+                    From ${data.htown} <br>
+                    Department of ${data.dept} <br>
+                    Section: ${data.sec}<br><br>
+                    <button onclick="expnd()" class="add" id="btn">See More</button>
+                    <div id="more">
                       Blood Group: ${data.blood} <br><br>
                       Email: <a href="mailto:${data.email}" class="lnk">${
-                data.email
-              }</a>
-                      <br/><br/>
+                  data.email
+                }</a>
+                      <br /><br />
                       Phone: <a href="tel:${data.phone}" class="lnk">${
-                data.phone
-              }</a>
-              <div class="dwnbtm">
-                      <button onclick="sharebtn()" class="add dwn" id="share"><img src="./share.svg" class="smlicon"/>Share</button>
+                  data.phone
+                }</a>
+                      <div class="dwnbtm">
+                        <button onclick="sharebtn()" class="add dwn" id="share"><img src="./share.svg"
+                            class="smlicon" />Share</button>
 
                         <a href="../update/?class_id=${
                           data.id
-                        }" class="add dwn" id="updtbtn"><img src="./update.svg" class="smlicon"/>Update</a>
-
-
-              </div>
+                        }" class="add dwn" id="updtbtn"><img src="./update.svg" class="smlicon" />Update</a>
                       </div>
-                      </div>
+                    </div>
+                  </div>
                 </div>
 
             `;
             } else {
-              result = `
+              result =
+                /*html*/
+                `
             <div class="banner">
-              <img
-                src="https://avatars.dicebear.com/api/pixel-art/nafi.svg"
-                width="100"
-                height="100"
-              />
+              <img src="https://avatars.dicebear.com/api/pixel-art/nafi.svg" width="100" height="100" />
             </div>
             <div id="catLaughed" style="height: 50%;width: 80%; margin: 30px 0">
-              <h2 class="name" style ='color: red'> No Data Found</h2>
+              <h2 class="name" style='color: red'> No Data Found</h2>
               <div class="title"> --- </div>
               <div class="desc">
                 Please Check the ID <br><br>
                 Or <br><br>
-                <a href="./index.html" class= "add">Add New Data</a>
-
-
+                <a href="./index.html" class="add">Add New Data</a>
               </div>
             </div>
                     `;

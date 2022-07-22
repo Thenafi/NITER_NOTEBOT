@@ -60,12 +60,10 @@ body > footer {
 
 .custom-select select {
   display: none; /*hide original SELECT element: */
-  
 }
 
 .select-selected {
   background-color: #fff;
-  
 }
 
 /* Style the arrow inside the select element: */
@@ -95,7 +93,6 @@ body > footer {
   border-color: #00947e;
   cursor: pointer;
   border-radius: 5px;
-  
 }
 
 /* Style items (options): */
@@ -124,8 +121,6 @@ body > footer {
   margin-bottom: 25px;
 }
 
-
-
 .custom-select2 {
   position: relative;
   font-family: Arial;
@@ -134,11 +129,10 @@ body > footer {
 
 .custom-select2 select {
   display: none; /*hide original SELECT element: */
-  
 }
-.out-hd{
+.out-hd {
   background-color: #ffe08a;
-  color: rgba(0,0,0,.7);
+  color: rgba(0, 0, 0, 0.7);
   align-items: center;
   border-radius: 4px 4px 0 0;
   font-weight: 700;
@@ -147,7 +141,7 @@ body > footer {
   padding: 0.75em 1em;
   position: relative;
 }
-.out-body{
+.out-body {
   border-color: #fffaec;
   background-color: #fffaec;
   color: #946c00;
@@ -155,6 +149,6 @@ body > footer {
   border-radius: 4px;
   border-style: solid;
 }
-strong{
+strong {
   color: #946c00;
 }

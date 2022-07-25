@@ -1,0 +1,23 @@
+body{
+  height: 100vh;
+  background: linear-gradient(
+          43deg,
+          rgba(53, 161, 239, 1) 36%,
+          rgba(78, 219, 212, 1) 100%
+        );
+        background-repeat: no-repeat;
+}
+
+.container {
+  display:flex;
+  flex-direction: column;
+  width: min(30rem,80%);
+  margin: 5rem auto;
+  place-items: center;
+  font-family: sans-serif;
+}
+
+h1{
+  text-align: center;
+  margin-bottom: 4rem;
+}

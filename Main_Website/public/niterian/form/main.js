@@ -1,6 +1,6 @@
-fetch("https://niternotebot.herokuapp.com/");
-
 console.log("hello 💛, I am Nafi from 8th batch, a NITERian");
+
+const baseURL = "http://localhost:3000";
 
 const form = document.getElementById("form");
 const fname = document.getElementById("fname");
@@ -73,19 +73,19 @@ if (clid_from_query) {
 
 form.addEventListener("formdata", (e) => {
   if (clid_from_query) {
-    url = `https://niternotebot.herokuapp.com/update_api/${clid_from_query}`;
+    url = `${baseURL}/update_api/${clid_from_query}`;
   } else {
-    url = "https://niternotebot.herokuapp.com/entry_api/";
+    url = `${baseURL}/entry_api/`;
   }
   fetch(url, {
     method: "POST",
     body: e.formData,
   }).then((response) => {
     if (response.ok) {
-      fetch("https://niternotebot.herokuapp.com/mail/", {
-        method: "POST",
-        body: e.formData,
-      });
+      // fetch(`${baseURL}/mail/`, {
+      //   method: "POST",
+      //   body: e.formData,
+      // });
       window.location.href = "./redirect.html";
     } else {
       console.log("error");
@@ -151,13 +151,26 @@ function checkInputs() {
   // ------------- Class Id Entry --------------
   if (clidValue === "") {
     setErrorFor(clid, "Class ID should be like: TE-1808015");
-  } else if (isFormatedId(clidValue) === "Lenght Wrong") {
-    setErrorFor(clid, "Not Valid Lenght");
-  } else if (isFormatedId(clidValue) === "Format Wrong") {
-    setErrorFor(clid, "Invalid Formart, try this fromat 'TE-1808151'");
   } else {
-    setSuccessFor(clid);
-    clidValue_state = true;
+    if (isFormatedId(clidValue) === "Lenght Wrong") {
+      setErrorFor(clid, "Not Valid Lenght");
+    } else {
+      if (isFormatedId(clidValue) === "Format Wrong") {
+        setErrorFor(clid, "Invalid Formart, try this fromat 'TE-1808151'");
+      } else {
+        isRegisteredId(clidValue).then((data) => {
+          if (data === "Already Registered") {
+            setErrorFor(
+              clid,
+              "This Id is already registered, try updating your data"
+            );
+          } else {
+            setSuccessFor(clid);
+            clidValue_state = true;
+          }
+        });
+      }
+    }
   }
 
   // ----------- department entry ------------------
@@ -347,17 +360,20 @@ function isEmail(email) {
     email
   );
 }
+
 function isFormatedId(clid) {
   if (clid.length === 10) {
     let re = new RegExp(/[A-Z]{2}-[0-9]{7}/, "i");
-    if (re.test(clid)) {
-      return "OK";
-    } else {
-      return "Format Wrong";
-    }
-  } else {
-    return "Lenght Wrong";
-  }
+    if (re.test(clid)) return "OK";
+    else return "Format Wrong";
+  } else return "Lenght Wrong";
+}
+
+async function isRegisteredId(clid) {
+  const res = await fetch(`${baseURL}/checkStudent/${clid}`);
+  const data = await res.json();
+  if (data) return "Already Registered";
+  else return "Not Registered";
 }
 
 function isseclen(sec) {

@@ -1,286 +1,206 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- og -->
-    <!-- Facebook Meta Tags -->
-    <meta property="og:url" content="https://niternotebot.herokuapp.com/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="CGPA Calculator" />
-    <meta property="og:description" content="Calculate and predict your CGPA" />
-    <meta
-      property="og:image"
-      content="https://cdn.statically.io/og/CGPA Calculator.jpg"
-    />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta property="twitter:domain" content="niternotebot.web.app" />
-    <meta
-      property="twitter:url"
-      content="https://niternotebot.herokuapp.com/"
-    />
-    <meta name="twitter:title" content="CGPA Calculator" />
-    <meta
-      name="twitter:description"
-      content="Calculate and predict your CGPA"
-    />
-    <meta
-      name="twitter:image"
-      content="https://cdn.statically.io/og/CGPA Calculator.jpg"
-    />
-    <!-- head icon -->
-    <link rel="icon" href="../favicon.ico" sizes="16x16" />
-    <title>CGPA Calculator</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
-    />
-    <!-- Favicon -->
-    <link rel="icon" href="./Ntblogo.webp" sizes="16x16" />
-    <link rel="stylesheet" href="./style.css" />
-  </head>
+  <!-- og -->
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content="https://niternotebot.herokuapp.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="CGPA Calculator" />
+  <meta property="og:description" content="Calculate and predict your CGPA" />
+  <meta property="og:image" content="https://cdn.statically.io/og/CGPA Calculator.jpg" />
 
-  <body class="main">
-    <section class="section">
-      <div class="container">
-        <h1 class="title">NITER NOTEBOT</h1>
-        <h1 class="title is-6">CGPA Calculator</h1>
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="twitter:domain" content="niternotebot.web.app" />
+  <meta property="twitter:url" content="https://niternotebot.herokuapp.com/" />
+  <meta name="twitter:title" content="CGPA Calculator" />
+  <meta name="twitter:description" content="Calculate and predict your CGPA" />
+  <meta name="twitter:image" content="https://cdn.statically.io/og/CGPA Calculator.jpg" />
+  <!-- head icon -->
+  <link rel="icon" href="../favicon.ico" sizes="16x16" />
+  <title>CGPA Calculator</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
+  <!-- Favicon -->
+  <link rel="icon" href="./Ntblogo.webp" sizes="16x16" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body class="main">
+  <section class="section">
+    <div class="container">
+      <h1 class="title">NITER NOTEBOT</h1>
+      <h1 class="title is-6">CGPA Calculator</h1>
+    </div>
+  </section>
+
+  <section class="sectionCustom">
+    <div class="container">
+      <div>
+        <p class="subtitle is-6 is-hidden">Dept. of Textile Engineering</p>
+        <p class="subtitle is-6 is-hidden">
+          Dept. of Computer Science & Software Engineering
+        </p>
+        <p class="subtitle is-6 is-hidden">
+          Dept. of Electrical & Electronics Engineering
+        </p>
+        <p class="subtitle is-6 is-hidden">
+          Dept. of Fashion Design & Apparel Engineering
+        </p>
+        <p class="subtitle is-6 is-hidden">
+          Dept. of Industrial & Production Engineering
+        </p>
       </div>
-    </section>
-
-    <section class="sectionCustom">
-      <div class="container">
-        <div>
-          <p class="subtitle is-6 is-hidden">Dept. of Textile Engineering</p>
-          <p class="subtitle is-6 is-hidden">
-            Dept. of Computer Science & Software Engineering
-          </p>
-          <p class="subtitle is-6 is-hidden">
-            Dept. of Electrical & Electornics Engineering
-          </p>
-          <p class="subtitle is-6 is-hidden">
-            Dept. of Fashion Design & Apparel Engineering
-          </p>
-          <p class="subtitle is-6 is-hidden">
-            Dept. of Industrial & Production Engineering
-          </p>
-        </div>
-        <br />
-        <h6 class="dep">Select Department</h6>
-        <div class="buttons is-centered">
-          <button class="button is-primary is-light">TEX</button>
-          <button class="button is-primary is-light">IPE</button>
-          <button class="button is-primary is-light">FDAE</button>
-          <button class="button is-primary is-light">CSE</button>
-          <button class="button is-primary is-light">EEE</button>
-        </div>
+      <br />
+      <h6 class="dep">Select Department</h6>
+      <div class="buttons is-centered">
+        <button class="button is-primary is-light">TEX</button>
+        <button class="button is-primary is-light">IPE</button>
+        <button class="button is-primary is-light">FDAE</button>
+        <button class="button is-primary is-light">CSE</button>
+        <button class="button is-primary is-light">EEE</button>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section is-hidden">
-      <div class="container divCenter">
-        <div class="custom-select" style="width: 150px">
-          <select>
-            <option value="0">Select Level:</option>
-            <option value="1">Level 1</option>
-            <option value="2">Level 2</option>
-            <option value="3">Level 3</option>
-            <option value="4">Level 4</option>
-          </select>
-        </div>
-
-        <div class="custom-select2" style="width: 150px">
-          <select>
-            <option value="0">Select Term:</option>
-            <option value="1">Term 1</option>
-            <option value="2">Term 2</option>
-          </select>
-        </div>
+  <section class="section is-hidden">
+    <div class="container divCenter">
+      <div class="custom-select" style="width: 150px">
+        <select>
+          <option value="0">Select Level:</option>
+          <option value="1">Level 1</option>
+          <option value="2">Level 2</option>
+          <option value="3">Level 3</option>
+          <option value="4">Level 4</option>
+        </select>
       </div>
-      <div class="calculationBtn">
-        <button id="start_calculation" class="button is-responsive is-danger">
-          Start Calculation
+
+      <div class="custom-select2" style="width: 150px">
+        <select>
+          <option value="0">Select Term:</option>
+          <option value="1">Term 1</option>
+          <option value="2">Term 2</option>
+        </select>
+      </div>
+    </div>
+    <div class="calculationBtn">
+      <button id="start_calculation" class="button is-responsive is-danger">
+        Start Calculation
+      </button>
+    </div>
+  </section>
+
+  <section id="sectionCalc" class="calculation is-hidden">
+    <div class="packet">
+      <div class="table-container">
+        <table class="table is-hoverable is-fullwidth">
+          <thead>
+            <tr>
+              <th>Semester</th>
+              <th>Total Credit</th>
+              <th>CGPA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="Tr is-hidden">
+              <td>S1</td>
+              <td>
+                <input id="inputCredit" class="input is-small is-hovered" value="" />
+              </td>
+              <td>
+                <input id="inputCgpa" class="input is-small is-hovered" value="" />
+              </td>
+            </tr>
+            <tr class="Tr is-hidden">
+              <td>S2</td>
+              <td>
+                <input id="inputCredit" class="input is-small is-hovered" value="" />
+              </td>
+              <td>
+                <input id="inputCgpa" class="input is-small is-hovered" value="" />
+              </td>
+            </tr>
+            <tr class="Tr is-hidden">
+              <td>S3</td>
+              <td>
+                <input id="inputCredit" class="input is-small is-hovered" value="" />
+              </td>
+              <td>
+                <input id="inputCgpa" class="input is-small is-hovered" value="" />
+              </td>
+            </tr>
+            <tr class="Tr is-hidden">
+              <td>S4</td>
+              <td>
+                <input id="inputCredit" class="input is-small is-hovered" value="" />
+              </td>
+              <td>
+                <input id="inputCgpa" class="input is-small is-hovered" value="" />
+              </td>
+            </tr>
+            <tr class="Tr is-hidden">
+              <td>S5</td>
+              <td>
+                <input id="inputCredit" class="input is-small is-hovered" value="" />
+              </td>
+              <td>
+                <input id="inputCgpa" class="input is-small is-hovered" value="" />
+              </td>
+            </tr>
+            <tr class="Tr is-hidden">
+              <td>S6</td>
+              <td>
+                <input id="inputCredit" class="input is-small is-hovered" value="" />
+              </td>
+              <td>
+                <input id="inputCgpa" class="input is-small is-hovered" value="" />
+              </td>
+            </tr>
+            <tr class="Tr is-hidden">
+              <td>S7</td>
+              <td>
+                <input id="inputCredit" class="input is-small is-hovered" value="" />
+              </td>
+              <td>
+                <input id="inputCgpa" class="input is-small is-hovered" value="" />
+              </td>
+            </tr>
+            <tr class="Tr is-hidden">
+              <td>S8</td>
+              <td>
+                <input id="inputCredit" class="input is-small is-hovered" value="" />
+              </td>
+              <td>
+                <input id="inputCgpa" class="input is-small is-hovered" value="" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <button id="calculate_cgpa" class="button is-success is-responsive test">
+          Calculate CGPA
         </button>
       </div>
-    </section>
-
-    <section id="sectionCalc" class="calculation is-hidden">
-      <div class="packet">
-        <div class="table-container">
-          <table class="table is-hoverable is-fullwidth">
-            <thead>
-              <tr>
-                <th>Semister</th>
-                <th>Total Credit</th>
-                <th>CGPA</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="Tr is-hidden">
-                <td>S1</td>
-                <td>
-                  <input
-                    id="inputCredit"
-                    class="input is-small is-hovered"
-                    value=""
-                  />
-                </td>
-                <td>
-                  <input
-                    id="inputCgpa"
-                    class="input is-small is-hovered"
-                    value=""
-                  />
-                </td>
-              </tr>
-              <tr class="Tr is-hidden">
-                <td>S2</td>
-                <td>
-                  <input
-                    id="inputCredit"
-                    class="input is-small is-hovered"
-                    value=""
-                  />
-                </td>
-                <td>
-                  <input
-                    id="inputCgpa"
-                    class="input is-small is-hovered"
-                    value=""
-                  />
-                </td>
-              </tr>
-              <tr class="Tr is-hidden">
-                <td>S3</td>
-                <td>
-                  <input
-                    id="inputCredit"
-                    class="input is-small is-hovered"
-                    value=""
-                  />
-                </td>
-                <td>
-                  <input
-                    id="inputCgpa"
-                    class="input is-small is-hovered"
-                    value=""
-                  />
-                </td>
-              </tr>
-              <tr class="Tr is-hidden">
-                <td>S4</td>
-                <td>
-                  <input
-                    id="inputCredit"
-                    class="input is-small is-hovered"
-                    value=""
-                  />
-                </td>
-                <td>
-                  <input
-                    id="inputCgpa"
-                    class="input is-small is-hovered"
-                    value=""
-                  />
-                </td>
-              </tr>
-              <tr class="Tr is-hidden">
-                <td>S5</td>
-                <td>
-                  <input
-                    id="inputCredit"
-                    class="input is-small is-hovered"
-                    value=""
-                  />
-                </td>
-                <td>
-                  <input
-                    id="inputCgpa"
-                    class="input is-small is-hovered"
-                    value=""
-                  />
-                </td>
-              </tr>
-              <tr class="Tr is-hidden">
-                <td>S6</td>
-                <td>
-                  <input
-                    id="inputCredit"
-                    class="input is-small is-hovered"
-                    value=""
-                  />
-                </td>
-                <td>
-                  <input
-                    id="inputCgpa"
-                    class="input is-small is-hovered"
-                    value=""
-                  />
-                </td>
-              </tr>
-              <tr class="Tr is-hidden">
-                <td>S7</td>
-                <td>
-                  <input
-                    id="inputCredit"
-                    class="input is-small is-hovered"
-                    value=""
-                  />
-                </td>
-                <td>
-                  <input
-                    id="inputCgpa"
-                    class="input is-small is-hovered"
-                    value=""
-                  />
-                </td>
-              </tr>
-              <tr class="Tr is-hidden">
-                <td>S8</td>
-                <td>
-                  <input
-                    id="inputCredit"
-                    class="input is-small is-hovered"
-                    value=""
-                  />
-                </td>
-                <td>
-                  <input
-                    id="inputCgpa"
-                    class="input is-small is-hovered"
-                    value=""
-                  />
-                </td>
-              </tr>
-            </tbody>
-          </table>
+    </div>
+  </section>
+  <footer>
+    <section id="result" class="finalResult">
+      <div class="output">
+        <div class="out-hd">
+          <p>Your CGPA</p>
         </div>
-
-        <div>
-          <button
-            id="calculate_cgpa"
-            class="button is-success is-responsive test"
-          >
-            Calculate CGPA
-          </button>
+        <div class="out-body">
+          <strong id="resultCGPA"> Tumi tw CGPA calculation korla na </strong>
         </div>
       </div>
     </section>
-    <footer>
-      <section id="result" class="finalResult">
-        <div class="output">
-          <div class="out-hd">
-            <p>Your CGPA</p>
-          </div>
-          <div class="out-body">
-            <strong id="resultCGPA"> Tumi tw CGPA calculation korla na </strong>
-          </div>
-        </div>
-      </section>
-    </footer>
-  </body>
-  <script src="script.js"></script>
+  </footer>
+</body>
+<script src="script.js"></script>
+
 </html>

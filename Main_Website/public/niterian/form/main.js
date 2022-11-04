@@ -158,17 +158,8 @@ function checkInputs() {
       if (isFormatedId(clidValue) === "Format Wrong") {
         setErrorFor(clid, "Invalid Formart, try this fromat 'TE-1808151'");
       } else {
-        isRegisteredId(clidValue).then((data) => {
-          if (data === "Already Registered") {
-            setErrorFor(
-              clid,
-              "This Id is already registered, try updating your data"
-            );
-          } else {
-            setSuccessFor(clid);
-            clidValue_state = true;
-          }
-        });
+        setSuccessFor(clid);
+        clidValue_state = true;
       }
     }
   }
@@ -316,6 +307,22 @@ function checkInputs() {
     </p>
   `;
     console.log("Still Something is missing");
+    console.log(
+      fnameValue_state,
+      batchValue_state,
+      clidValue_state,
+      deptValue_state,
+      secValue_state,
+      genderValue_state,
+      donorValue_state,
+      bloodValue_state,
+      htownValue_state,
+      bDateValue_state,
+      linkValue_state,
+      emailValue_state,
+      clgValue_state,
+      phoneValue_state
+    );
     return false;
   }
 }
@@ -370,10 +377,12 @@ function isFormatedId(clid) {
 }
 
 async function isRegisteredId(clid) {
-  const res = await fetch(`${baseURL}/checkStudent/${clid}`);
-  const data = await res.json();
-  if (data) return "Already Registered";
-  else return "Not Registered";
+  if (!clid_from_query) {
+    const res = await fetch(`${baseURL}/getSingleStudent/${clid}`);
+    const data = await res.json();
+    if (data) return "Already Registered";
+    else return "Not Registered";
+  } else return "Ok";
 }
 
 function isseclen(sec) {

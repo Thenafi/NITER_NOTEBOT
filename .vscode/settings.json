@@ -1,0 +1,6 @@
+{
+  "cSpell.words": ["daisyui", "NOTEBOT", "nuxt", "nuxtjs", "tailwindcss"],
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
+}

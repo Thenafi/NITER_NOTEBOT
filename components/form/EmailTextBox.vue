@@ -11,6 +11,7 @@
 
     <input
       @input="validate"
+      @click="validate"
       type="email"
       :placeholder="placeholder"
       class="input input-bordered bg-white w-full max-w-xs"

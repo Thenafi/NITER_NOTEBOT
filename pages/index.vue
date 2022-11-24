@@ -21,6 +21,7 @@
             class="btnop bg-slate-300"
             >Questions</a
           >
+          <NuxtLink to="cover" class="btn"> Cover </NuxtLink>
         </div>
 
         <!-- Buttons for second row -->

@@ -1,65 +1,33 @@
 <template>
-  <div>
-    <div class="wrapper">
-      <!-- Logo and Title of Notebot -->
-      <div class="title">
-        <img src="~assets/images/logo.svg" alt="NITER NOTEBOT" />
-        <h1>NITER NOTEBOT</h1>
-      </div>
+  <div class="grid place-items-center">
+    <img src="~assets/images/logo.svg" alt="NITER NOTEBOT" />
+    <h1>NITER NOTEBOT</h1>
+  </div>
 
-      <!-- Buttons to to navigate features of Notebot -->
-      <div class="">
-        <!-- Buttons for first row -->
-        <div>
-          <a
-            href="https://niternotebot.chest.workers.dev/"
-            class="btn btn-outline btn-accent nafi"
-            >Notes</a
-          >
-          <a
-            href="https://drive.google.com/drive/folders/1R7Wr7MbxlEHXQfjBLTcsk9m1TZjXdjLb"
-            class="btnop bg-slate-300"
-            >Questions</a
-          >
-          <NuxtLink to="cover" class="btn"> Cover </NuxtLink>
-        </div>
+  <div class="lg:px-96 px-10">
+    <!-- Logo and Title of Notebot -->
 
-        <!-- Buttons for second row -->
-        <div class="btnrow">
-          <a href="./cgpa" class="button">CGPA</a>
-          <a href="https://rxresu.me/" class="button">CV Maker</a>
-        </div>
+    <div class="grid grid-cols-2 gap-x-10 lg:gap-x-36">
+      <NuxtLink to="notes" class="btn"> Notes </NuxtLink>
+      <NuxtLink to="questions" class="btn"> questions </NuxtLink>
+    </div>
 
-        <!-- Buttons for third row -->
-        <div class="btnrow">
-          <div class="dropdown">
-            <a href="#" class="button">Niterian List</a>
-            <div class="dropdown-content">
-              <a href="./niterian/form/" style="text-align: left">Add Data</a>
-              <a href="./niterian/update" style="text-align: left"
-                >Update Data</a
-              >
-              <a href="./niterian/search" style="text-align: left"
-                >Search Data</a
-              >
-              <a href="./niterian/" style="text-align: left">View Database</a>
-            </div>
-          </div>
-          <a href="./teachers/" class="button">Teachers</a>
-        </div>
+    <div>
+      <NuxtLink to="cover" class="btn"> Cover </NuxtLink>
+      <a href="https://rxresu.me/" class="btn">CV Maker</a>
+    </div>
 
-        <!-- Buttons for fourth row -->
-        <div class="btnrow">
-          <a
-            href="https://docs.google.com/forms/d/1QScbhYVbZ7Vd3WOEfkBZoRcb0Y4JQYof8TubXy5Ubec/edit?usp=drivesdk"
-            class="button"
-            >Submit Notes</a
-          >
-          <a href="./join" class="button">Join us</a>
-        </div>
-      </div>
+    <div>
+      <NuxtLink to="teachers" class="btn">Teachers</NuxtLink>
+      <NuxtLink class="btn">Blank</NuxtLink>
+    </div>
 
-      <!-- Waves Container-->
+    <div>
+      <NuxtLink class="btn">Blank</NuxtLink>
+      <NuxtLink class="btn">Blank</NuxtLink>
+    </div>
+  </div>
+  <!-- 
       <div>
         <svg
           class="waves"
@@ -98,6 +66,5 @@
           </g>
         </svg>
       </div>
-    </div>
-  </div>
+      Waves Container-->
 </template>

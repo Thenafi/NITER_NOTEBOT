@@ -13,7 +13,7 @@
         <div>
           <a
             href="https://niternotebot.chest.workers.dev/"
-            class="btn btn-outline nafi"
+            class="btn btn-outline btn-accent nafi"
             >Notes</a
           >
           <a

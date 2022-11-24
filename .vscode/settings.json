@@ -1,5 +1,16 @@
 {
-  "cSpell.words": ["daisyui", "NOTEBOT", "nuxt", "nuxtjs", "tailwindcss"],
+  "cSpell.words": [
+    "daisyui",
+    "Doremon",
+    "headlessui",
+    "mytheme",
+    "NOTEBOT",
+    "nuxt",
+    "nuxtjs",
+    "pdfapi",
+    "pinia",
+    "tailwindcss"
+  ],
   "files.associations": {
     "*.css": "tailwindcss"
   }

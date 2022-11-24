@@ -3,7 +3,10 @@ export default defineNuxtConfig({
     css: [
         '@/assets/css/style.css'
     ],
-    modules: ['@nuxtjs/tailwindcss'],
+    imports: {
+        dirs: ['stores'],
+    },
+    modules: ['@nuxtjs/tailwindcss', 'nuxt-headlessui', ['@pinia/nuxt', { autoImports: ['defineStore'] }],],
     app: {
 
         head: {
@@ -16,6 +19,11 @@ export default defineNuxtConfig({
                 { rel: 'icon', type: 'image/x-icon', href: 'public/favicon.ico' }
             ]
         }
-    }
+    },
+    runtimeConfig: {
+        public: {
+            baseURL: process.env.BASE_URL || 'http://localhost:3000'
+        }
+    },
 
 })

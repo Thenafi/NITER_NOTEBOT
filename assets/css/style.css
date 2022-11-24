@@ -8,11 +8,7 @@ body {
 
 .wrapper {
   text-align: center;
-  background: linear-gradient(
-    43deg,
-    rgba(53, 161, 239, 1) 36%,
-    rgba(78, 219, 212, 1) 100%
-  );
+  background: linear-gradient(43deg, #34a1ef 36%, #4edbd4 100%);
   color: #d0efff;
 }
 

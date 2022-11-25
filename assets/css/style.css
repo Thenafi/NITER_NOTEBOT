@@ -1,11 +1,6 @@
 /* importing fonts from google */
 @import url(//fonts.googleapis.com/css?family=Lato:300:400&display=swap);
 
-body {
-  margin: 0;
-  background-color: #d0efff;
-}
-
 .wrapper {
   text-align: center;
   background: linear-gradient(43deg, #34a1ef 36%, #4edbd4 100%);
@@ -13,20 +8,9 @@ body {
 }
 
 /* Logo of NiterNotebot */
-img {
-  width: 45px;
-  padding-top: 40px;
-  padding-right: 10px;
-  display: inline-block;
-  vertical-align: middle;
-}
+
 h1 {
   font-family: "Lato", sans-serif;
-  letter-spacing: 2px;
-  display: inline-block;
-  margin-top: 65px;
-  font-weight: 550;
-  font-size: 45px;
 }
 .title {
   display: flex;
@@ -79,13 +63,6 @@ a {
   box-shadow: 0 0 0 0.2rem rgb(248 249 250 / 50%);
 }
 
-.btn {
-  margin-top: 30px;
-  margin-bottom: 50px;
-}
-.btnrow {
-  margin-top: 40px;
-}
 .dropdown {
   position: relative;
   display: inline-block;
@@ -157,36 +134,8 @@ a {
 
 /*Shrinking for mobile*/
 @media (max-width: 768px) {
-  h1 {
-    font-size: 23px;
-  }
-  .button {
-    padding: 0.375rem 0.75rem;
-    margin-inline: 20px;
-  }
-  .btn {
-    margin-top: 50px;
-    margin-bottom: 70px;
-  }
   .waves {
     height: 40px;
     min-height: 40px;
-  }
-}
-
-.dropdown-content {
-  right: 0;
-}
-
-/* shrinking for pc */
-@media (min-width: 768px) {
-  .dropdown-content {
-    right: 60px;
-  }
-}
-/* for tablet and mobile landscape format */
-@media only screen and (max-width: 699px) and (min-width: 551px) {
-  h1 {
-    font-size: 35px;
   }
 }

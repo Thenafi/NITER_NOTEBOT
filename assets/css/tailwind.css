@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer components {
-  .btnop {
-    @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+  .btnCustom {
+    @apply text-center bg-transparent hover:bg-white text-white font-semibold hover:text-black py-2 px-4 border border-white hover:border-transparent rounded;
   }
 }

@@ -11,23 +11,31 @@
       <!-- Logo and Title of Notebot -->
 
       <div class="grid grid-cols-2 gap-x-20">
-        <NuxtLink to="notes" class="btnCustom" noPrefetch> Notes </NuxtLink>
-        <NuxtLink to="questions" class="btnCustom"> Questions </NuxtLink>
+        <NuxtLink to="notes" class="glass btn-disabled btn-custom" noPrefetch>
+          Notes
+        </NuxtLink>
+        <NuxtLink to="questions" class="glass btn-disabled btn-custom">
+          Questions
+        </NuxtLink>
       </div>
 
       <div class="grid grid-cols-2 gap-x-20">
-        <NuxtLink to="cover" class="btnCustom"> Cover </NuxtLink>
-        <a href="https://rxresu.me/" class="btnCustom">CV Maker</a>
+        <NuxtLink to="cover" class="glass btn-disabled btn-custom">
+          Cover
+        </NuxtLink>
+        <a href="https://rxresu.me/" class="glass btn-disabled btn-custom"
+          >CV Maker</a
+        >
       </div>
 
       <div class="grid grid-cols-2 gap-x-20">
-        <NuxtLink to="teachers" class="btnCustom">Teachers</NuxtLink>
-        <NuxtLink class="btnCustom">Blank</NuxtLink>
+        <NuxtLink to="teachers" class="btn-custom">Teachers</NuxtLink>
+        <NuxtLink class="glass btn-disabled btn-custom">Blank</NuxtLink>
       </div>
 
       <div class="grid grid-cols-2 gap-x-20">
-        <NuxtLink class="btnCustom">Blank</NuxtLink>
-        <NuxtLink class="btnCustom">Blank</NuxtLink>
+        <NuxtLink class="glass btn-disabled btn-custom">Blank</NuxtLink>
+        <NuxtLink class="glass btn-disabled btn-custom">Blank</NuxtLink>
       </div>
     </div>
     <div>

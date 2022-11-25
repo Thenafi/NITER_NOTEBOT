@@ -8,7 +8,7 @@
     <!-- Logo and Title of Notebot -->
 
     <div class="grid grid-cols-2 gap-x-10 lg:gap-x-36">
-      <NuxtLink to="notes" class="btn"> Notes </NuxtLink>
+      <NuxtLink to="notes" class="btn" noPrefetch> Notes </NuxtLink>
       <NuxtLink to="questions" class="btn"> questions </NuxtLink>
     </div>
 

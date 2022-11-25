@@ -5,11 +5,14 @@
     "headlessui",
     "kevinmarrec",
     "mytheme",
+    "niternote",
+    "niternotebot",
     "NOTEBOT",
     "nuxt",
     "nuxtjs",
     "pdfapi",
     "pinia",
+    "predeploy",
     "tailwindcss"
   ],
   "files.associations": {

@@ -1,5 +1,10 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+    nitro: {
+        preset: 'firebase',
+        prerender: {
+            routes: ['/cover', '/notes', '/teachers', '/']
+        }
+    },
     css: [
         '@/assets/css/style.css'
     ],
@@ -16,7 +21,7 @@ export default defineNuxtConfig({
                 { name: 'viewport', content: 'width=device-width, initial-scale=1' },
             ],
             link: [
-                { rel: 'icon', type: 'image/x-icon', href: 'public/favicon.ico' }
+                { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
             ]
         }
     },

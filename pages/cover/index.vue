@@ -1,11 +1,17 @@
 <template>
-  <div class="p-10 m-5 bg-white rounded-3xl">
-    <form @submit.prevent="formSubmit" id="dataForm" action="#" method="post">
+  <div class="px-7 py-12 m-5 lg:mx-80 bg-white rounded-3xl">
+    <form
+      @submit.prevent="formSubmit"
+      id="dataForm"
+      action="#"
+      method="post"
+      class="flex flex-col items-center"
+    >
       <FormZeroTextBox username="Your Name" placeholder="Doremon" />
       <br />
       <FormEmailTextBox username="Email" placeholder="doremon@box.com" />
       <input
-        class="btn"
+        class="btn w-full mt-7 max-w-2xl"
         type="submit"
         value="Submit"
         :class="{ 'btn-disabled': !formStore.formIsSubmittable }"

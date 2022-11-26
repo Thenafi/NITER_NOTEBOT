@@ -6,4 +6,8 @@
   .btn-custom {
     @apply text-center bg-transparent hover:bg-white text-white font-semibold hover:text-black py-2 px-4 border border-white hover:border-transparent rounded;
   }
+
+  .input-box {
+    @apply mt-1 block w-full rounded-md bg-gray-100 border-transparent  focus:bg-white  focus:ring-0;
+  }
 }

@@ -3,14 +3,14 @@
     <div
       class="flex items-center justify-center gap-x-6 lg:gap-x-10 pt-20 pb-5"
     >
-      <img class="w-9" src="~assets/images/logo.svg" alt="NITER NOTEBOT" />
+      <img height="50" width="50" src="/logos/logo.svg" alt="NITER NOTEBOT" />
       <h1 class="text-2xl lg:text-4xl">NITER NOTEBOT</h1>
     </div>
 
     <div class="grid grid-rows-4 justify-center gap-y-10 py-10">
       <!-- Logo and Title of Notebot -->
 
-      <div class="grid grid-cols-2 gap-x-20">
+      <div class="grid grid-cols-2 gap-x-20 lg:gap-x-32">
         <NuxtLink to="notes" class="glass btn-disabled btn-custom" noPrefetch>
           Notes
         </NuxtLink>
@@ -19,7 +19,7 @@
         </NuxtLink>
       </div>
 
-      <div class="grid grid-cols-2 gap-x-20">
+      <div class="grid grid-cols-2 gap-x-20 lg:gap-x-32">
         <NuxtLink to="cover" class="glass btn-disabled btn-custom">
           Cover
         </NuxtLink>
@@ -28,12 +28,12 @@
         >
       </div>
 
-      <div class="grid grid-cols-2 gap-x-20">
+      <div class="grid grid-cols-2 gap-x-20 lg:gap-x-32">
         <NuxtLink to="teachers" class="btn-custom">Teachers</NuxtLink>
         <NuxtLink class="glass btn-disabled btn-custom">Blank</NuxtLink>
       </div>
 
-      <div class="grid grid-cols-2 gap-x-20">
+      <div class="grid grid-cols-2 gap-x-20 lg:gap-x-32">
         <NuxtLink class="glass btn-disabled btn-custom">Blank</NuxtLink>
         <NuxtLink class="glass btn-disabled btn-custom">Blank</NuxtLink>
       </div>

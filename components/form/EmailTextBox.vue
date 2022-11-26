@@ -1,5 +1,5 @@
 <template>
-  <div class="form-control w-full max-w-xs">
+  <div class="form-control w-full max-w-2xl align-ls">
     <label class="label">
       <span v-if="state.alert" class="label-text text-red-500">{{
         state.alert
@@ -14,7 +14,7 @@
       @click="validate"
       type="email"
       :placeholder="placeholder"
-      class="input input-bordered bg-white w-full max-w-xs"
+      class="input-box"
       :class="{ 'input-success': state.success, 'input-error': state.alert }"
     />
   </div>

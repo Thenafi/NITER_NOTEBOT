@@ -5,13 +5,12 @@
         state.alert
       }}</span>
       <span v-else-if="state.check" class="label-text">Checking email...</span>
-      <span v-else class="label-text">{{ username }}</span>
+      <span v-else class="label-text">{{ fieldName }}</span>
       <span class="label-text-alt" v-if="secondAlt">{{ secondAlt }}</span>
     </label>
 
     <input
       @input="validate"
-      @click="validate"
       type="email"
       :placeholder="placeholder"
       class="input-box"
@@ -25,7 +24,7 @@
 const formStore = useFormStore();
 
 //defining props and emits
-const props = defineProps(["username", "placeholder", "secondAlt"]);
+const props = defineProps(["fieldName", "placeholder", "secondAlt"]);
 
 //defining reactive state
 let state = reactive({ alert: false, check: false, success: false });
@@ -50,10 +49,9 @@ const validate = async function (e) {
 
   // to show that we are checking the email through api and using api to validate the deliverability
   state.check = true;
-  const { data: emaiLValidationRes } = await useFetch(
+  const { data: emailValidationResult } = await $fetch(
     `https://api.eva.pingutil.com/email?email=${enterString}`
   );
-  const emailValidationResult = emaiLValidationRes.value.data;
   if (!emailValidationResult.deliverable) {
     state.alert =
       "Looks like we can't send email to this address. Check again or try different email.";

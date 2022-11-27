@@ -1,7 +1,7 @@
 <template>
   <div class="form-control w-full max-w-2xl">
     <label class="label">
-      <span class="label-text">{{ username }}</span>
+      <span class="label-text">{{ fieldName }}</span>
 
       <span class="label-text-alt" v-if="secondAlt">{{ secondAlt }}</span>
     </label>
@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-defineProps(["username", "placeholder", "secondAlt"]);
+defineProps(["fieldName", "placeholder", "secondAlt"]);
 </script>
 
 <style scoped></style>

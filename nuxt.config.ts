@@ -2,7 +2,8 @@ export default defineNuxtConfig({
     nitro: {
         preset: 'firebase',
         prerender: {
-            routes: ['/cover', '/notes', '/teachers', '/']
+            crawlLinks: false,
+            routes: ['/cover', '/notes', '/teachers', '/', '/blog', '/blog/bank-info']
         }
     },
     css: [
@@ -11,7 +12,7 @@ export default defineNuxtConfig({
     imports: {
         dirs: ['stores'],
     },
-    modules: ['@nuxtjs/tailwindcss', 'nuxt-headlessui', ['@pinia/nuxt', { autoImports: ['defineStore'] }],],
+    modules: ['@nuxtjs/tailwindcss', '@nuxt/content', ['@pinia/nuxt', { autoImports: ['defineStore'] }],],
     app: {
 
         head: {

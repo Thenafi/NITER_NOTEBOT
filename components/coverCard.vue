@@ -3,17 +3,17 @@
     <div class="card-body">
       <h2 class="card-title">{{ title }}</h2>
       <p class="my-5">{{ templateDescription }}</p>
-      <div class="card-actions">
-        <NuxtLink :href="googleDocUrl" target="_blank" class="btn btn-primary"
+      <div class="card-actions justify-evenly items-center">
+        <NuxtLink :href="googleDocUrl" target="_blank" class="link link-primary"
           >Google Doc Link</NuxtLink
         >
-        <NuxtLink :href="imageLink" target="_blank" class="btn btn-primary"
+        <NuxtLink :href="imageLink" target="_blank" class="link link-primary"
           >Image Preview</NuxtLink
         >
         <NuxtLink
           @click="coverStore.setTemplate(docID)"
           href="/cover/form"
-          class="btn btn-primary"
+          class="btn btn-wide"
           >Generate</NuxtLink
         >
       </div>

@@ -8,3 +8,5 @@ node_modules
 .env
 dist
 tasklist.txt
+.firebase/
+datastore

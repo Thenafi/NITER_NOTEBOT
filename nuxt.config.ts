@@ -4,6 +4,21 @@ export default defineNuxtConfig({
         prerender: {
             crawlLinks: false,
             routes: ['/cover', '/notes', '/teachers', '/', '/blog', '/blog/bank-info']
+        },
+        storage: {
+            'db': {
+                driver: 'redis',
+                host: process.env.REDIS_HOST,
+                port: 11440,
+                password: process.env.REDIS_PASSWORD
+            },
+
+        },
+        devStorage: {
+            'db': {
+                driver: 'fs',
+                base: './datastore/db'
+            }
         }
     },
     css: [

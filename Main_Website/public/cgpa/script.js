@@ -8,9 +8,9 @@ const button = document.querySelectorAll(".button");
 const startCalc = document.getElementById("start_calculation");
 const sectionCalc = document.getElementById("sectionCalc");
 const calcCGPA = document.getElementById("calculate_cgpa");
-const inputSelction = document.querySelectorAll(".input"); // selecting all input box
-const inputSelctionCredit = document.querySelectorAll("#inputCredit"); // selecting credit input box
-const inputSelctionCGPA = document.querySelectorAll("#inputCgpa"); // selecting cgpa input box
+const inputSelection = document.querySelectorAll(".input"); // selecting all input box
+const inputSelectionCredit = document.querySelectorAll("#inputCredit"); // selecting credit input box
+const inputSelectionCGPA = document.querySelectorAll("#inputCgpa"); // selecting cgpa input box
 const resultBOX = document.getElementById("result"); // result box
 const tableRow = document.querySelectorAll(".Tr"); // selecting a table row
 
@@ -87,12 +87,12 @@ function calculation_function() {
   let cgpa;
   let i;
   let p;
-  for (i = 0; i < inputSelction.length; i++) {
+  for (i = 0; i < inputSelection.length; i++) {
     p = i + 1;
     if (!isodd(i)) {
-      totalSGPA = Number(inputSelction[i].value) + totalSGPA;
+      totalSGPA = Number(inputSelection[i].value) + totalSGPA;
       SPGA_Credit =
-        Number(inputSelction[i].value) * Number(inputSelction[p].value) +
+        Number(inputSelection[i].value) * Number(inputSelection[p].value) +
         SPGA_Credit;
     }
   }
@@ -341,7 +341,7 @@ startCalc.addEventListener("click", function () {
 
     let tempIndex = 0; // an index to get and update the values from the dept array
     //adding values in credit
-    for (const [index, credit] of inputSelctionCredit.entries()) {
+    for (const [index, credit] of inputSelectionCredit.entries()) {
       credit.value = "";
       if (index <= tableArray[1] - 1) {
         if (tableArray[0] === "TEX") {

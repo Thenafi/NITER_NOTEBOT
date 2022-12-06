@@ -1,3 +1,3 @@
 export default defineEventHandler((event) => {
-    return "ks"
+    return "Yeee Nafi"
 })

@@ -14,26 +14,38 @@
         <NuxtLink to="notes" class="glass btn-disabled btn-custom" noPrefetch>
           Notes
         </NuxtLink>
-        <NuxtLink to="questions" class="glass btn-disabled btn-custom">
+        <NuxtLink
+          to="questions"
+          class="glass btn-disabled btn-custom"
+          noPrefetch
+        >
           Questions
         </NuxtLink>
       </div>
 
       <div class="grid grid-cols-2 gap-x-20 lg:gap-x-32">
-        <NuxtLink to="cover" class="btn-custom"> Cover </NuxtLink>
+        <NuxtLink to="cover" class="btn-custom" noPrefetch> Cover </NuxtLink>
         <a href="https://rxresu.me/" class="glass btn-disabled btn-custom"
           >CV Maker</a
         >
       </div>
 
       <div class="grid grid-cols-2 gap-x-20 lg:gap-x-32">
-        <NuxtLink to="teachers" class="btn-custom">Teachers</NuxtLink>
-        <NuxtLink class="glass btn-disabled btn-custom">Blank</NuxtLink>
+        <NuxtLink to="teachers" class="btn-custom" :external="true"
+          >Teachers</NuxtLink
+        >
+        <NuxtLink class="glass btn-disabled btn-custom" noPrefetch
+          >Blank</NuxtLink
+        >
       </div>
 
       <div class="grid grid-cols-2 gap-x-20 lg:gap-x-32">
-        <NuxtLink class="glass btn-disabled btn-custom">Blank</NuxtLink>
-        <NuxtLink class="glass btn-disabled btn-custom">Blank</NuxtLink>
+        <NuxtLink class="glass btn-disabled btn-custom" noPrefetch
+          >Blank</NuxtLink
+        >
+        <NuxtLink class="glass btn-disabled btn-custom" noPrefetch
+          >Blank</NuxtLink
+        >
       </div>
     </div>
     <div>

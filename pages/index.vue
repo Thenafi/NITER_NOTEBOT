@@ -88,3 +88,9 @@
     </div>
   </div>
 </template>
+
+<script>
+definePageMeta({
+  layout: "frontpage",
+});
+</script>

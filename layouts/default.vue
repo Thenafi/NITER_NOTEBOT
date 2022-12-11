@@ -66,9 +66,9 @@
           class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-white rounded-box w-52"
         >
           <li>
-            <a class="justify-between"> Profile </a>
+            <NuxtLink href="#" class="justify-between"> Profile </NuxtLink>
           </li>
-          <li><a>Logout</a></li>
+          <li><NuxtLink href="#">Logout</NuxtLink></li>
         </ul>
       </div>
     </div>

@@ -43,16 +43,16 @@
         <NuxtLink to="teachers" class="btn-custom" :external="true"
           >Teachers</NuxtLink
         >
-        <NuxtLink class="glass btn-disabled btn-custom" noPrefetch
+        <NuxtLink href="#" class="glass btn-disabled btn-custom" noPrefetch
           >Blank</NuxtLink
         >
       </div>
 
       <div class="grid grid-cols-2 gap-x-20 lg:gap-x-32">
-        <NuxtLink class="glass btn-disabled btn-custom" noPrefetch
+        <NuxtLink href="#" class="glass btn-disabled btn-custom" noPrefetch
           >Blank</NuxtLink
         >
-        <NuxtLink class="glass btn-disabled btn-custom" noPrefetch
+        <NuxtLink href="#" class="glass btn-disabled btn-custom" noPrefetch
           >Blank</NuxtLink
         >
       </div>

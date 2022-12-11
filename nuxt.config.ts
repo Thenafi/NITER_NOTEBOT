@@ -32,10 +32,16 @@ export default defineNuxtConfig({
             meta: [
                 { charset: 'utf-8' },
                 { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+                {
+                    name: "description", content: "NITER Notebot is a educational platform containing several academic notes, questions. It also provides some useful tools which is very handy to use."
+                }
             ],
             link: [
                 { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-            ]
+            ],
+            htmlAttrs: {
+                lang: 'en'
+            }
         }
     },
     runtimeConfig: {

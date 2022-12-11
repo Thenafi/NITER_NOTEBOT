@@ -2,14 +2,14 @@
   <div class="px-7 py-12 m-5 lg:mx-80 bg-white rounded-3xl">
     <div class="input-group">
       <input
+        autocomplete="off"
         id="searchBox"
         @input="searchForTeacher"
         type="text"
         placeholder="Search…"
-        style=""
         class="input input-bordered w-full bg-white"
       />
-      <button class="btn btn-square">
+      <div class="btn btn-square">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-6 w-6"
@@ -24,7 +24,7 @@
             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
           />
         </svg>
-      </button>
+      </div>
     </div>
 
     <div v-if="dataFetchInComplete" class="text-center">
@@ -66,11 +66,10 @@ type teacherInfo = {
 };
 const dataFetchInComplete = ref(true);
 // Hey future I don't know how the fuck type script works
-const { pending, data } = await useLazyFetch(apiURL);
+const { pending, data } = await useLazyFetch(apiURL, { server: true });
 let teachersData: any = reactive(data);
 
 nuxtApp.hook("page:finish", async () => {
-  console.log("Page Rendered");
   // for refetching Pre-rendered Static Data
   const { data } = await useFetch(apiURL);
   teachersData = data;

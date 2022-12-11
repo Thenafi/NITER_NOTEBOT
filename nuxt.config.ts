@@ -1,4 +1,7 @@
 export default defineNuxtConfig({
+    routeRules: {
+        "/teacher": { static: true }
+    },
     nitro: {
         preset: 'firebase',
         prerender: {

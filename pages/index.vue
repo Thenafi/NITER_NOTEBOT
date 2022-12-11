@@ -5,6 +5,7 @@
     >
       <img height="50" width="50" src="/logos/logo.svg" alt="NITER NOTEBOT" />
       <h1 class="text-2xl lg:text-4xl">NITER NOTEBOT</h1>
+      <p>Going through development. Helps are welcome.</p>
     </div>
 
     <div class="grid grid-rows-4 justify-center gap-y-10 py-10">
@@ -24,7 +25,9 @@
       </div>
 
       <div class="grid grid-cols-2 gap-x-20 lg:gap-x-32">
-        <NuxtLink to="cover" class="btn-custom" noPrefetch> Cover </NuxtLink>
+        <NuxtLink to="cover" class="glass btn-disabled btn-custom" noPrefetch>
+          Cover
+        </NuxtLink>
         <a href="https://rxresu.me/" class="glass btn-disabled btn-custom"
           >CV Maker</a
         >

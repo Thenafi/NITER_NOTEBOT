@@ -1,4 +1,3 @@
-indextest.html
 node_modules/
 node_modules
 *.log*
@@ -9,6 +8,5 @@ node_modules
 .env
 dist
 tasklist.txt
-.firebase/hosting.Lm91dHB1dFxwdWJsaWM.cache
-datastore/db/foo
-datastore/db/Meow
+.firebase/
+datastore

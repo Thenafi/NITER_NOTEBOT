@@ -6,7 +6,7 @@ export default defineNuxtConfig({
         preset: 'firebase',
         prerender: {
             crawlLinks: false,
-            routes: ['/cover', '/notes', '/teachers', '/', '/blog', '/blog/bank-info']
+            routes: ['/cover', '/notes', '/teachers', '/']
         },
         storage: {
             'db': {
@@ -16,12 +16,6 @@ export default defineNuxtConfig({
                 password: process.env.REDIS_PASSWORD
             },
 
-        },
-        devStorage: {
-            'db': {
-                driver: 'fs',
-                base: './datastore/db'
-            }
         }
     },
     css: [
@@ -30,7 +24,7 @@ export default defineNuxtConfig({
     imports: {
         dirs: ['stores'],
     },
-    modules: ['@nuxtjs/tailwindcss', '@nuxt/content', ['@pinia/nuxt', { autoImports: ['defineStore'] }],],
+    modules: ['@nuxtjs/tailwindcss', ['@pinia/nuxt', { autoImports: ['defineStore'] }],],
     app: {
 
         head: {

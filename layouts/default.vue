@@ -24,10 +24,10 @@
           class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-white rounded-box w-52"
         >
           <li>
-            <NuxtLink to="teachers">Teachers</NuxtLink>
+            <NuxtLink to="/teachers">Teachers</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="cover"> Cover </NuxtLink>
+            <NuxtLink to="/cover"> Cover </NuxtLink>
           </li>
         </ul>
       </div>

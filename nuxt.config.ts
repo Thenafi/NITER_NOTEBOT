@@ -3,7 +3,7 @@ export default defineNuxtConfig({
         "/teacher": { static: true }
     },
     nitro: {
-        preset: 'vercel',
+        preset: 'firebase',
         prerender: {
             crawlLinks: false,
             routes: ['/cover', '/notes', '/teachers', '/']

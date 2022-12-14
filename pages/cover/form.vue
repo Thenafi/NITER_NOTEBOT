@@ -5,11 +5,24 @@
       id="dataForm"
       action="#"
       method="post"
-      class="flex flex-col items-center"
+      class="flex flex-col items-center space-y-5"
     >
-      <FormZeroTextBox fieldName="Your Name" placeholder="Doremon" />
-      <br />
-      <FormEmailTextBox fieldName="Email" placeholder="doremon@box.com" />
+      <FormZeroTextBox
+        fieldName="Your Name"
+        placeholder="Doremon"
+        input-box-name="student_name"
+      />
+
+      <FormEmailTextBox
+        fieldName="Email"
+        placeholder="doremon@box.com"
+        input-box-name="email"
+      />
+      <FormAutoTextBox
+        fieldName="Type of Cover"
+        placeholder="Assignment | Lab Report"
+        inputBoxName="type_of_cover"
+      />
       <input
         class="btn w-full mt-7 max-w-2xl"
         type="submit"
@@ -30,13 +43,13 @@ const apiURL = config.baseURL;
 
 const formSubmit = function (e) {
   console.log(formStore.formIsSubmittable);
-  if (!formStore.formIsSubmittable) return;
+  if (!formStore.formIsSubmittable) return; // if form is not submittable, return
   const formElement = document.getElementById("dataForm");
   const formData = new FormData(formElement);
   sendData(formData);
 };
 const sendData = async function (dataToBeSent) {
-  const url = apiURL + "/pdfapi";
+  const url = apiURL + "/console";
   const data = await useFetch(url);
   console.log(data);
 };

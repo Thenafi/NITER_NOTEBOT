@@ -14,7 +14,9 @@
       type="email"
       :placeholder="placeholder"
       class="input-box"
+      :name="inputBoxName"
       :class="{ 'input-success': state.success, 'input-error': state.alert }"
+      @click="(e) => (e.target.placeholder = '')"
     />
   </div>
 </template>
@@ -24,7 +26,12 @@
 const formStore = useFormStore();
 
 //defining props and emits
-const props = defineProps(["fieldName", "placeholder", "secondAlt"]);
+const props = defineProps([
+  "fieldName",
+  "placeholder",
+  "secondAlt",
+  "inputBoxName",
+]);
 
 //defining reactive state
 let state = reactive({ alert: false, check: false, success: false });

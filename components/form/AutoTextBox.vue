@@ -10,6 +10,7 @@
       :placeholder="placeholder"
       class="input-box"
       :name="inputBoxName"
+      value=""
       @click="(e) => (e.target.placeholder = '')"
     />
   </div>

@@ -24,7 +24,11 @@ export default defineNuxtConfig({
     imports: {
         dirs: ['stores'],
     },
-    modules: ['@nuxtjs/tailwindcss', ['@pinia/nuxt', { autoImports: ['defineStore'] }],],
+    modules: ['@nuxtjs/tailwindcss', '@nuxtjs/partytown', ['@pinia/nuxt', { autoImports: ['defineStore'] }],],
+    partytown: {
+        /* any partytown-specific configuration */
+        forward: ['dataLayer.push'],
+    },
     app: {
 
         head: {
@@ -41,7 +45,11 @@ export default defineNuxtConfig({
             ],
             htmlAttrs: {
                 lang: 'en'
-            }
+            },
+            script: [
+
+                { src: 'https://www.googletagmanager.com/gtag/js?id=G-MNHSBWGL98', async: true, type: 'text/partytown' },
+            ],
         }
     },
     runtimeConfig: {

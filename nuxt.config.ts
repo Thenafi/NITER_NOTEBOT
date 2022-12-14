@@ -47,7 +47,9 @@ export default defineNuxtConfig({
                 lang: 'en'
             },
             script: [
-
+                {
+                    src: "https://cdn.counter.dev/script.js", 'data-id': "d9bae897-f1cd-414c-84b9-e33bdc000308", "data-utcoffset": "6"
+                },
                 { src: 'https://www.googletagmanager.com/gtag/js?id=G-MNHSBWGL98', async: true, type: 'text/partytown' },
             ],
         }

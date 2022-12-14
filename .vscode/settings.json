@@ -22,7 +22,8 @@
     "pinia",
     "predeploy",
     "Savar",
-    "tailwindcss"
+    "tailwindcss",
+    "utcoffset"
   ],
   "files.associations": {
     "*.css": "tailwindcss"

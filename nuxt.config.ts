@@ -24,7 +24,7 @@ export default defineNuxtConfig({
     imports: {
         dirs: ['stores'],
     },
-    modules: ['@nuxtjs/tailwindcss', '@nuxtjs/partytown', ['@pinia/nuxt', { autoImports: ['defineStore'] }],],
+    modules: ['@nuxtjs/tailwindcss', '@nuxtjs/partytown', '@vueuse/nuxt', ['@pinia/nuxt', { autoImports: ['defineStore'] }],],
     partytown: {
         /* any partytown-specific configuration */
         forward: ['dataLayer.push'],
@@ -48,7 +48,7 @@ export default defineNuxtConfig({
             },
             script: [
                 {
-                    src: "https://cdn.counter.dev/script.js", 'data-id': "d9bae897-f1cd-414c-84b9-e33bdc000308", "data-utcoffset": "6"
+                    // src: "https://cdn.counter.dev/script.js", 'data-id': "d9bae897-f1cd-414c-84b9-e33bdc000308", "data-utcoffset": "6"
                 },
                 { src: 'https://www.googletagmanager.com/gtag/js?id=G-MNHSBWGL98', async: true, type: 'text/partytown' },
             ],

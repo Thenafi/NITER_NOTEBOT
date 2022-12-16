@@ -7,8 +7,6 @@
   color: #d0efff;
 }
 
-/* Logo of NiterNotebot */
-
 h1 {
   font-family: "Lato", sans-serif;
 }
@@ -17,12 +15,6 @@ h1 {
   justify-content: center;
   align-items: center;
   text-align: center;
-}
-
-/* Button design */
-a {
-  text-decoration: none;
-  font-family: "lato", sans-serif;
 }
 .button {
   width: 100px;

@@ -69,10 +69,9 @@ const dataFetchInComplete = ref(true);
 const { pending, data } = await useLazyFetch(apiURL, { server: true });
 let teachersData: any = reactive(data);
 
-nuxtApp.hook("page:finish", async () => {
-  // for refetching Pre-rendered Static Data
-  const { data } = await useFetch(apiURL);
-  teachersData = data;
+onMounted(async () => {
+  teachersData = await $fetch(apiURL);
+  // console.log(teachersData);
   dataFetchInComplete.value = false;
 });
 

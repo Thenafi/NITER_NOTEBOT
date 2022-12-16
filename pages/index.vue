@@ -31,9 +31,7 @@
       </div>
 
       <div class="grid grid-cols-2 gap-x-20 lg:gap-x-32">
-        <NuxtLink to="cover" class="glass btn-disabled btn-custom" noPrefetch>
-          Cover
-        </NuxtLink>
+        <NuxtLink to="cover" class="btn-custom" noPrefetch> Cover </NuxtLink>
         <a href="https://rxresu.me/" class="glass btn-disabled btn-custom"
           >CV Maker</a
         >

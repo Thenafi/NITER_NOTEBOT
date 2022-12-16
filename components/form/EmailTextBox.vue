@@ -6,7 +6,33 @@
       }}</span>
       <span v-else-if="state.check" class="label-text">Checking email...</span>
       <span v-else class="label-text">{{ fieldName }}</span>
-      <span class="label-text-alt" v-if="secondAlt">{{ secondAlt }}</span>
+      <span class="label-text-alt" v-if="secondAlt"
+        ><div class="dropdown dropdown-end">
+          <label tabindex="0" class="btn btn-circle btn-ghost btn-xs text-info">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              class="w-4 h-4 stroke-current"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+          </label>
+          <div
+            tabindex="0"
+            class="card compact dropdown-content shadow bg-cyan-100 rounded-box w-64"
+          >
+            <div class="card-body">
+              <p>{{ secondAlt }}</p>
+            </div>
+          </div>
+        </div></span
+      >
     </label>
 
     <input
@@ -22,6 +48,7 @@
 </template>
 
 <script setup>
+const nuxtApp = useNuxtApp();
 // defining store
 const formStore = useFormStore();
 
@@ -31,10 +58,20 @@ const props = defineProps([
   "placeholder",
   "secondAlt",
   "inputBoxName",
+  "propInputValue",
 ]);
 
 //defining reactive state
 let state = reactive({ alert: false, check: false, success: false });
+
+//behaves weirdly when using :value=propInputValue
+// fixing the undefined value caused  because being called early in the lifecycle
+onMounted(async () => {
+  if (props.propInputValue) {
+    document.querySelector(`input[name=${props.inputBoxName}]`).value =
+      props.propInputValue;
+  }
+});
 
 //creating validation function
 const validate = async function (e) {

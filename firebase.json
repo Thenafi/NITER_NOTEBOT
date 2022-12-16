@@ -4,9 +4,7 @@
   },
   "hosting": [
     {
-      "predeploy": [
-        "yarn run build && cd .output/server && yarn install"
-      ],
+      "predeploy": ["npm run build && cd .output/server && npm install"],
       "site": "niternotebot",
       "public": ".output/public",
       "cleanUrls": true,

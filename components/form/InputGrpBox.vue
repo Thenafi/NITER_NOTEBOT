@@ -2,6 +2,7 @@
   <div class="form-control w-full max-w-2xl">
     <label class="label">
       <span class="label-text">{{ fieldName }}</span>
+
       <span class="label-text-alt" v-if="secondAlt"
         ><div class="dropdown dropdown-end">
           <label tabindex="0" class="btn btn-circle btn-ghost btn-xs text-info">
@@ -30,20 +31,29 @@
         </div></span
       >
     </label>
-    <input
-      type="text"
-      :placeholder="placeholder"
-      class="input-box"
-      :name="inputBoxName"
-      value=""
-      @click="(e) => (e.target.placeholder = '')"
-      :value="propValue"
-    />
+    <label class="input-group">
+      <span>{{ inputGroupSpan }}</span>
+      <input
+        type="text"
+        :placeholder="placeholder"
+        class="input-box"
+        :name="inputBoxName"
+        @click="(e) => (e.target.placeholder = '')"
+        :value="propValue"
+      />
+    </label>
   </div>
 </template>
 
 <script setup>
-defineProps(["fieldName", "placeholder", "secondAlt", "inputBoxName", "propValue"]);
+defineProps([
+  "fieldName",
+  "placeholder",
+  "secondAlt",
+  "inputBoxName",
+  "inputGroupSpan",
+  "propValue",
+]);
 </script>
 
 <style scoped></style>

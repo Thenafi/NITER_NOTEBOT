@@ -1,10 +1,10 @@
 type StudentUser = {
     student_id: string;
     student_name: string;
-    email?: string;
-    batch: string;
-    section?: string;
-    dept?: string;
+    student_email?: string;
+    student_batch: string;
+    student_section?: string;
+    student_dept?: string;
 };
 import { useStorage } from "@vueuse/core";
 
@@ -14,10 +14,10 @@ export const useStudentUserStore = defineStore("studentUserStore", {
             useStorage("student-user", {
                 student_id: "",
                 student_name: "",
-                email: "",
-                batch: "",
-                section: "",
-                dept: "",
+                student_email: "",
+                student_batch: "",
+                student_section: "",
+                student_dept: "",
 
             })
         ),

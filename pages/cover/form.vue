@@ -38,17 +38,25 @@
         :propInputValue="studentUser.student_id"
       />
       <FormZeroTextBox
+        fieldName="Your Batch"
+        placeholder="8|9|10"
+        inputBoxName="student_batch"
+        :propInputValue="studentUser.student_batch"
+      />
+
+      <FormZeroTextBox
         fieldName="Your Name"
         placeholder="Doremon"
         inputBoxName="student_name"
+        :propInputValue="studentUser.student_name"
       />
 
       <FormEmailTextBox
-        fieldName="Email"
+        fieldName="Your Email"
         placeholder="doremon@box.com"
-        inputBoxName="email"
+        inputBoxName="student_email"
         secondAlt="We prefer gmail. Don't put your college email."
-        :prop-input-value="studentUser.email"
+        :prop-input-value="studentUser.student_email"
       />
       <FormAutoTextBox
         fieldName="Type of Cover"
@@ -59,9 +67,10 @@
       <FormInputGrpBox
         fieldName="Your Section"
         placeholder="A | B | C"
-        inputBoxName="section"
+        inputBoxName="student_section"
         secondAlt="Leave a space if you want it to blank. Then the whole section part will be removed from the cover. We will automatically add the 'Section:' before the section name. So, if you put 'A' here, it will be 'Section: A'"
         inputGroupSpan="Section:"
+        :propInputValue="studentUser.student_section"
       />
       <button
         id="submitButtonId"
@@ -106,7 +115,7 @@ const formSubmit = function (e: Event) {
   for (const [inputNameKey, anotherObjectInsideInputKeyName] of Object.entries(
     formStore.formFields
   )) {
-    if ("lengthValid" in anotherObjectInsideInputKeyName) {
+    if ("validated" in anotherObjectInsideInputKeyName) {
       const inputHmlElement = document.querySelector(
         `input[name=${inputNameKey}]`
       ) as HTMLInputElement | undefined;
@@ -129,10 +138,15 @@ const formSubmit = function (e: Event) {
     });
 
     //Reformatting the section name in case of handling when the user has no section
-    if (formData.get("section") == "") {
-      formData.set("section", "");
-    } else formData.set("section", "Section: " + formData.get("section"));
+    if (formData.get("student_section") == "") {
+      formData.set("student_section", "");
+    } else
+      formData.set(
+        "student_section",
+        "Section: " + formData.get("student_section")
+      );
 
+    //submission part
     buttonState.value = "Generating...";
     sendData(formData);
   }
@@ -159,7 +173,7 @@ if (firstTimeCoverGenerator.value == null) {
   //wait for 1 second after rendering the page then set the value to true
   setTimeout(() => {
     firstTimeCoverGenerator.value = "true";
-  }, 10000);
+  }, 30000);
 }
 </script>
 

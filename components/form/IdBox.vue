@@ -31,7 +31,7 @@
       </span>
     </label>
     <input
-      @input="validateStudentID"
+      @input="validate"
       type="text"
       :placeholder="placeholder"
       class="input-box"
@@ -40,14 +40,16 @@
         'input-success': classState.success,
         'input-error': classState.alert,
       }"
+      @click="opppsssClicked"
     />
   </div>
 </template>
 
-<script setup>
-const nuxtApp = useNuxtApp();
+<script setup lang="ts">
 //defining stores
 const studentUserStore = useStudentUserStore();
+const formStore = useFormStore();
+const formFields = formStore.formFields;
 
 const props = defineProps([
   "fieldName",
@@ -61,26 +63,81 @@ let classState = reactive({ alert: false, success: false });
 
 //behaves weirdly when using :value=propInputValue
 // fixing the undefined value caused  because being called early in the lifecycle
+let inputBoxElement: HTMLInputElement;
 onMounted(async () => {
+  inputBoxElement = document.querySelector(
+    `input[name=${props.inputBoxName}]`
+  ) as HTMLInputElement;
   if (props.propInputValue) {
-    document.querySelector(`input[name=${props.inputBoxName}]`).value =
-      props.propInputValue;
+    inputBoxElement.value = props.propInputValue;
   }
 });
+//to update the value when propInputValue changes
+watch(
+  () => props.propInputValue,
+  (newValue) => {
+    if (newValue) {
+      inputBoxElement.value = newValue;
+    }
+  }
+);
 
 //student Id format Validation
-const validateStudentID = (e) => {
-  const studentID = e.target.value;
-  const regex = /[A-Z]{2}-[0-9]{7}/i;
+const validate = async (e: Event) => {
+  const studentID = (e.target as HTMLInputElement).value;
+  const regex = /[A-Z]{2}-[0-9]{7}$/i;
   if (studentID.match(regex)) {
     classState.success = true;
     classState.alert = false;
 
+    const batch = batchFinder(studentID);
+    formFields.student_id.validated = true;
+    studentUserStore.setStudentUserField("student_batch", batch);
     studentUserStore.setStudentUserField("student_id", studentID);
-    studentUserStore.setStudentUserField("email", studentID + "@student.com");
   } else {
     classState.success = false;
     classState.alert = true;
+  }
+};
+
+const batchFinder = (value: string) => {
+  type listOfYearsWithBatches = {
+    [key: number]: string;
+  };
+  let ls = {} as listOfYearsWithBatches;
+  let year = 10;
+  let bt = 0;
+  //making all the batches
+  for (let i = 0; i < 50; i++) {
+    ls[year++] = `${bt + i}`;
+  }
+  const firstTwoDigits = +(value[3] + value[4]);
+  const batch = +ls[firstTwoDigits];
+
+  function ordinal_suffix_of(i: number) {
+    var j = i % 10,
+      k = i % 100;
+    if (j == 1 && k != 11) {
+      return i + " st";
+    }
+    if (j == 2 && k != 12) {
+      return i + " nd";
+    }
+    if (j == 3 && k != 13) {
+      return i + " rd";
+    }
+    return i + " th";
+  }
+
+  const batchWithSuffix = ordinal_suffix_of(batch);
+  return batchWithSuffix;
+};
+
+const opppsssClicked = async (e: Event) => {
+  validate(e);
+  (e.target as HTMLInputElement).placeholder = "";
+  if (formFields[props.inputBoxName].hasOwnProperty("clicked")) {
+    formFields[props.inputBoxName].clicked = true;
   }
 };
 </script>

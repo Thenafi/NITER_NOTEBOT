@@ -31,19 +31,79 @@
       >
     </label>
     <input
+      @input="validate"
       type="text"
       :placeholder="placeholder"
       class="input-box"
       :name="inputBoxName"
-      value=""
-      @click="(e) => (e.target.placeholder = '')"
-      :value="propValue"
+      @click="opppsssClicked"
     />
   </div>
 </template>
 
 <script setup>
-defineProps(["fieldName", "placeholder", "secondAlt", "inputBoxName", "propValue"]);
+//defining stores
+const formStore = useFormStore();
+const formFields = formStore.formFields;
+
+const props = defineProps([
+  "fieldName",
+  "placeholder",
+  "secondAlt",
+  "inputBoxName",
+  "propInputValue",
+  "minimumLength",
+  "maximumLength",
+]);
+
+//behaves weirdly when using :value=propInputValue
+// fixing the undefined value caused  because being called early in the lifecycle
+let inputBoxElement;
+onMounted(async () => {
+  inputBoxElement = document.querySelector(`input[name=${props.inputBoxName}]`);
+  if (props.propInputValue) {
+    inputBoxElement.value = props.propInputValue;
+  }
+});
+//to update the value when propInputValue changes
+watch(
+  () => props.propInputValue,
+  (newValue) => {
+    if (newValue) {
+      inputBoxElement.value = newValue;
+    }
+  }
+);
+
+let minimumInputLength = 1;
+if (props.minimumLength) {
+  minimumInputLength = props.minimumLength;
+}
+let maximumInputLength = 10000;
+if (props.maximumLength) {
+  maximumInputLength = props.maximumLength;
+}
+
+// validate the input length at least 1  and if the formFields with the inputBoxName has the validate property set to true
+const validate = () => {
+  const input = document.querySelector(`input[name=${props.inputBoxName}]`);
+  console.log(formFields[props.inputBoxName].hasOwnProperty("validated"));
+  if (
+    input.value.length > minimumInputLength &&
+    input.value.length < maximumInputLength &&
+    formFields[props.inputBoxName].hasOwnProperty("validated")
+  ) {
+    formFields[props.inputBoxName].validated = true;
+  }
+};
+
+const opppsssClicked = async (e) => {
+  validate(e);
+  e.target.placeholder = "";
+  if (formFields[props.inputBoxName].hasOwnProperty("clicked")) {
+    formFields[props.inputBoxName].clicked = true;
+  }
+};
 </script>
 
 <style scoped></style>

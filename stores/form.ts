@@ -1,6 +1,6 @@
 type SingleFormFields = {
     clicked: boolean;
-    lengthValid?: boolean;
+    validated?: boolean;
 };
 type FormFields = {
     [key: string]: SingleFormFields;
@@ -12,18 +12,16 @@ export const useFormStore = defineStore("formStore", {
         formFields: {} as FormFields,
     }),
     actions: {
-        updateFormSubmittableState(value: boolean) {
-            this.formIsSubmittable = value;
-        },
+
     },
     getters: {
         getFormSubmittableState() {
             //check if formFields is empty if npt then  run rest of the code
             if (Object.keys(this.formFields).length !== 0) {
-                //check if all form fields has has true value for lengthValid amd clicked
+                //check if all form fields has has true value for validated amd clicked
                 for (const key in this.formFields) {
                     if (
-                        this.formFields[key].lengthValid === false ||
+                        this.formFields[key].validated === false ||
                         this.formFields[key].clicked === false
                     ) {
                         return false;

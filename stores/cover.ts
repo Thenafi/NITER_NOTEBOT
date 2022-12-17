@@ -1,6 +1,6 @@
 type SingleFormFields = {
     clicked: boolean;
-    lengthValid?: boolean;
+    validated?: boolean;
 };
 type FormFields = {
     [key: string]: SingleFormFields;
@@ -20,29 +20,33 @@ export const useCoverStore = defineStore("coverStore", {
             },
             student_name: {
                 clicked: false,
-                lengthValid: false,
+                validated: false,
             },
             student_id: {
                 clicked: false,
-                lengthValid: false,
+                validated: false,
             },
-            batch: {
+            student_batch: {
                 clicked: false,
             },
-            section: {
+            student_section: {
                 clicked: false,
+            },
+            student_email: {
+                clicked: false,
+                validated: false,
             },
             submitted_to: {
                 clicked: false,
-                lengthValid: false,
+                validated: false,
             },
             post: {
                 clicked: false,
-                lengthValid: false,
+                validated: false,
             },
-            dept: {
+            teacher_dept: {
                 clicked: false,
-                lengthValid: false,
+                validated: false,
             },
         },
         templates: [

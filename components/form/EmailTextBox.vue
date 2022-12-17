@@ -42,15 +42,16 @@
       class="input-box"
       :name="inputBoxName"
       :class="{ 'input-success': state.success, 'input-error': state.alert }"
-      @click="(e) => (e.target.placeholder = '')"
+      @click="opppsssClicked"
     />
   </div>
 </template>
 
 <script setup>
-const nuxtApp = useNuxtApp();
 // defining store
+const studentUserStore = useStudentUserStore();
 const formStore = useFormStore();
+const formFields = formStore.formFields;
 
 //defining props and emits
 const props = defineProps([
@@ -66,12 +67,22 @@ let state = reactive({ alert: false, check: false, success: false });
 
 //behaves weirdly when using :value=propInputValue
 // fixing the undefined value caused  because being called early in the lifecycle
+let inputBoxElement;
 onMounted(async () => {
+  inputBoxElement = document.querySelector(`input[name=${props.inputBoxName}]`);
   if (props.propInputValue) {
-    document.querySelector(`input[name=${props.inputBoxName}]`).value =
-      props.propInputValue;
+    inputBoxElement.value = props.propInputValue;
   }
 });
+//to update the value when propInputValue changes
+watch(
+  () => props.propInputValue,
+  (newValue) => {
+    if (newValue) {
+      inputBoxElement.value = newValue;
+    }
+  }
+);
 
 //creating validation function
 const validate = async function (e) {
@@ -87,7 +98,6 @@ const validate = async function (e) {
     state.success = false;
     state.alert = false;
     state.check = false;
-    formStore.updateFormSubmittableState(false);
     return;
   }
 
@@ -99,14 +109,23 @@ const validate = async function (e) {
   if (!emailValidationResult.deliverable) {
     state.alert =
       "Looks like we can't send email to this address. Check again or try different email.";
-    formStore.updateFormSubmittableState(false);
     return;
   }
   state.alert = false;
   state.check = false;
   state.success = true;
-  formStore.updateFormSubmittableState(true);
+
+  formFields.student_email.validated = true;
+  studentUserStore.setStudentUserField("student_email", enterString);
   return;
+};
+
+const opppsssClicked = async (e) => {
+  validate(e);
+  e.target.placeholder = "";
+  if (formFields[props.inputBoxName].hasOwnProperty("clicked")) {
+    formFields[props.inputBoxName].clicked = true;
+  }
 };
 </script>
 

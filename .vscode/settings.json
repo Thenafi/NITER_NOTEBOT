@@ -8,7 +8,6 @@
     "headlessui",
     "Janata",
     "kevinmarrec",
-    "lengthvalid",
     "mytheme",
     "Nayarhat",
     "niternote",
@@ -17,6 +16,7 @@
     "NOTEBOT",
     "nuxt",
     "nuxtjs",
+    "opppsss",
     "Palli",
     "partytown",
     "pdfapi",
@@ -24,7 +24,8 @@
     "predeploy",
     "Savar",
     "tailwindcss",
-    "utcoffset"
+    "utcoffset",
+    "validated"
   ],
   "files.associations": {
     "*.css": "tailwindcss"

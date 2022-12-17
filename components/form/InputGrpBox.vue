@@ -95,20 +95,16 @@ if (props.maximumLength) {
 const validate = (e: Event) => {
   const input = e.target as HTMLInputElement;
   const inputBoxName = props.inputBoxName as any;
+  if (studentUserStore.studentUser.hasOwnProperty(inputBoxName)) {
+    studentUserStore.setStudentUserField(inputBoxName, inputBoxElement.value);
+  }
   if (inputBoxName)
     if (
       input.value.length > minimumInputLength &&
       input.value.length < maximumInputLength &&
       formFields[inputBoxName].hasOwnProperty("validated")
-    ) {
+    )
       formFields[inputBoxName].validated = true;
-      if (studentUserStore.studentUser.hasOwnProperty(inputBoxName)) {
-        studentUserStore.setStudentUserField(
-          inputBoxName,
-          inputBoxElement.value
-        );
-      }
-    }
 };
 
 const opppsssClicked = async (e: Event) => {

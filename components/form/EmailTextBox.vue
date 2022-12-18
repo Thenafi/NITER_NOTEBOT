@@ -2,7 +2,7 @@
   <div class="form-control w-full max-w-2xl align-ls">
     <label class="label">
       <span v-if="state.alert" class="label-text text-red-500">{{
-        state.alert
+        state.alertString
       }}</span>
       <span v-else-if="state.check" class="label-text">Checking email...</span>
       <span v-else class="label-text">{{ fieldName }}</span>
@@ -47,7 +47,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 // defining store
 const studentUserStore = useStudentUserStore();
 const formStore = useFormStore();
@@ -63,13 +63,20 @@ const props = defineProps([
 ]);
 
 //defining reactive state
-let state = reactive({ alert: false, check: false, success: false });
+let state = reactive({
+  alert: false,
+  check: false,
+  success: false,
+  alertString: "",
+});
 
 //behaves weirdly when using :value=propInputValue
 // fixing the undefined value caused  because being called early in the lifecycle
-let inputBoxElement;
+let inputBoxElement: HTMLInputElement;
 onMounted(async () => {
-  inputBoxElement = document.querySelector(`input[name=${props.inputBoxName}]`);
+  inputBoxElement = document.querySelector(
+    `input[name=${props.inputBoxName}]`
+  ) as HTMLInputElement;
   if (props.propInputValue) {
     inputBoxElement.value = props.propInputValue;
   }
@@ -85,8 +92,11 @@ watch(
 );
 
 //creating validation function
-const validate = async function (e) {
-  const enterString = e.target.value;
+const validate = async function (e: Event) {
+  let enterString = "";
+  if (e.target) {
+    enterString = (e.target as HTMLInputElement).value;
+  }
 
   //using regex to start initial validation
   const validEmail = String(enterString)
@@ -103,13 +113,19 @@ const validate = async function (e) {
 
   // to show that we are checking the email through api and using api to validate the deliverability
   state.check = true;
-  const { data: emailValidationResult } = await $fetch(
+  const res = await fetch(
     `https://api.eva.pingutil.com/email?email=${enterString}`
   );
-  if (!emailValidationResult.deliverable) {
-    state.alert =
-      "Looks like we can't send email to this address. Check again or try different email.";
-    return;
+  const emailValidationResult = await res.json();
+
+  if (res.status === 200) {
+    if (emailValidationResult)
+      if (!emailValidationResult.data.deliverable) {
+        state.alert = true;
+        state.alertString =
+          "Looks like we can't send email to this address. Check again or try different email.";
+        return;
+      }
   }
   state.alert = false;
   state.check = false;
@@ -119,10 +135,9 @@ const validate = async function (e) {
   studentUserStore.setStudentUserField("student_email", enterString);
   return;
 };
-
-const opppsssClicked = async (e) => {
+const opppsssClicked = async (e: Event) => {
   validate(e);
-  e.target.placeholder = "";
+  (e.target as HTMLInputElement).placeholder = "";
   if (formFields[props.inputBoxName].hasOwnProperty("clicked")) {
     formFields[props.inputBoxName].clicked = true;
   }

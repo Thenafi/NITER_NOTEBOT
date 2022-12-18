@@ -41,7 +41,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 //defining stores
 const formStore = useFormStore();
 const formFields = formStore.formFields;
@@ -58,9 +58,11 @@ const props = defineProps([
 
 //behaves weirdly when using :value=propInputValue
 // fixing the undefined value caused  because being called early in the lifecycle
-let inputBoxElement;
+let inputBoxElement: HTMLInputElement;
 onMounted(async () => {
-  inputBoxElement = document.querySelector(`input[name=${props.inputBoxName}]`);
+  inputBoxElement = document.querySelector(
+    `input[name=${props.inputBoxName}]`
+  ) as HTMLInputElement;
   if (props.propInputValue) {
     inputBoxElement.value = props.propInputValue;
   }
@@ -85,9 +87,9 @@ if (props.maximumLength) {
 }
 
 // validate the input length at least 1  and if the formFields with the inputBoxName has the validate property set to true
-const validate = () => {
-  const input = document.querySelector(`input[name=${props.inputBoxName}]`);
-  console.log(formFields[props.inputBoxName].hasOwnProperty("validated"));
+const validate = (e: Event) => {
+  const input = e.target as HTMLInputElement;
+
   if (
     input.value.length > minimumInputLength &&
     input.value.length < maximumInputLength &&
@@ -97,9 +99,9 @@ const validate = () => {
   }
 };
 
-const opppsssClicked = async (e) => {
+const opppsssClicked = async (e: Event) => {
   validate(e);
-  e.target.placeholder = "";
+  if (e.target) (e.target as HTMLInputElement).placeholder = "";
   if (formFields[props.inputBoxName].hasOwnProperty("clicked")) {
     formFields[props.inputBoxName].clicked = true;
   }

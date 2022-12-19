@@ -23,7 +23,7 @@ jobs:
           REDIS_PASSWORD: "${{ secrets.REDIS_PASSWORD }}"
           REDIS_HOST: "${{ secrets.REDIS_HOST }}"
       - name: install libraries
-        run: yarn install && yarn run build && cd .output/server && yarn install
+        run: yarn install
       - name: install firebase and deploy
         run: npm i firebase-tools -g
       - name: deploy

@@ -1,5 +1,5 @@
 <template>
-  <div>{{ placeholder }}</div>
+  {{ placeholder }}
 </template>
 
 <script setup lang="ts">

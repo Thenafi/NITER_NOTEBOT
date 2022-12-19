@@ -3,9 +3,11 @@
     <p class="italic">Still in beta mode.</p>
     <br />
     <p class="text-xl">
-      Total <Icon name="carbon:generate-pdf" />
-      <span v-if="pending"> <Dotdotdot /> </span
-      ><span v-else>{{}} {{ count }} <br /> </span>
+      <span v-if="pending">
+        Total <Icon name="carbon:generate-pdf" /><Dotdotdot /> </span
+      ><span v-else
+        >Total <Icon name="carbon:generate-pdf" /> {{ count }} <br />
+      </span>
       <br />
       Select the template according to your need.
     </p>

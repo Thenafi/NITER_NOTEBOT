@@ -5,7 +5,8 @@
     "dev": "nuxi dev -o",
     "generate": "nuxi generate",
     "preview": "nuxi preview",
-    "postinstall": "nuxi prepare"
+    "postinstall": "nuxi prepare",
+    "emulator": "npm run build && cd .output/server && npm install && firebase emulators:start"
   },
   "devDependencies": {
     "@nuxt/image-edge": "^1.0.0-27821548.ab054e4",

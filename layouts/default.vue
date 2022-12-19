@@ -27,7 +27,7 @@
             <NuxtLink to="/teachers">Teachers</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/cover"> Cover </NuxtLink>
+            <NuxtLink to="#s"> Cover </NuxtLink>
           </li>
         </ul>
       </div>

@@ -52,39 +52,36 @@
         </div>
       </div>
       <FormIdBox
+        v-if="formStore.formFields.student_id"
         fieldName="Your ID"
         placeholder="TE-1808036"
         inputBoxName="student_id"
         :propInputValue="studentUser.student_id"
       />
       <FormZeroTextBox
+        v-if="formStore.formFields.student_batch"
         fieldName="Your Batch"
         placeholder="8|9|10"
         inputBoxName="student_batch"
         :propInputValue="studentUser.student_batch"
       />
-
       <FormZeroTextBox
+        v-if="formStore.formFields.student_name"
         fieldName="Your Name"
         placeholder="Doremon"
         inputBoxName="student_name"
         :propInputValue="studentUser.student_name"
       />
-
       <FormEmailTextBox
+        v-if="formStore.formFields.student_email"
         fieldName="Your Email"
         placeholder="doremon@box.com"
         inputBoxName="student_email"
         secondAlt="We prefer gmail. Don't put your college email."
         :prop-input-value="studentUser.student_email"
       />
-      <FormAutoTextBox
-        fieldName="Type of Cover"
-        placeholder="Assignment | Lab Report"
-        inputBoxName="type_of_cover"
-        secondAlt="Leave a space if you want it to blank."
-      />
       <FormInputGrpBox
+        v-if="formStore.formFields.student_section"
         fieldName="Your Section"
         placeholder="A | B | C"
         inputBoxName="student_section"
@@ -92,6 +89,73 @@
         inputGroupSpan="Section:"
         :propInputValue="studentUser.student_section"
       />
+      <FormAutoTextBox
+        v-if="formStore.formFields.type_of_cover"
+        fieldName="Type of Cover"
+        placeholder="Assignment | Lab Report"
+        inputBoxName="type_of_cover"
+        secondAlt="Leave a space if you want it to blank."
+      />
+
+      <FormZeroTextBox
+        v-if="formStore.formFields.course_title"
+        fieldName="Course Title"
+        placeholder="Doremon 101"
+        inputBoxName="course_title"
+      />
+      <FormZeroTextBox
+        v-if="formStore.formFields.course_code"
+        fieldName="Course Code"
+        placeholder="DOR-101"
+        inputBoxName="course_code"
+      />
+
+      <FormZeroTextBox
+        v-if="formStore.formFields.experiment_date"
+        fieldName="Experiment Date"
+        placeholder="23-2-2102"
+        inputBoxName="experiment_date"
+      />
+      <FormZeroTextBox
+        v-if="formStore.formFields.submission_date"
+        fieldName="Submission Date"
+        placeholder="30-2-2102"
+        inputBoxName="submission_date"
+      />
+
+      <FormZeroTextBox
+        v-if="formStore.formFields.experiment_no"
+        fieldName="Experiment no"
+        placeholder="1 | 2 | 3"
+        inputBoxName="experiment_no"
+      />
+
+      <FormZeroTextBox
+        v-if="formStore.formFields.experiment_name"
+        fieldName="Experiment Title"
+        placeholder="Doremon's First Take-copter Ride"
+        inputBoxName="experiment_name"
+      />
+
+      <FormZeroTextBox
+        v-if="formStore.formFields.submitted_to"
+        fieldName="Submitted To"
+        placeholder="Nobita Nobi"
+        inputBoxName="submitted_to"
+      />
+      <FormZeroTextBox
+        v-if="formStore.formFields.designation"
+        fieldName="Designation"
+        placeholder="Professor | Lecturer"
+        inputBoxName="designation"
+      />
+      <FormZeroTextBox
+        v-if="formStore.formFields.teacher_department"
+        fieldName="Teacher's Department"
+        placeholder="Department of Gadgets"
+        inputBoxName="teacher_department"
+      />
+
       <button
         id="submitButtonId"
         type="submit"
@@ -100,6 +164,15 @@
       >
         {{ buttonState }}
       </button>
+
+      <NuxtLink
+        class="btn w-full mt-7 max-w-2xl"
+        v-if="downloadLink"
+        :href="downloadLink"
+        :external="true"
+        download
+        >Download</NuxtLink
+      >
     </form>
   </div>
 </template>
@@ -113,6 +186,7 @@ const studentUser = studentUserStore.studentUser;
 
 //button State
 const buttonState = ref("Submit");
+const downloadLink = ref(null) as any;
 
 const config = useRuntimeConfig();
 const apiURL = config.baseURL;
@@ -120,8 +194,6 @@ const apiURL = config.baseURL;
 if (!coverStore.selectedTemplate) {
   await navigateTo("/cover");
 }
-
-coverStore.$reset();
 
 //submit button declaration
 let submitButton: HTMLInputElement;
@@ -186,6 +258,8 @@ const formSubmit = function () {
         "Section: " + formData.get("student_section")
       );
 
+    //adding doc id
+    formData.set("docID", coverStore.selectedTemplate);
     //submission part
     submitButton.classList.remove("btn-error");
     buttonState.value = "Generating...";
@@ -195,15 +269,26 @@ const formSubmit = function () {
 
 //sending data to the server
 const sendData = async function (dataToBeSent: FormData) {
-  const url = apiURL + "/console";
-  const { data } = await useFetch(url, {
+  const url = apiURL + "/pdfapi/create";
+  const { data, pending, error } = await useFetch(url, {
     method: "POST",
     body: dataToBeSent,
   });
-  console.log(data.value);
 
-  buttonState.value = "Generated";
-  submitButton.classList.toggle("loading");
+  console.log(data.value);
+  const response: any = data.value;
+  if (error.value) {
+    buttonState.value =
+      "Error in server side. Please try again later or report.";
+    submitButton.classList.add("btn-error");
+    submitButton.classList.toggle("loading");
+  }
+  if (data.value) {
+    downloadLink.value = response.pdfUrl;
+    buttonState.value = "Generated";
+    submitButton.classList.add("success");
+    submitButton.classList.toggle("loading");
+  }
 };
 
 //setting up alerts for first timers and useCookie to store the cookie

@@ -40,11 +40,11 @@ export const useCoverStore = defineStore("coverStore", {
                 clicked: false,
                 validated: false,
             },
-            post: {
+            designation: {
                 clicked: false,
                 validated: false,
             },
-            teacher_dept: {
+            teacher_department: {
                 clicked: false,
                 validated: false,
             },

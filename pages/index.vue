@@ -31,14 +31,16 @@
       </div>
 
       <div class="grid grid-cols-2 gap-x-20 lg:gap-x-32">
-        <NuxtLink to="cover" class="btn-custom" noPrefetch> Cover </NuxtLink>
+        <NuxtLink to="#" class="glass btn-disabled btn-custom" noPrefetch>
+          Cover Gen
+        </NuxtLink>
         <a href="https://rxresu.me/" class="glass btn-disabled btn-custom"
           >CV Maker</a
         >
       </div>
 
       <div class="grid grid-cols-2 gap-x-20 lg:gap-x-32">
-        <NuxtLink to="teachers" class="btn-custom" :external="true"
+        <NuxtLink to="/teachers" class="btn-custom" :external="true"
           >Teachers</NuxtLink
         >
         <NuxtLink href="#" class="glass btn-disabled btn-custom" noPrefetch

@@ -18,9 +18,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: install libraries
-        run: yarn install && yarn run build && cd .output/server && yarn install
-      - name: install firebase
+      - name: install firebase and deploy
         run: npm i firebase-tools -g
       - name: deploy
         run: firebase deploy --token ${{ secrets.FIREBASE_TOKEN  }}

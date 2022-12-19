@@ -6,8 +6,9 @@
       <span v-if="pending">
         Total <Icon name="carbon:generate-pdf" /><Dotdotdot /> </span
       ><span v-else
-        >Total <Icon name="carbon:generate-pdf" /> {{ count }} <br />
+        >Total <Icon name="carbon:generate-pdf" /> {{ count }}
       </span>
+      <br />
       <br />
       Select the template according to your need.
     </p>

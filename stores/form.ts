@@ -8,7 +8,6 @@ type FormFields = {
 
 export const useFormStore = defineStore("formStore", {
     state: () => ({
-        formIsSubmittable: false,
         formFields: {} as FormFields,
     }),
     actions: {

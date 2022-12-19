@@ -84,7 +84,8 @@ watch(
 
 //student Id format Validation
 const validate = async (e: Event) => {
-  const studentID = (e.target as HTMLInputElement).value;
+  let studentID = (e.target as HTMLInputElement).value;
+  (e.target as HTMLInputElement).value = studentID.toUpperCase().trim();
   const regex = /[A-Z]{2}-[0-9]{7}$/i;
   if (studentID.match(regex)) {
     classState.success = true;
@@ -97,6 +98,7 @@ const validate = async (e: Event) => {
   } else {
     classState.success = false;
     classState.alert = true;
+    formFields.student_id.validated = false;
   }
 };
 

@@ -1,13 +1,33 @@
 <template>
   <div class="px-7 py-12 m-5 lg:mx-80 bg-white rounded-3xl">
     <form
-      @submit.prevent="formSubmit"
       id="dataForm"
       action="#"
       method="post"
       class="flex flex-col items-center space-y-5"
       autocomplete="off"
     >
+      <div class="tooltip self-end" data-tip="Clear All Fields ">
+        <button
+          @click.prevent="clearingAllFields"
+          class="btn btn-sm btn-circle btn-outline"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
       <div
         v-if="!firstTimeCoverGenerator"
         class="alert alert-warning max-w-2xl"
@@ -76,6 +96,7 @@
         id="submitButtonId"
         type="submit"
         class="btn w-full mt-7 max-w-2xl"
+        @click.prevent="formSubmit"
       >
         {{ buttonState }}
       </button>
@@ -100,28 +121,47 @@ if (!coverStore.selectedTemplate) {
   await navigateTo("/cover");
 }
 
+coverStore.$reset();
+
 //submit button declaration
 let submitButton: HTMLInputElement;
 onMounted(() => {
   submitButton = document.getElementById("submitButtonId") as HTMLInputElement;
 });
 
-const formSubmit = function (e: Event) {
+const formSubmit = function () {
+  console.log("Form submission started");
   //Loading state showing
   submitButton.classList.toggle("loading");
   buttonState.value = "Checking...";
 
   //checking all inputFields If that can't be empty and if any of them is empty then show an alert
-  for (const [inputNameKey, anotherObjectInsideInputKeyName] of Object.entries(
-    formStore.formFields
-  )) {
-    if ("validated" in anotherObjectInsideInputKeyName) {
-      const inputHmlElement = document.querySelector(
-        `input[name=${inputNameKey}]`
-      ) as HTMLInputElement | undefined;
-      if (inputHmlElement) {
-        if (inputHmlElement.value.length < 1) {
+  for (const [
+    inputNameKey,
+    anotherObjectInsideFormFieldObject,
+  ] of Object.entries(formStore.formFields)) {
+    const inputHmlElement = document.querySelector(
+      `input[name=${inputNameKey}]`
+    ) as HTMLInputElement | null;
+    if (inputHmlElement) {
+      //specific validation from the formFields objects
+      if ("validated" in anotherObjectInsideFormFieldObject) {
+        if (!anotherObjectInsideFormFieldObject.validated) {
           console.log(`${inputNameKey} is not valid`);
+          buttonState.value = `One of major field is not validated ${inputNameKey}`;
+          submitButton.classList.toggle("loading");
+          submitButton.classList.add("btn-error");
+          return;
+        }
+      }
+
+      if ("clicked" in anotherObjectInsideFormFieldObject) {
+        if (!anotherObjectInsideFormFieldObject.clicked) {
+          console.log(`${inputNameKey} is not valid`);
+          buttonState.value = `Some or more field is not clicked  ${inputNameKey}`;
+          submitButton.classList.toggle("loading");
+          submitButton.classList.add("btn-error");
+          return;
         }
       }
     }
@@ -147,6 +187,7 @@ const formSubmit = function (e: Event) {
       );
 
     //submission part
+    submitButton.classList.remove("btn-error");
     buttonState.value = "Generating...";
     sendData(formData);
   }
@@ -175,6 +216,14 @@ if (firstTimeCoverGenerator.value == null) {
     firstTimeCoverGenerator.value = "true";
   }, 30000);
 }
+
+//clearing
+const clearingAllFields = () => {
+  const allInputFields = document.querySelectorAll("input");
+  allInputFields.forEach((inputField) => {
+    inputField.value = "";
+  });
+};
 </script>
 
 <style scoped></style>

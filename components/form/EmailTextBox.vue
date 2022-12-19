@@ -108,6 +108,7 @@ const validate = async function (e: Event) {
     state.success = false;
     state.alert = false;
     state.check = false;
+    formFields.student_email.validated = false;
     return;
   }
 
@@ -124,6 +125,7 @@ const validate = async function (e: Event) {
         state.alert = true;
         state.alertString =
           "Looks like we can't send email to this address. Check again or try different email.";
+        formFields.student_email.validated = false;
         return;
       }
   }

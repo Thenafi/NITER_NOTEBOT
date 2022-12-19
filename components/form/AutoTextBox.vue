@@ -89,14 +89,15 @@ if (props.maximumLength) {
 // validate the input length at least 1  and if the formFields with the inputBoxName has the validate property set to true
 const validate = (e: Event) => {
   const input = e.target as HTMLInputElement;
-
-  if (
-    input.value.length > minimumInputLength &&
-    input.value.length < maximumInputLength &&
-    formFields[props.inputBoxName].hasOwnProperty("validated")
-  ) {
-    formFields[props.inputBoxName].validated = true;
-  }
+  if (formFields[props.inputBoxName].hasOwnProperty("validated"))
+    if (
+      input.value.length > minimumInputLength &&
+      input.value.length < maximumInputLength
+    ) {
+      formFields[props.inputBoxName].validated = true;
+    } else {
+      formFields[props.inputBoxName].validated = false;
+    }
 };
 
 const opppsssClicked = async (e: Event) => {

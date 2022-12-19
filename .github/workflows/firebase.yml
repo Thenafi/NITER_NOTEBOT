@@ -18,13 +18,13 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-        env:
-          BASE_URL: "${{ secrets.BASE_URL }}"
-          REDIS_PASSWORD: "${{ secrets.REDIS_PASSWORD }}"
-          REDIS_HOST: "${{ secrets.REDIS_HOST }}"
       - name: install libraries
         run: yarn install
       - name: install firebase and deploy
         run: npm i firebase-tools -g
       - name: deploy
         run: firebase deploy --token ${{ secrets.FIREBASE_TOKEN  }}
+        env:
+          BASE_URL: "${{ secrets.BASE_URL }}"
+          REDIS_PASSWORD: "${{ secrets.REDIS_PASSWORD }}"
+          REDIS_HOST: "${{ secrets.REDIS_HOST }}"

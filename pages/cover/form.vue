@@ -286,8 +286,9 @@ const sendData = async function (dataToBeSent: FormData) {
   if (data.value) {
     downloadLink.value = response.pdfUrl;
     buttonState.value = "Generated";
-    submitButton.classList.add("success");
+    submitButton.classList.add("btn-success");
     submitButton.classList.toggle("loading");
+    useLazyFetch("/api/covercount?type=increment");
   }
 };
 

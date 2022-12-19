@@ -24,7 +24,7 @@ export default defineNuxtConfig({
     imports: {
         dirs: ['stores'],
     },
-    modules: ['@nuxtjs/tailwindcss', '@nuxtjs/partytown', '@vueuse/nuxt', ['@pinia/nuxt', { autoImports: ['defineStore'] }],],
+    modules: ['@nuxtjs/tailwindcss', 'nuxt-icon', '@nuxtjs/partytown', '@vueuse/nuxt', ['@pinia/nuxt', { autoImports: ['defineStore'] }],],
     partytown: {
         /* any partytown-specific configuration */
         forward: ['dataLayer.push'],

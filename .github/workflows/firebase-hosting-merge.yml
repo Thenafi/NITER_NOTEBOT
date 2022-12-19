@@ -12,6 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: yarn install && yarn run build && cd .output/server && yarn install
+      - uses: FirebaseExtended/action-hosting-deploy@v0
         env:
           BASE_URL: "${{ secrets.BASE_URL }}"
           REDIS_PASSWORD: "${{ secrets.REDIS_PASSWORD }}"

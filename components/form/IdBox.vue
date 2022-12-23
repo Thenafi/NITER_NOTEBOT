@@ -1,13 +1,9 @@
 <template>
-  <div class="form-control w-full max-w-2xl align-ls">
+  <div class="form-control w-full max-w-2xl">
     <label class="label">
-      <span v-if="state.alert" class="label-text text-red-500">{{
-        state.alertString
-      }}</span>
-      <span v-else-if="state.check" class="label-text">Checking email...</span>
-      <span v-else class="label-text">{{ fieldName }}</span>
-      <span class="label-text-alt" v-if="secondAlt"
-        ><div class="dropdown dropdown-end">
+      <span class="label-text">{{ fieldName }}</span>
+      <span class="label-text-alt" v-if="secondAlt">
+        <div class="dropdown dropdown-end">
           <label tabindex="0" class="btn btn-circle btn-ghost btn-xs text-info">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -31,29 +27,30 @@
               <p>{{ secondAlt }}</p>
             </div>
           </div>
-        </div></span
-      >
+        </div>
+      </span>
     </label>
-
     <input
       @input="validate"
-      type="email"
+      type="text"
       :placeholder="placeholder"
       class="input-box"
       :name="inputBoxName"
-      :class="{ 'input-success': state.success, 'input-error': state.alert }"
+      :class="{
+        'input-success': classState.success,
+        'input-error': classState.alert,
+      }"
       @click="opppsssClicked"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-// defining store
+//defining stores
 const studentUserStore = useStudentUserStore();
 const formStore = useFormStore();
 const formFields = formStore.formFields;
 
-//defining props and emits
 const props = defineProps([
   "fieldName",
   "placeholder",
@@ -61,14 +58,8 @@ const props = defineProps([
   "inputBoxName",
   "propInputValue",
 ]);
-
 //defining reactive state
-let state = reactive({
-  alert: false,
-  check: false,
-  success: false,
-  alertString: "",
-});
+let classState = reactive({ alert: false, success: false });
 
 //behaves weirdly when using :value=propInputValue
 // fixing the undefined value caused  because being called early in the lifecycle
@@ -91,52 +82,59 @@ watch(
   }
 );
 
-//creating validation function
-const validate = async function (e: Event) {
-  let enterString = "";
-  if (e.target) {
-    enterString = (e.target as HTMLInputElement).value;
+//student Id format Validation
+const validate = async (e: Event) => {
+  let studentID = (e.target as HTMLInputElement).value;
+  (e.target as HTMLInputElement).value = studentID.toUpperCase().trim();
+  const regex = /[A-Z]{2}-[0-9]{7}$/i;
+  if (studentID.match(regex)) {
+    classState.success = true;
+    classState.alert = false;
+
+    const batch = batchFinder(studentID);
+    formFields.student_id.validated = true;
+    studentUserStore.setStudentUserField("student_batch", batch);
+    studentUserStore.setStudentUserField("student_id", studentID);
+  } else {
+    classState.success = false;
+    classState.alert = true;
+    formFields.student_id.validated = false;
   }
-
-  //using regex to start initial validation
-  const validEmail = String(enterString)
-    .toLowerCase()
-    .match(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    );
-  if (!validEmail) {
-    state.success = false;
-    state.alert = false;
-    state.check = false;
-    formFields.student_email.validated = false;
-    return;
-  }
-
-  // to show that we are checking the email through api and using api to validate the deliverability
-  state.check = true;
-  const res = await fetch(
-    `https://api.eva.pingutil.com/email?email=${enterString}`
-  );
-  const emailValidationResult = await res.json();
-
-  if (res.status === 200) {
-    if (emailValidationResult)
-      if (!emailValidationResult.data.deliverable) {
-        state.alert = true;
-        state.alertString =
-          "Looks like we can't send email to this address. Check again or try different email.";
-        formFields.student_email.validated = false;
-        return;
-      }
-  }
-  state.alert = false;
-  state.check = false;
-  state.success = true;
-
-  formFields.student_email.validated = true;
-  studentUserStore.setStudentUserField("student_email", enterString);
-  return;
 };
+
+const batchFinder = (value: string) => {
+  type listOfYearsWithBatches = {
+    [key: number]: string;
+  };
+  let ls = {} as listOfYearsWithBatches;
+  let year = 10;
+  let bt = 0;
+  //making all the batches
+  for (let i = 0; i < 50; i++) {
+    ls[year++] = `${bt + i}`;
+  }
+  const firstTwoDigits = +(value[3] + value[4]);
+  const batch = +ls[firstTwoDigits];
+
+  function ordinal_suffix_of(i: number) {
+    var j = i % 10,
+      k = i % 100;
+    if (j == 1 && k != 11) {
+      return i + " st";
+    }
+    if (j == 2 && k != 12) {
+      return i + " nd";
+    }
+    if (j == 3 && k != 13) {
+      return i + " rd";
+    }
+    return i + " th";
+  }
+
+  const batchWithSuffix = ordinal_suffix_of(batch);
+  return batchWithSuffix;
+};
+
 const opppsssClicked = async (e: Event) => {
   validate(e);
   (e.target as HTMLInputElement).placeholder = "";

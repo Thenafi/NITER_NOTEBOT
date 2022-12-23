@@ -1,11 +1,7 @@
 <template>
-  <div class="form-control w-full max-w-2xl align-ls">
+  <div class="form-control w-full max-w-2xl">
     <label class="label">
-      <span v-if="state.alert" class="label-text text-red-500">{{
-        state.alertString
-      }}</span>
-      <span v-else-if="state.check" class="label-text">Checking email...</span>
-      <span v-else class="label-text">{{ fieldName }}</span>
+      <span class="label-text">{{ fieldName }}</span>
       <span class="label-text-alt" v-if="secondAlt"
         ><div class="dropdown dropdown-end">
           <label tabindex="0" class="btn btn-circle btn-ghost btn-xs text-info">
@@ -34,41 +30,31 @@
         </div></span
       >
     </label>
-
     <input
       @input="validate"
-      type="email"
+      type="text"
       :placeholder="placeholder"
       class="input-box"
       :name="inputBoxName"
-      :class="{ 'input-success': state.success, 'input-error': state.alert }"
       @click="opppsssClicked"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-// defining store
-const studentUserStore = useStudentUserStore();
+//defining stores
 const formStore = useFormStore();
 const formFields = formStore.formFields;
 
-//defining props and emits
 const props = defineProps([
   "fieldName",
   "placeholder",
   "secondAlt",
   "inputBoxName",
   "propInputValue",
+  "minimumLength",
+  "maximumLength",
 ]);
-
-//defining reactive state
-let state = reactive({
-  alert: false,
-  check: false,
-  success: false,
-  alertString: "",
-});
 
 //behaves weirdly when using :value=propInputValue
 // fixing the undefined value caused  because being called early in the lifecycle
@@ -91,55 +77,32 @@ watch(
   }
 );
 
-//creating validation function
-const validate = async function (e: Event) {
-  let enterString = "";
-  if (e.target) {
-    enterString = (e.target as HTMLInputElement).value;
-  }
+let minimumInputLength = 1;
+if (props.minimumLength) {
+  minimumInputLength = props.minimumLength;
+}
+let maximumInputLength = 10000;
+if (props.maximumLength) {
+  maximumInputLength = props.maximumLength;
+}
 
-  //using regex to start initial validation
-  const validEmail = String(enterString)
-    .toLowerCase()
-    .match(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    );
-  if (!validEmail) {
-    state.success = false;
-    state.alert = false;
-    state.check = false;
-    formFields.student_email.validated = false;
-    return;
-  }
-
-  // to show that we are checking the email through api and using api to validate the deliverability
-  state.check = true;
-  const res = await fetch(
-    `https://api.eva.pingutil.com/email?email=${enterString}`
-  );
-  const emailValidationResult = await res.json();
-
-  if (res.status === 200) {
-    if (emailValidationResult)
-      if (!emailValidationResult.data.deliverable) {
-        state.alert = true;
-        state.alertString =
-          "Looks like we can't send email to this address. Check again or try different email.";
-        formFields.student_email.validated = false;
-        return;
-      }
-  }
-  state.alert = false;
-  state.check = false;
-  state.success = true;
-
-  formFields.student_email.validated = true;
-  studentUserStore.setStudentUserField("student_email", enterString);
-  return;
+// validate the input length at least 1  and if the formFields with the inputBoxName has the validate property set to true
+const validate = (e: Event) => {
+  const input = e.target as HTMLInputElement;
+  if (formFields[props.inputBoxName].hasOwnProperty("validated"))
+    if (
+      input.value.length > minimumInputLength &&
+      input.value.length < maximumInputLength
+    ) {
+      formFields[props.inputBoxName].validated = true;
+    } else {
+      formFields[props.inputBoxName].validated = false;
+    }
 };
+
 const opppsssClicked = async (e: Event) => {
   validate(e);
-  (e.target as HTMLInputElement).placeholder = "";
+  if (e.target) (e.target as HTMLInputElement).placeholder = "";
   if (formFields[props.inputBoxName].hasOwnProperty("clicked")) {
     formFields[props.inputBoxName].clicked = true;
   }

@@ -1,0 +1,4 @@
+<template>
+  <NuxtLoadingIndicator />
+  <slot />
+</template>

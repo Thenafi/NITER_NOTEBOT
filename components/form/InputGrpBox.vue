@@ -30,14 +30,17 @@
         </div></span
       >
     </label>
-    <input
-      @input="validate"
-      type="text"
-      :placeholder="placeholder"
-      class="input-box"
-      :name="inputBoxName"
-      @click="opppsssClicked"
-    />
+    <label class="input-group">
+      <span>{{ inputGroupSpan }}</span>
+      <input
+        @input="validate"
+        type="text"
+        :placeholder="placeholder"
+        class="input-box"
+        :name="inputBoxName"
+        @click="opppsssClicked"
+      />
+    </label>
   </div>
 </template>
 
@@ -47,15 +50,16 @@ const studentUserStore = useStudentUserStore();
 const formStore = useFormStore();
 const formFields = formStore.formFields;
 
-const props = defineProps({
-  fieldName: String,
-  placeholder: String,
-  secondAlt: String,
-  inputBoxName: String,
-  propInputValue: String,
-  minimumLength: Number,
-  maximumLength: Number,
-});
+const props = defineProps([
+  "fieldName",
+  "placeholder",
+  "secondAlt",
+  "inputBoxName",
+  "inputGroupSpan",
+  "propInputValue",
+  "minimumLength",
+  "maximumLength",
+]);
 
 //behaves weirdly when using :value=propInputValue
 // fixing the undefined value caused  because being called early in the lifecycle

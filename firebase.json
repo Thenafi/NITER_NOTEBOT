@@ -1,13 +1,19 @@
 {
-  "functions": { "source": ".output/server" },
+  "functions": {
+    "source": ".output/server"
+  },
   "hosting": [
     {
-      "predeploy": ["npm run build && cd .output/server && npm install"],
+      "predeploy": ["yarn run build && cd .output/server && yarn install"],
       "site": "niternotebot",
       "public": ".output/public",
-      "appAssociation": "AUTO",
-      "rewrites": [{ "source": "/beep/**", "dynamicLinks": true }],
-      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+      "cleanUrls": true,
+      "rewrites": [
+        {
+          "source": "**",
+          "function": "server"
+        }
+      ]
     }
   ]
 }

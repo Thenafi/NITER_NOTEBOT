@@ -6,34 +6,55 @@
       <img height="50" width="50" src="/logos/logo.svg" alt="NITER NOTEBOT" />
       <h1 class="text-2xl lg:text-4xl">NITER NOTEBOT</h1>
     </div>
-
+    <div class="toast">
+      <div class="alert alert-error">
+        <div>
+          <span>Going through development. Helps are welcome.</span>
+          <NuxtLink class="link" href="https://github.com/Thenafi/NITER_NOTEBOT"
+            >Github Link</NuxtLink
+          >
+        </div>
+      </div>
+    </div>
     <div class="grid grid-rows-4 justify-center gap-y-10 py-10">
-      <!-- Logo and Title of Notebot -->
-
       <div class="grid grid-cols-2 gap-x-20 lg:gap-x-32">
         <NuxtLink to="notes" class="glass btn-disabled btn-custom" noPrefetch>
           Notes
         </NuxtLink>
-        <NuxtLink to="questions" class="glass btn-disabled btn-custom">
+        <NuxtLink
+          to="questions"
+          class="glass btn-disabled btn-custom"
+          noPrefetch
+        >
           Questions
         </NuxtLink>
       </div>
 
       <div class="grid grid-cols-2 gap-x-20 lg:gap-x-32">
-        <NuxtLink to="cover" class="btn-custom"> Cover </NuxtLink>
+        <NuxtLink to="#" class="glass btn-disabled btn-custom" noPrefetch>
+          Cover Gen
+        </NuxtLink>
         <a href="https://rxresu.me/" class="glass btn-disabled btn-custom"
           >CV Maker</a
         >
       </div>
 
       <div class="grid grid-cols-2 gap-x-20 lg:gap-x-32">
-        <NuxtLink to="teachers" class="btn-custom">Teachers</NuxtLink>
-        <NuxtLink class="glass btn-disabled btn-custom">Blank</NuxtLink>
+        <NuxtLink to="/teachers" class="btn-custom" :external="true"
+          >Teachers</NuxtLink
+        >
+        <NuxtLink href="#" class="glass btn-disabled btn-custom" noPrefetch
+          >Blank</NuxtLink
+        >
       </div>
 
       <div class="grid grid-cols-2 gap-x-20 lg:gap-x-32">
-        <NuxtLink class="glass btn-disabled btn-custom">Blank</NuxtLink>
-        <NuxtLink class="glass btn-disabled btn-custom">Blank</NuxtLink>
+        <NuxtLink href="#" class="glass btn-disabled btn-custom" noPrefetch
+          >Blank</NuxtLink
+        >
+        <NuxtLink href="#" class="glass btn-disabled btn-custom" noPrefetch
+          >Blank</NuxtLink
+        >
       </div>
     </div>
     <div>
@@ -76,3 +97,9 @@
     </div>
   </div>
 </template>
+
+<script>
+definePageMeta({
+  layout: "frontpage",
+});
+</script>

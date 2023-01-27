@@ -16,14 +16,6 @@
       :docID="singleTemplate.id"
       v-for="singleTemplate in templatesList"
     />
-    <div class="flex justify-center space-x-2 lg:space-x-8 mt-10">
-      <NuxtLink to="#" class="btn btn-sm btn-disabled" noPrefetch>
-        Generated Google Docs
-      </NuxtLink>
-      <NuxtLink to="#" class="btn btn-sm btn-disabled" noPrefetch>
-        Generated PDF
-      </NuxtLink>
-    </div>
   </div>
 </template>
 

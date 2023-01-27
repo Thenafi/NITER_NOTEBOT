@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.5",
-    "daisyui": "^2.41.0"
+    "daisyui": "^2.41.0",
+    "jsonwebtoken": "^9.0.0"
   }
 }

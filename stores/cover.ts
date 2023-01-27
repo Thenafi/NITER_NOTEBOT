@@ -1,5 +1,5 @@
 type SingleFormFields = {
-    clicked: boolean;
+    clicked?: boolean;
     validated?: boolean;
 };
 type FormFields = {
@@ -10,7 +10,6 @@ export const useCoverStore = defineStore("coverStore", {
     state: () => ({
         basicCoverFormFields: {
             type_of_cover: {
-                clicked: false,
             },
             course_title: {
                 clicked: false,

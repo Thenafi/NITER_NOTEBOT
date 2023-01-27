@@ -18,25 +18,19 @@
     </div>
     <div class="grid grid-rows-4 justify-center gap-y-10 py-10">
       <div class="grid grid-cols-2 gap-x-20 lg:gap-x-32">
-        <NuxtLink to="notes" class="glass btn-disabled btn-custom" noPrefetch>
+        <NuxtLink to="notes" class="glass btn-custom" noPrefetch>
           Notes
         </NuxtLink>
-        <NuxtLink
-          to="questions"
-          class="glass btn-disabled btn-custom"
-          noPrefetch
-        >
+        <NuxtLink to="questions" class="glass btn-custom" noPrefetch>
           Questions
         </NuxtLink>
       </div>
 
       <div class="grid grid-cols-2 gap-x-20 lg:gap-x-32">
-        <NuxtLink to="#" class="glass btn-disabled btn-custom" noPrefetch>
+        <NuxtLink to="#" class="glass btn-custom" noPrefetch>
           Cover Gen
         </NuxtLink>
-        <a href="https://rxresu.me/" class="glass btn-disabled btn-custom"
-          >CV Maker</a
-        >
+        <a href="https://rxresu.me/" class="glass btn-custom">CV Maker</a>
       </div>
 
       <div class="grid grid-cols-2 gap-x-20 lg:gap-x-32">

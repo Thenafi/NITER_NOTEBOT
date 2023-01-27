@@ -94,6 +94,18 @@ const searchForTeacher = function (e: Event) {
     }
   }
 };
+
+//meta tags
+useHead({
+  title: "Teachers | NITER NOTEBOT",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Phone Number of NITER's Teachers. This website provides easy access to the numbers of the faculty members. You can also find the email address of the teachers.",
+    },
+  ],
+});
 </script>
 
 <style scoped></style>

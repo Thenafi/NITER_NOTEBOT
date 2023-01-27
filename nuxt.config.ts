@@ -6,7 +6,7 @@ export default defineNuxtConfig({
         preset: 'firebase',
         prerender: {
             crawlLinks: false,
-            routes: ['/cover', '/notes', '/teachers', '/']
+            routes: ["/cover", "/notes", "/teachers", "/", "/robots.txt"],
         },
         storage: {
             'db': {

@@ -1,0 +1,1 @@
+export { default } from "file:///D:/Github/NITER_NOTEBOT/node_modules/@nuxt/vite-builder/dist/runtime/vite-node.mjs"

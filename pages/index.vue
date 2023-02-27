@@ -6,13 +6,21 @@
       <img height="50" width="50" src="/logos/logo.svg" alt="NITER NOTEBOT" />
       <h1 class="text-2xl lg:text-4xl">NITER NOTEBOT</h1>
     </div>
-   
+
     <div class="grid justify-center gap-y-10 py-10">
       <div class="grid grid-cols-2 gap-x-20 lg:gap-x-32">
-        <NuxtLink to="https://drive.google.com/drive/mobile/folders/12FV_Q6_9JcZDMqQLQCp14toT-jk2nImM?utm_source=messenger&utm_medium=29661974437205&utm_campaign=botsurfer" class="btn-custom" noPrefetch>
+        <NuxtLink
+          to="https://drive.google.com/drive/mobile/folders/12FV_Q6_9JcZDMqQLQCp14toT-jk2nImM?utm_source=messenger&utm_medium=29661974437205&utm_campaign=botsurfer"
+          class="btn-custom"
+          noPrefetch
+        >
           Notes
         </NuxtLink>
-        <NuxtLink to="https://drive.google.com/drive/u/0/folders/1R7Wr7MbxlEHXQfjBLTcsk9m1TZjXdjLb?fbclid=IwAR1N3SpvTyh-Ct-x0JX_xoVi7anGK9YSc0xQxs3_gRp-hVHfpE9qjsx8LZw" class="btn-custom" noPrefetch>
+        <NuxtLink
+          to="https://drive.google.com/drive/u/0/folders/1R7Wr7MbxlEHXQfjBLTcsk9m1TZjXdjLb?fbclid=IwAR1N3SpvTyh-Ct-x0JX_xoVi7anGK9YSc0xQxs3_gRp-hVHfpE9qjsx8LZw"
+          class="btn-custom"
+          noPrefetch
+        >
           Questions
         </NuxtLink>
       </div>
@@ -28,9 +36,7 @@
         <NuxtLink to="/teachers" class="btn-custom" :external="true"
           >Teachers</NuxtLink
         >
-        <NuxtLink href="/contact" class="btn btn-custom" noPrefetch
-          >Blank</NuxtLink
-        >
+        <NuxtLink href="/contact" class="btn-custom" noPrefetch>Blank</NuxtLink>
       </div>
 
       <div class="grid grid-cols-2 gap-x-20 lg:gap-x-32">

@@ -9,39 +9,19 @@
    
     <div class="grid justify-center gap-y-10 py-10">
       <div class="grid grid-cols-2 gap-x-20 lg:gap-x-32">
-<<<<<<< Updated upstream
-        <NuxtLink to="notes" class="glass btn-disabled btn-custom" noPrefetch>
-          Notes
-        </NuxtLink>
-        <NuxtLink
-          to="questions"
-          class="glass btn-disabled btn-custom"
-          noPrefetch
-        >
-=======
         <NuxtLink to="https://drive.google.com/drive/mobile/folders/12FV_Q6_9JcZDMqQLQCp14toT-jk2nImM?utm_source=messenger&utm_medium=29661974437205&utm_campaign=botsurfer" class="btn-custom" noPrefetch>
           Notes
         </NuxtLink>
         <NuxtLink to="https://drive.google.com/drive/u/0/folders/1R7Wr7MbxlEHXQfjBLTcsk9m1TZjXdjLb?fbclid=IwAR1N3SpvTyh-Ct-x0JX_xoVi7anGK9YSc0xQxs3_gRp-hVHfpE9qjsx8LZw" class="btn-custom" noPrefetch>
->>>>>>> Stashed changes
           Questions
         </NuxtLink>
       </div>
 
       <div class="grid grid-cols-2 gap-x-20 lg:gap-x-32">
-<<<<<<< Updated upstream
-        <NuxtLink to="#" class="glass btn-disabled btn-custom" noPrefetch>
-          Cover Gen
-        </NuxtLink>
-        <a href="https://rxresu.me/" class="glass btn-disabled btn-custom"
-          >CV Maker</a
-        >
-=======
         <NuxtLink to="/blog" class="btn-custom" noPrefetch>
           Cover Gen
         </NuxtLink>
         <a href="https://rxresu.me/" class="btn-custom">CV Maker</a>
->>>>>>> Stashed changes
       </div>
 
       <div class="grid grid-cols-2 gap-x-20 lg:gap-x-32">

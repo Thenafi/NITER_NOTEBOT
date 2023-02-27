@@ -66,10 +66,8 @@
           class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-white rounded-box w-52"
         >
           <li>
-            <NuxtLink href="#" class="justify-between"> Blank </NuxtLink>
+            <NuxtLink href="/" class="justify-between"> Home </NuxtLink>
           </li>
-          <li><NuxtLink href="#">Blank</NuxtLink></li>
-          <li><NuxtLink href="#">Blank</NuxtLink></li>
         </ul>
       </div>
     </div>

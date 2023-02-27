@@ -28,7 +28,7 @@
     </div>
 
     <div v-if="dataFetchInComplete" class="text-center">
-      <progress class="progress w-56"></progress>
+      <progress class="progress w-56 m-10"></progress>
     </div>
     <div v-if="teachersData" v-for="singleTeacher in teachersData">
       <div class="card lg:card-side bg-base-100 shadow-xl my-3">
@@ -49,7 +49,7 @@
         </div>
       </div>
     </div>
-    <div v-else>Loading..</div>
+    <div v-else class="text-center">Loading...</div>
   </div>
 </template>
 
